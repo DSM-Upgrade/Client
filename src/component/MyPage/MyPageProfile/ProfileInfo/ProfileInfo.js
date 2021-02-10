@@ -7,7 +7,7 @@ const ProfileInfo = (props) => {
   return (
     <S.Container>
       <S.InfoWrap>
-        <S.InfoName>이름</S.InfoName>
+        <S.InfoName>분야</S.InfoName>
         <S.InfoValue type="text" value={name} />
       </S.InfoWrap>
       <S.InfoWrap>
