@@ -3,7 +3,7 @@ import ProfileImg from "./ProfileImg/ProfileImg";
 import ProfileInfoContainer from "../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
 import * as S from "./style";
 
-const Profile = () => {
+const MyPageProfile = () => {
   return (
     <S.Container>
       <ProfileImg />
@@ -12,4 +12,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyPageProfile;
