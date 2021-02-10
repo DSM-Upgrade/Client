@@ -28,3 +28,14 @@ export const ImgWrap = styled.div`
 export const Img = styled.img`
   width: 100%;
 `;
+
+export const ModifyButton = styled.button`
+  width: 84px;
+  height: 32px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 16px;
+  background: #3b87ee;
+`;

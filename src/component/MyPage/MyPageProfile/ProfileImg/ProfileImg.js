@@ -12,7 +12,8 @@ const ProfileImg = () => {
           <S.Img src={img} />
         </S.ImgWrap>
       </S.ImgBox>
-      <input type={"file"} accept=".svg, .png, .jpg" />
+      <S.ModifyButton>수정</S.ModifyButton>
+      <input type={"file"} accept="image/*" />
     </S.Container>
   );
 };
