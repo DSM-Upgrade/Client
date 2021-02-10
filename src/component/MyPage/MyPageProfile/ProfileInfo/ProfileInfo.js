@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>학번</S.InfoName>
-        <S.InfoValue type="number" value={student_num} />
+        <S.InfoValue type="text" value={student_num} />
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>아이디</S.InfoName>
@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>비밀번호</S.InfoName>
-        <S.InfoValue />
+        <S.ModifyButton>수정</S.ModifyButton>
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>전공</S.InfoName>
