@@ -89,4 +89,4 @@ const Container = styled.div`
   height: 100%;
 `;
 
-export { Header, MainBox, Text, LogoBox, Nav, DesignBox, Container };
+export { Header, MainBox, Text, LogoBox, Nav, DesignBox, Container};
