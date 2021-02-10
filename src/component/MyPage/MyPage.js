@@ -1,6 +1,6 @@
 import React from "react";
 import { fineBackground } from "../../assets/fine";
-import MyPageFine from "./MyPageFine/MyPageFine";
+import MyPageInfo from "./MyPageInfo/MyPageInfo";
 import MyPageProfile from "./MyPageProfile/MyPageProfile";
 import * as S from "./style";
 
@@ -12,7 +12,7 @@ const MyPage = (props) => {
       <S.BackgroundImg img={fineBackground}>
         <S.Wrapper>
           <MyPageProfile />
-          <MyPageFine />
+          <MyPageInfo />
         </S.Wrapper>
       </S.BackgroundImg>
     </S.Container>
