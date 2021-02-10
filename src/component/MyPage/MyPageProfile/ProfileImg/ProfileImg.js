@@ -1,9 +1,8 @@
 import React from "react";
 import * as S from "./style";
-import { tempProfileImg } from "../../../../assets/mypage/index";
 
-const ProfileImg = () => {
-  const img = tempProfileImg;
+const ProfileImg = (props) => {
+  const { img } = props;
 
   return (
     <S.Container>
