@@ -1,12 +1,12 @@
 import React from "react";
-import ProfileImg from "./ProfileImg/ProfileImg";
-import ProfileInfoContainer from "../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
 import * as S from "./style";
+import ProfileInfoContainer from "../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
+import ProfileImgContainer from "../../../container/MyPageContanier/MyPageProfile/ProfileImg/ProfileImgContainer";
 
 const MyPageProfile = () => {
   return (
     <S.Container>
-      <ProfileImg />
+      <ProfileImgContainer />
       <ProfileInfoContainer />
     </S.Container>
   );
