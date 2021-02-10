@@ -4,7 +4,7 @@ import * as S from "./style";
 const MyPageInfo = () => {
   return (
     <S.Container>
-      <S.FineBackground></S.FineBackground>
+      <S.InfoBackground></S.InfoBackground>
     </S.Container>
   );
 };
