@@ -1,10 +1,13 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch,Route } from "react-router-dom";
+import MainContainer from "./container/MainContainer/MainContainer";
 
 const Routing = () => {
   return (
     <>
-      <Switch></Switch>
+      <Switch>
+        <Route component={MainContainer}/>
+      </Switch>
     </>
   );
 };
