@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import ProfileInfo from "../../../../component/MyPage/MyPageProfile/ProfileInfo/ProfileInfo";
 
 const MyPageInfoContainer = () => {
@@ -9,7 +9,13 @@ const MyPageInfoContainer = () => {
     username: "cutyapple123",
   };
 
-  return <ProfileInfo {...TEMP_DATA} />;
+  const [studentNum, setStudentNum] = useState(TEMP_DATA.student_num);
+  const onChangeStdNum = useCallback((e) => {
+    setStudentNum(e.target.value);
+  }, []);
+  const studentNumManage = { studentNum, onChangeStdNum };
+
+  return <ProfileInfo {...TEMP_DATA} studentNumManage={studentNumManage} />;
 };
 
 export default MyPageInfoContainer;
