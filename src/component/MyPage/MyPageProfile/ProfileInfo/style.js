@@ -36,6 +36,20 @@ export const InfoValue = styled.input`
   margin-left: 22px;
 `;
 
+export const FieldSelect = styled.select`
+  width: 100%;
+  height: 58px;
+  color: #000000;
+  font-size: 24px;
+  outline: none;
+  border: 1px solid #eef0f2;
+  border-radius: 8px;
+  padding: 6px 0px 6px 10px;
+  margin-left: 22px;
+`;
+
+export const Field = styled.option``;
+
 export const ModifyButton = styled.button`
   width: 84px;
   height: 32px;

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 
 const ProfileInfo = (props) => {
-  const { name, field, username, studentNumManage } = props;
+  const { name, username, studentNumManage, fieldManage } = props;
 
   return (
     <S.Container>
@@ -20,7 +20,14 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>분야</S.InfoName>
-        <S.InfoValue type="text" value={field} />
+        <S.FieldSelect
+          value={fieldManage.field}
+          onChange={fieldManage.onChangeField}
+        >
+          {fieldManage.FieldsData.map((fieldData) => (
+            <S.Field value={fieldData.name}>{fieldData.name}</S.Field>
+          ))}
+        </S.FieldSelect>
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>아이디</S.InfoName>
