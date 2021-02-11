@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Login from "../../assets/로그인 이미지.png";
+import Login from "../../assets/LoginPage/backgroundImg.png";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -25,28 +25,27 @@ const MainBox = styled.div`
     border-radius: 100%;
     position: absolute;
   }
-  div:nth-child(2){
+  div:nth-child(2) {
     width: 389px;
     height: 389px;
-    background-color: #0A65E1;
+    background-color: #0a65e1;
     left: 16%;
     bottom: 12%;
   }
-  div:nth-child(3){
+  div:nth-child(3) {
     width: 213px;
     height: 213px;
-    background-color: #ABC8EF;
+    background-color: #abc8ef;
     left: 63%;
     bottom: 53%;
     z-index: 1;
   }
-  div:nth-child(4){
+  div:nth-child(4) {
     width: 282px;
     height: 282px;
-    background-color: #3B87EE;
+    background-color: #3b87ee;
     left: 70%;
     bottom: 38%;
-
   }
 `;
 
@@ -116,6 +115,6 @@ const LoginImg = styled.div`
   position: absolute;
   top: 60%;
   left: 66%;
-`
+`;
 
 export { MainWrapper, MainBox, LoginBox, LoginImg };
