@@ -12,7 +12,7 @@ const ProfileImg = (props) => {
         </S.ImgWrap>
       </S.ImgBox>
       <S.FileBox>
-        <S.FileLabel for="file_upload">업로드</S.FileLabel>
+        <S.FileLabel htmlFor="file_upload">업로드</S.FileLabel>
         <S.ModifyButton id="file_upload" type="file" accept="image/*" />
       </S.FileBox>
     </S.Container>
