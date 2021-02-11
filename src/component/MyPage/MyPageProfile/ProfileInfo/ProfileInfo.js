@@ -3,6 +3,7 @@ import * as S from "./style";
 
 const ProfileInfo = (props) => {
   const { name, username, studentNumManage, fieldManage } = props;
+  const { modalOn } = props;
 
   return (
     <S.Container>
@@ -37,7 +38,7 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>비밀번호</S.InfoName>
-        <S.ModifyButton>수정</S.ModifyButton>
+        <S.ModifyButton onClick={() => modalOn()}>수정</S.ModifyButton>
       </S.InfoWrap>
       <S.CompleteButtonWrap>
         <S.CompleteButton>변경사항 저장</S.CompleteButton>
