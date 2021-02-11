@@ -6,10 +6,6 @@ const MainWrapper = styled.div`
   flex-direction: row;
   width: 100%;
   height: 100vh;
-  .behind {
-    width: 360.5px;
-    height: 100%;
-  }
 `;
 
 const MainBox = styled.div`

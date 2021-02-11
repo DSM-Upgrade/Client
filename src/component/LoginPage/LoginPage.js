@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Header/Header";
+import Header from "../../container/";
 import * as S from "./style";
 
 
@@ -7,7 +7,6 @@ const LoginPage = () => {
   return (
     <S.MainWrapper>
       <Header />
-      <div className="behind"></div>
       <S.MainBox>
         <S.LoginBox>
           <h1>LOGIN</h1>
