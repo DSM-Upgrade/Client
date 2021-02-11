@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const InfoWrap = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
 `;
 
 export const InfoName = styled.p`
@@ -24,6 +25,7 @@ export const InfoName = styled.p`
 `;
 
 export const InfoValue = styled.input`
+  width: 100%;
   height: 44px;
   color: #000000;
   font-size: 24px;
@@ -44,4 +46,8 @@ export const ModifyButton = styled.button`
   border-radius: 16px;
   background: #3b87ee;
   margin-left: 22px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
