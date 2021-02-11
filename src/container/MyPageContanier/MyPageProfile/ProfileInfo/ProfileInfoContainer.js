@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
+import PasswordModal from "../../../../component/Modal/PasswordModal/PasswordModal";
 import ProfileInfo from "../../../../component/MyPage/MyPageProfile/ProfileInfo/ProfileInfo";
 import { MODAL_ACTION_CREATERS } from "../../../../module/action/modal";
 
@@ -48,12 +49,9 @@ const MyPageInfoContainer = () => {
 
   const { showModal } = MODAL_ACTION_CREATERS;
   const dispatch = useDispatch();
-  const modalOn = useCallback(
-    (element) => {
-      dispatch(showModal(element));
-    },
-    [dispatch]
-  );
+  const modalOn = useCallback(() => {
+    dispatch(showModal(PasswordModal));
+  }, [dispatch]);
 
   return (
     <ProfileInfo
