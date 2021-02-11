@@ -4,9 +4,7 @@ import MyPageInfo from "./MyPageInfo/MyPageInfo";
 import MyPageProfile from "./MyPageProfile/MyPageProfile";
 import * as S from "./style";
 
-const MyPage = (props) => {
-  const { data } = props;
-
+const MyPage = () => {
   return (
     <S.Container>
       <S.BackgroundImg img={fineBackground}>
