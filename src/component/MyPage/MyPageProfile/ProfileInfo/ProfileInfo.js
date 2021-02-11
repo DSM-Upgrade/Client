@@ -30,6 +30,9 @@ const ProfileInfo = (props) => {
         <S.InfoName>비밀번호</S.InfoName>
         <S.ModifyButton>수정</S.ModifyButton>
       </S.InfoWrap>
+      <S.CompleteButtonWrap>
+        <S.CompleteButton>변경사항 저장</S.CompleteButton>
+      </S.CompleteButtonWrap>
     </S.Container>
   );
 };

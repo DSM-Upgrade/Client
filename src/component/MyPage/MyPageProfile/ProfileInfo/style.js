@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: left;
   justify-content: space-between;
   width: 100%;
-  height: 360px;
+  height: 420px;
 `;
 
 export const InfoWrap = styled.div`
@@ -49,5 +49,32 @@ export const ModifyButton = styled.button`
 
   &:hover {
     cursor: pointer;
+  }
+`;
+
+export const CompleteButtonWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const CompleteButton = styled.button`
+  width: 168px;
+  height: 48px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  background: #3b87ee;
+
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background: #5c9ffa;
   }
 `;
