@@ -2,17 +2,21 @@ import React from "react";
 import * as S from "./style";
 
 const ProfileInfo = (props) => {
-  const { name, student_num, field, username } = props;
+  const { name, field, username, studentNumManage } = props;
 
   return (
     <S.Container>
       <S.InfoWrap>
         <S.InfoName>이름</S.InfoName>
-        <S.InfoValue type="text" value={name} />
+        <S.InfoValue type="text" value={name} readOnly />
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>학번</S.InfoName>
-        <S.InfoValue type="text" value={student_num} />
+        <S.InfoValue
+          type="text"
+          value={studentNumManage.studentNum}
+          onChange={studentNumManage.onChangeStdNum}
+        />
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>분야</S.InfoName>
@@ -20,7 +24,7 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>아이디</S.InfoName>
-        <S.InfoValue type="text" value={username} />
+        <S.InfoValue type="text" value={username} readOnly />
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>비밀번호</S.InfoName>
