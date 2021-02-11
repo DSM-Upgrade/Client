@@ -25,7 +25,9 @@ const ProfileInfo = (props) => {
           onChange={fieldManage.onChangeField}
         >
           {fieldManage.FieldsData.map((fieldData) => (
-            <S.Field value={fieldData.name}>{fieldData.name}</S.Field>
+            <S.Field key={fieldData.name} value={fieldData.name}>
+              {fieldData.name}
+            </S.Field>
           ))}
         </S.FieldSelect>
       </S.InfoWrap>
