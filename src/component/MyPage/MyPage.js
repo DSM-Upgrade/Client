@@ -1,12 +1,14 @@
 import React from "react";
+import * as S from "./style";
 import { fineBackground } from "../../assets/fine";
 import MyPageInfo from "./MyPageInfo/MyPageInfo";
 import MyPageProfile from "./MyPageProfile/MyPageProfile";
-import * as S from "./style";
+import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 
 const MyPage = () => {
   return (
     <S.Container>
+      <HeaderContainer />
       <S.BackgroundImg img={fineBackground}>
         <S.Wrapper>
           <MyPageProfile />
