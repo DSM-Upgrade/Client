@@ -69,11 +69,23 @@ export const admin = {
   authorityFine: () => {
     return `/admin/authority/fine`;
   },
+  auth: () => {
+    return `/admin/auth`;
+  },
   enrollNotice: () => {
     return `/admin/notice`;
   },
   enrollVote: () => {
     return `/admin/vote`;
+  },
+  recordFine: () => {
+    return `/admin/fine`;
+  },
+  getUserList: () => {
+    return `/list/user`;
+  },
+  getFineList: () => {
+    return `/list/fine`;
   },
 };
 
@@ -100,5 +112,11 @@ export const mypage = {
   },
   changePassword: () => {
     return `/student/password`;
+  },
+  changeProfile: () => {
+    return `/student/profile`;
+  },
+  field: () => {
+    return `fields`;
   },
 };
