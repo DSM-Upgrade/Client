@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import ProfileInfo from "../../../../component/MyPage/MyPageProfile/ProfileInfo/ProfileInfo";
+import { MODAL_ACTION_CREATERS } from "../../../../module/action/modal";
 
 const MyPageInfoContainer = () => {
   const TEMP_DATA = {
@@ -44,11 +46,21 @@ const MyPageInfoContainer = () => {
   });
   const fieldManage = { field, FieldsData, onChangeField };
 
+  const { showModal } = MODAL_ACTION_CREATERS;
+  const dispatch = useDispatch();
+  const modalOn = useCallback(
+    (element) => {
+      dispatch(showModal(element));
+    },
+    [dispatch]
+  );
+
   return (
     <ProfileInfo
       {...TEMP_DATA}
       studentNumManage={studentNumManage}
       fieldManage={fieldManage}
+      modalOn={modalOn}
     />
   );
 };
