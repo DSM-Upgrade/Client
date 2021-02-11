@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: calc(100% - 240px);
-  padding: 120px 0;
+  height: calc(100% - 360px);
+  padding: 180px 0;
 `;
 
 export const InfoBackground = styled.div`
