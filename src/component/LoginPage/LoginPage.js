@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../../container/";
+import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import * as S from "./style";
 
 
 const LoginPage = () => {
   return (
     <S.MainWrapper>
-      <Header />
+      <HeaderContainer />
       <S.MainBox>
         <S.LoginBox>
           <h1>LOGIN</h1>
