@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const BackgroundImg = styled.div`
   width: 100%;
   height: 100%;
-  background: #f8fbff url(${(props) => props.img}) no-repeat 100% 100% /50% 50%;
+  background: #f8fbff url(${(props) => props.img}) no-repeat 100% 100% / 70%;
 `;
 
 export const Wrapper = styled.div`
