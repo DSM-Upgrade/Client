@@ -11,8 +11,10 @@ const ProfileImg = (props) => {
           <S.Img src={img} />
         </S.ImgWrap>
       </S.ImgBox>
-      <S.ModifyButton>수정</S.ModifyButton>
-      <input type={"file"} accept="image/*" />
+      <S.FileBox>
+        <S.FileLabel for="file_upload">업로드</S.FileLabel>
+        <S.ModifyButton id="file_upload" type="file" accept="image/*" />
+      </S.FileBox>
     </S.Container>
   );
 };

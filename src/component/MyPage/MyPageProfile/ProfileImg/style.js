@@ -32,13 +32,28 @@ export const Img = styled.img`
   width: 100%;
 `;
 
-export const ModifyButton = styled.button`
+export const FileBox = styled.div``;
+
+export const FileLabel = styled.label`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 84px;
   height: 32px;
   color: #ffffff;
-  font-size: 16px;
-  outline: none;
+  background: #3b87ee;
   border: none;
   border-radius: 16px;
-  background: #3b87ee;
+`;
+
+export const ModifyButton = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 `;
