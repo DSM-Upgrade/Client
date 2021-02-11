@@ -101,4 +101,10 @@ export const mypage = {
   changePassword: () => {
     return `/student/password`;
   },
+  changeProfile: () => {
+    return `/student/profile`;
+  },
+  field: () => {
+    return `fields`;
+  },
 };
