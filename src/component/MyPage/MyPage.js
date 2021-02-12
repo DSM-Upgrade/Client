@@ -3,7 +3,7 @@ import * as S from "./style";
 import MyPageInfo from "./MyPageInfo/MyPageInfo";
 import MyPageProfile from "./MyPageProfile/MyPageProfile";
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
-import MyPageAuth from "./MyPageAuth/MyPageAuth";
+import MyPageAuthContainer from "../../container/MyPageContanier/MyPageAuth/MyPageAuthContainer";
 
 const MyPage = (props) => {
   const { img, isAdmin } = props;
@@ -14,7 +14,7 @@ const MyPage = (props) => {
       <S.BackgroundImg img={img}>
         <S.Wrapper>
           <MyPageProfile />
-          {isAdmin ? <MyPageAuth /> : <MyPageInfo />}
+          {isAdmin ? <MyPageAuthContainer /> : <MyPageInfo />}
         </S.Wrapper>
       </S.BackgroundImg>
     </S.Container>
