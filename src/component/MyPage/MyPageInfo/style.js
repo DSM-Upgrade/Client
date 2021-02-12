@@ -15,7 +15,7 @@ export const InfoBackground = styled.div`
   width: 400px;
   height: 360px;
   padding: 20px 10px;
-  border: none;
+  border: 1px solid #eef0f2;
   border-radius: 16px;
   background: #ffffff;
 `;
