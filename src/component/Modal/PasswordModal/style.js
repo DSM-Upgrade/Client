@@ -38,6 +38,9 @@ export const FormInput = styled.input`
   font-size: 24px;
   outline: none;
   padding: 8px 10px;
+  border: none;
+  border-bottom: 1px solid #707070;
+  background: none;
   box-sizing: border-box;
 
   &::placeholder {
