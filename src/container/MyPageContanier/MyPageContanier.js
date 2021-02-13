@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { fineBackground } from "../../assets/fine";
 import Mypage from "../../component/MyPage/MyPage";
 
