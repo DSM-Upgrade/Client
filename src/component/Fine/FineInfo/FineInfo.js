@@ -2,11 +2,11 @@ import React from "react";
 import * as S from "./style";
 
 const FineInfo = (props) => {
-  const { name } = props;
+  const { nameTitle } = props;
 
   return (
     <S.Container>
-      <S.NameTitle>{name}</S.NameTitle>
+      <S.NameTitle>{nameTitle}</S.NameTitle>
     </S.Container>
   );
 };
