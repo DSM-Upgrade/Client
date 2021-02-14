@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
   width: 100%;
   height: 420px;
 `;
@@ -74,6 +72,7 @@ export const CompleteButtonWrap = styled.div`
 `;
 
 export const CompleteButton = styled.button`
+  display: ${(props) => (props.show ? "block" : "none")};
   width: 168px;
   height: 48px;
   color: #ffffff;

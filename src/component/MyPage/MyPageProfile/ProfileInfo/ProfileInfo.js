@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 
 const ProfileInfo = (props) => {
-  const { name, username, studentNumManage, fieldManage } = props;
+  const { name, username, studentNumManage, fieldManage, isChange } = props;
   const { modalOn } = props;
 
   return (
@@ -43,7 +43,7 @@ const ProfileInfo = (props) => {
         <S.ModifyButton onClick={() => modalOn()}>수정</S.ModifyButton>
       </S.InfoWrap>
       <S.CompleteButtonWrap>
-        <S.CompleteButton>변경사항 저장</S.CompleteButton>
+        <S.CompleteButton show={isChange}>변경사항 저장</S.CompleteButton>
       </S.CompleteButtonWrap>
     </S.Container>
   );
