@@ -12,7 +12,11 @@ export const NameTitle = styled.p`
   font-size: 40px;
 `;
 
-export const FineSummary = styled.div``;
+export const FineSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
 
 export const TextWrap = styled.div`
   display: flex;
