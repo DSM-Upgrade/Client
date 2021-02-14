@@ -4,8 +4,8 @@ import ProfileInfo from "../../../../component/MyPage/MyPageProfile/ProfileInfo/
 import { MODAL_ACTION_CREATERS } from "../../../../module/action/modal";
 import PasswordModalContainer from "../../../Modal/PasswordModalContainer/PasswordModalContainer";
 
-const MyPageInfoContainer = () => {
-  const TEMP_DATA = {
+const ProfileInfoContainer = () => {
+  const userData = {
     name: "유시온",
     student_num: "3415",
     field: "웹 프론트엔드",
@@ -34,8 +34,8 @@ const MyPageInfoContainer = () => {
     },
   ];
 
-  const [studentNum, setStudentNum] = useState(TEMP_DATA.student_num);
-  const [field, setField] = useState(TEMP_DATA.field);
+  const [studentNum, setStudentNum] = useState(userData.student_num);
+  const [field, setField] = useState(userData.field);
 
   const onChangeStdNum = useCallback((e) => {
     setStudentNum(e.target.value);
@@ -55,7 +55,7 @@ const MyPageInfoContainer = () => {
 
   return (
     <ProfileInfo
-      {...TEMP_DATA}
+      {...userData}
       studentNumManage={studentNumManage}
       fieldManage={fieldManage}
       modalOn={modalOn}
@@ -63,4 +63,4 @@ const MyPageInfoContainer = () => {
   );
 };
 
-export default MyPageInfoContainer;
+export default ProfileInfoContainer;
