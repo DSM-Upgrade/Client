@@ -3,6 +3,7 @@ import * as S from "./style";
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHeaderContainer";
 import FineInfoContainer from "../../container/FineContainer/FineInfo/FineInfoContainer";
+import FineAdminContainer from "../../container/FineContainer/FineAdmin/FineAdminContainer";
 
 const Fine = (props) => {
   const { img, isAdmin } = props;
@@ -13,7 +14,7 @@ const Fine = (props) => {
       <S.BackgroundImg img={img}>
         <S.Wrapper>
           <TitleHeaderContainer text="Fine" />
-          <FineInfoContainer />
+          {isAdmin ? <FineAdminContainer /> : <FineInfoContainer />}
         </S.Wrapper>
       </S.BackgroundImg>
     </S.Container>
