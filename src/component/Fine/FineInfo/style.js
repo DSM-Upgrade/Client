@@ -36,3 +36,19 @@ export const ColorText = styled.p`
 export const FineBox = styled.div`
   background: #eef5ff;
 `;
+
+export const FineItem = styled.div`
+  display: grid;
+  grid-template-columns: 100px 1fr 100px 200px 180px;
+  padding: 30px 40px;
+  border-bottom: 1px solid #bad7ff;
+`;
+
+export const ItemText = styled.p`
+  color: #393838;
+  font-size: 24px;
+  text-align: ${(props) => props.textAlign || "left"};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
