@@ -43,7 +43,9 @@ const ProfileInfo = (props) => {
         <S.ModifyButton onClick={() => modalOn()}>수정</S.ModifyButton>
       </S.InfoWrap>
       <S.CompleteButtonWrap>
-        <S.CompleteButton show={isChange}>변경사항 저장</S.CompleteButton>
+        <S.CompleteButton show={isChange} disabled={!isChange}>
+          변경사항 저장
+        </S.CompleteButton>
       </S.CompleteButtonWrap>
     </S.Container>
   );
