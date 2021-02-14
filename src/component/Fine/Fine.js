@@ -5,7 +5,7 @@ import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHead
 import FineInfoContainer from "../../container/FineContainer/FineInfo/FineInfoContainer";
 
 const Fine = (props) => {
-  const { img } = props;
+  const { img, isAdmin } = props;
 
   return (
     <S.Container>
