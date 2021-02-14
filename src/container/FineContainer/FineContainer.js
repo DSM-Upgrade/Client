@@ -1,8 +1,11 @@
 import React from "react";
+import { fineBackground } from "../../assets/fine";
 import Fine from "../../component/Fine/Fine";
 
 const FineContainer = () => {
-  return <Fine />;
+  const img = fineBackground;
+
+  return <Fine img={img} />;
 };
 
 export default FineContainer;
