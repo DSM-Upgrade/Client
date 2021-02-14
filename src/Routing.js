@@ -1,10 +1,15 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import ModalWrapperContainer from "./container/ModalWrapperContainer/ModalWrapperContainer";
+import MyPageContanier from "./container/MyPageContanier/MyPageContanier";
 
 const Routing = () => {
   return (
     <>
-      <Switch></Switch>
+      <Switch>
+        <Route exact path="/mypage" component={MyPageContanier} />
+      </Switch>
+      <ModalWrapperContainer />
     </>
   );
 };
