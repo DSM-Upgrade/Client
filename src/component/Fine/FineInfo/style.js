@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 70px 60px 1fr;
+  grid-template-rows: 70px 100px 1fr;
   height: 100%;
 `;
 
@@ -10,6 +10,11 @@ export const NameTitle = styled.p`
   line-height: 70px;
   color: #393838;
   font-size: 40px;
+`;
+
+export const MiddleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const FineSummary = styled.div`
@@ -31,6 +36,21 @@ export const ColorText = styled.p`
   color: #3987ee;
   font-size: 20px;
   padding: 0 0 0 5px;
+`;
+
+export const FineModalButton = styled.button`
+  width: 180px;
+  height: 60px;
+  color: #ffffff;
+  font-size: 25px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  background: #3987ee;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const FineBox = styled.div`
