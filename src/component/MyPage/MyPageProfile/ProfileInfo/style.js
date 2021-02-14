@@ -15,7 +15,7 @@ export const InfoWrap = styled.div`
   width: 100%;
 `;
 
-export const InfoName = styled.p`
+export const InfoName = styled.label`
   width: 100px;
   height: 44px;
   color: #000000;

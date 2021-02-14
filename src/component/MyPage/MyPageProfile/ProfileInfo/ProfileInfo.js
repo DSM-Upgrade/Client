@@ -12,16 +12,18 @@ const ProfileInfo = (props) => {
         <S.InfoValue type="text" value={name} readOnly />
       </S.InfoWrap>
       <S.InfoWrap>
-        <S.InfoName>학번</S.InfoName>
+        <S.InfoName htmlFor="studentNum">학번</S.InfoName>
         <S.InfoValue
+          id="studentNum"
           type="text"
           value={studentNumManage.studentNum}
           onChange={studentNumManage.onChangeStdNum}
         />
       </S.InfoWrap>
       <S.InfoWrap>
-        <S.InfoName>분야</S.InfoName>
+        <S.InfoName htmlFor="field">분야</S.InfoName>
         <S.FieldSelect
+          id="field"
           value={fieldManage.field}
           onChange={fieldManage.onChangeField}
         >
