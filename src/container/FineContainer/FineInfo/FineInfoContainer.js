@@ -9,7 +9,7 @@ const FineInfoContainer = () => {
     field: "이것두..",
   };
 
-  return <FineInfo name={userData.name} />;
+  return <FineInfo nameTitle={`${userData.student_num} ${userData.name}`} />;
 };
 
 export default FineInfoContainer;
