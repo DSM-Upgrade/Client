@@ -13,8 +13,8 @@ export const BackgroundImg = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 7fr 3fr;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  width: calc(100% - 192px);
+  height: calc(100% - 68px);
+  margin: 34px 96px;
 `;
