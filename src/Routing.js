@@ -9,9 +9,9 @@ const Routing = () => {
     <>
       <Switch>
         <Route exact path="/mypage" component={MyPageContanier} />
+        <Route exact path="/fine" component={FineContainer} />
       </Switch>
       <ModalWrapperContainer />
-        <Route exact path="/fine" component={FineContainer} />
     </>
   );
 };
