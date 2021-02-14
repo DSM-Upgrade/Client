@@ -36,14 +36,17 @@ const ProfileInfoContainer = () => {
 
   const [studentNum, setStudentNum] = useState(userData.student_num);
   const [field, setField] = useState(userData.field);
+  const [isChange, setIsChange] = useState(false);
 
   const onChangeStdNum = useCallback((e) => {
     setStudentNum(e.target.value);
+    setIsChange(true);
   }, []);
   const studentNumManage = { studentNum, onChangeStdNum };
 
   const onChangeField = useCallback((e) => {
     setField(e.target.value);
+    setIsChange(true);
   });
   const fieldManage = { field, FieldsData, onChangeField };
 
@@ -56,6 +59,7 @@ const ProfileInfoContainer = () => {
   return (
     <ProfileInfo
       {...userData}
+      isChange={isChange}
       studentNumManage={studentNumManage}
       fieldManage={fieldManage}
       modalOn={modalOn}
