@@ -14,6 +14,7 @@ export const BackgroundImg = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   width: calc(100% - 192px);
   height: calc(100% - 68px);
   margin: 34px 96px;
