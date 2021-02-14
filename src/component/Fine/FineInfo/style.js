@@ -55,6 +55,20 @@ export const FineModalButton = styled.button`
 
 export const FineBox = styled.div`
   background: #eef5ff;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #707070;
+    border-radius: 6px;
+  }
 `;
 
 export const FineItem = styled.div`
