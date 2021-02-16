@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Slide = () => {
+export default function Slide({ img }) {
   return (
-    <div>
-      
-    </div>
+    <Img src={img} />
   );
 };
 
-export default Slide;
+const Img = styled.img`
+
+`

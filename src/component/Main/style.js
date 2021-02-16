@@ -5,6 +5,7 @@ export const Main = styled.div`
 `
 
 export const Container = styled.div`
+  display: block;
   position: relative;
   width: 97.5rem;
   height :100vh;
@@ -18,18 +19,17 @@ export const Inner = styled.div`
 `
 
 export const BackgroundImg = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   background: #f8fbff url(${(props) => props.img}) no-repeat 50% 80%;
 `;
 
-export const Glass = styled.div`
+export const SlideWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
   position: absolute;
-  width: 94rem;
-  height: 40rem;
-  background: #AEB9D4;
-  opacity: 0.12;
-  top:0;
-  margin: 32px 26px;
-  border-radius: 12px;
+  top: 0;
+  display: flex;
+  margin: 0 auto;
 `

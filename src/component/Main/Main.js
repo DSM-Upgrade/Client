@@ -3,6 +3,7 @@ import * as S from './style';
 import { mainBackground } from '../../assets/main';
 import Header from "../Header/Header";
 import Footer from "./Footer/Footer";
+import Slider from './Slide/Slider';
 
 const Main = () => {
   return (
@@ -11,7 +12,9 @@ const Main = () => {
       <S.Container>
           <S.Inner>
             <S.BackgroundImg img={mainBackground}></S.BackgroundImg>
-            <S.Glass></S.Glass>
+            <S.SlideWrapper>
+              <Slider />
+            </S.SlideWrapper>
           </S.Inner>
           <Footer />
       </S.Container>
