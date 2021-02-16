@@ -43,8 +43,8 @@ const Footer = () => {
       <S.ContactWrapper>
         <S.Text>CONTACT US</S.Text>
         <S.IconWrapper>
-          <S.Icon src={iconFacebook}/>
-          <S.Icon src={iconGithub}/>
+          <a href="https://www.facebook.com/DSM-UP-112827210421734" target="_blank"><S.Icon src={iconFacebook}/></a>
+          <a href="https://github.com/DSM-Upgrade" target="_blank"><S.Icon src={iconGithub}/></a>
         </S.IconWrapper>
       </S.ContactWrapper>
     </S.Container>

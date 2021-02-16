@@ -36,7 +36,7 @@ export const IconWrapper = styled.div`
 `
 
 export const Icon = styled.img`
-
+  cursor: pointer;
 `
 
 export const GradeWrapper = styled.div`
