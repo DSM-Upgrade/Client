@@ -9,7 +9,7 @@ const initialState = {
   modalElement: null,
 };
 
-export default modalReducer = (state = initialState, action) => {
+const modalReducer = (state = initialState, action) => {
   const { SHOW_MODAL, DROP_MODAL, SET_ERROR } = MODAL_ACTIONS;
   switch (action.type) {
     case SHOW_MODAL: {
@@ -40,3 +40,5 @@ export default modalReducer = (state = initialState, action) => {
     }
   }
 };
+
+export default modalReducer;
