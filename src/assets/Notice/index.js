@@ -1,0 +1,1 @@
+export { default as noticeFileIcon } from './noticeFileIcon.png';
