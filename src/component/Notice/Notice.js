@@ -19,7 +19,6 @@ const Notice = () => {
           <NoticeItem />
           <NoticeItem />
           <NoticeItem />
-
         </S.Inner>
       </S.Wrapper>
     </S.Container>

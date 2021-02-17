@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Item = styled.div`
   display: grid;
-  grid-template-columns: 100px 100px 10fr 50px 150px;
+  grid-template-columns: 6.25rem 6.25rem 10fr 3.125rem 9.375rem;
   width: 100%;
-  height: 91.75px;
+  height: 5.7344rem;
   cursor: pointer;
   :hover{
     background: #DCECF9;
