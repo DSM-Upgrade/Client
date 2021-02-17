@@ -5,7 +5,7 @@ const FineAdminContainer = () => {
   const fineData = [
     {
       name: "고도현",
-      reason: "회의 미참여 실화..?",
+      reason: "회의 미참여 실화..",
       price: "10000",
       date: "2021-02-15",
       isPay: false,
