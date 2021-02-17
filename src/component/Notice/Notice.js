@@ -1,10 +1,28 @@
 import React from 'react';
+import * as S from './style';
+import Header from '../Header/Header';
+import TitleHeaderContainer from '../../container/TitleHeaderContainer/TitleHeaderContainer';
+import NoticeItem from './NoticeItem/NoticeItem';
 
 const Notice = () => {
   return (
-    <div>
-      <p>제발 나와주세요 제발</p>
-    </div>
+    <S.Container>
+      <Header />
+      <S.Wrapper>
+        <TitleHeaderContainer text="Notice"/>
+        <S.Inner>
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+          <NoticeItem />
+
+        </S.Inner>
+      </S.Wrapper>
+    </S.Container>
   );
 };
 
