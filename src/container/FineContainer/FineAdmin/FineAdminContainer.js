@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import FineAdmin from "../../../component/Fine/FineAdmin/FineAdmin";
 
 const FineAdminContainer = () => {
@@ -19,7 +19,42 @@ const FineAdminContainer = () => {
     },
   ];
 
-  return <FineAdmin fineData={fineData} />;
+  const allStdData = [
+    {
+      username: "a",
+      name: "유시온",
+      student_num: "3415",
+      field: "프론트엔드",
+    },
+    { username: "b", name: "고도현", student_num: "2222", field: "뭘까" },
+  ];
+
+  const allStdNameData = allStdData.map((stdData) => stdData.name);
+
+  const [addFineData, setAddFineData] = useState({
+    name: allStdNameData[0],
+    price: "",
+    date: "",
+    reason: "",
+  });
+
+  const ChangeAddFineData = useCallback((e) => {
+    const { name, value } = e.target;
+
+    setAddFineData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, []);
+
+  return (
+    <FineAdmin
+      fineData={fineData}
+      allStdNameData={allStdNameData}
+      addFineData={addFineData}
+      ChangeAddFineData={ChangeAddFineData}
+    />
+  );
 };
 
 export default FineAdminContainer;
