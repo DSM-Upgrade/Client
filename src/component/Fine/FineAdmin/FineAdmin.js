@@ -2,7 +2,8 @@ import React from "react";
 import * as S from "./style";
 
 const FineAdmin = (props) => {
-  const { fineData } = props;
+  const { fineData, allStdNameData, addFineData } = props;
+  const { ChangeAddFineData } = props;
 
   return (
     <S.Container>
@@ -11,20 +12,48 @@ const FineAdmin = (props) => {
         <S.TempGridWrap>
           <S.TempFlexWrap>
             <S.AddFineLabel htmlFor="add_fine_input_name">대상</S.AddFineLabel>
-            <S.AddFineInput type="text" id="add_fine_input_name" />
+            <S.AddFineSelect
+              type="text"
+              id="add_fine_input_name"
+              name="name"
+              value={addFineData.name}
+              onChange={ChangeAddFineData}
+            >
+              {allStdNameData.map((stdName) => (
+                <S.AddFineOption key={stdName}>{stdName}</S.AddFineOption>
+              ))}
+            </S.AddFineSelect>
           </S.TempFlexWrap>
           <S.TempFlexWrap>
             <S.AddFineLabel htmlFor="add_fine_input_price">금액</S.AddFineLabel>
-            <S.AddFineInput type="text" id="add_fine_input_price" />
+            <S.AddFineInput
+              type="text"
+              id="add_fine_input_price"
+              name="price"
+              value={addFineData.price}
+              onChange={ChangeAddFineData}
+            />
           </S.TempFlexWrap>
           <S.TempFlexWrap>
             <S.AddFineLabel htmlFor="add_fine_input_date">날짜</S.AddFineLabel>
-            <S.AddFineInput type="date" id="add_fine_input_date" />
+            <S.AddFineInput
+              type="date"
+              id="add_fine_input_date"
+              name="date"
+              value={addFineData.date}
+              onChange={ChangeAddFineData}
+            />
           </S.TempFlexWrap>
         </S.TempGridWrap>
         <S.TempFlexWrap>
-          <S.AddFineLabel htmlFor="add_fine_input_text">사유</S.AddFineLabel>
-          <S.AddFineInput type="text" id="add_fine_input_text" />
+          <S.AddFineLabel htmlFor="add_fine_input_reason">사유</S.AddFineLabel>
+          <S.AddFineInput
+            type="text"
+            id="add_fine_input_reason"
+            name="reason"
+            value={addFineData.reason}
+            onChange={ChangeAddFineData}
+          />
         </S.TempFlexWrap>
       </S.AddFine>
       <S.FineBox>

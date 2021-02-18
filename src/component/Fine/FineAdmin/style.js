@@ -43,6 +43,19 @@ export const AddFineLabel = styled.label`
   font-size: 32px;
 `;
 
+export const AddFineSelect = styled.select`
+  width: 100%;
+  height: 48px;
+  outline: none;
+  border: 1px solid #9b9bff;
+  border-radius: 5px;
+  color: #393838;
+  font-size: 24px;
+  box-sizing: border-box;
+`;
+
+export const AddFineOption = styled.option``;
+
 export const AddFineInput = styled.input`
   width: 100%;
   height: 48px;
@@ -50,7 +63,7 @@ export const AddFineInput = styled.input`
   border: 1px solid #9b9bff;
   border-radius: 5px;
   color: #393838;
-  font-size: 32px;
+  font-size: 24px;
   box-sizing: border-box;
 `;
 
