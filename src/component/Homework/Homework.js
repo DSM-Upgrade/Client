@@ -4,9 +4,12 @@ import * as S from "./style";
 
 const Homework = () => {
   return (
-    <div>
+    <S.Container>
       <HeaderContainer />
-    </div>
+      <S.MainWrapper>
+        
+      </S.MainWrapper>
+    </S.Container>
   );
 };
 
