@@ -8,9 +8,35 @@ const Homework = () => {
     <S.Container>
       <HeaderContainer />
       <S.MainWrapper>
-        <TitleHeaderContainer text="Homework" />
+        <div className="Title">
+          <TitleHeaderContainer text="Homework" />
+        </div>
+        <div className="BackgroundImg"></div>
         <S.Wrapper>
-          
+          <S.AllocationBox>
+            <h1>왜 킹시인가?</h1>
+            <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
+            <p>분야 : 디자인</p>
+            <p>대상 : 동아리원 전체</p>
+            <p>기한 : 18:30 까지 제출</p>
+            <h4>할당됨</h4>
+          </S.AllocationBox>
+          <S.SubmissionBox>
+            <h1>왜 킹시인가?</h1>
+            <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
+            <p>분야 : 디자인</p>
+            <p>대상 : 동아리원 전체</p>
+            <p>기한 : 18:30 까지 제출</p>
+            <h4>제출함</h4>
+          </S.SubmissionBox>
+          <S.UnsubmittedBox>
+            <h1>왜 킹시인가?</h1>
+            <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
+            <p>분야 : 디자인</p>
+            <p>대상 : 동아리원 전체</p>
+            <p>기한 : 18:30 까지 제출</p>
+            <h4>미제출</h4>
+          </S.UnsubmittedBox>
         </S.Wrapper>
       </S.MainWrapper>
     </S.Container>
