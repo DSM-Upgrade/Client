@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle";
 import Routing from "./Routing";
-import Homework from "./component/Homework/Homework";
+import Homework from "./component/Homework/HomeworkDetailView/HomeworkDetailView";
 
 const App = () => {
   return (
