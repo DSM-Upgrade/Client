@@ -43,6 +43,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  a{
+    color: inherit;
+    text-decoration:none;
+  }
 `;
 
 export const AllocationBox = styled.div`
