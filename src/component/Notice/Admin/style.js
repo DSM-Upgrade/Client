@@ -28,6 +28,9 @@ export const NoticeType = styled.input`
 `
 
 export const Inner = styled.div`
+  width: 200px;
+  display: flex;
+  /* flex-direction: column; */
   margin: auto;
 `
 
