@@ -36,7 +36,13 @@ export const Date = styled.div`
   margin-top: 10px;
 `
 
+export const Time = styled.div`
+  font-size: 20px;
+  margin-top: 10px;
+`
+
 export const Detail = styled.div`
+  position: relative;
   width: 92.76%;
   height: 29.126rem;
   padding: 50px;
@@ -46,3 +52,9 @@ export const Detail = styled.div`
 export const File = styled.div`
   margin-top: 20px;
 `
+
+export const VoteType = styled.div`
+  position: absolute;
+  font-size: 16px;
+`
+

@@ -8,7 +8,7 @@ const NoticeDetailView = () => {
   return (
     <S.Container>
       <Header />
-      <Common />
+      <Vote />
     </S.Container>
   );
 };
