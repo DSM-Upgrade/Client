@@ -19,12 +19,16 @@ export const TitleInner = styled.div`
   height: 70px;
 `
 
-export const NoticeType = styled.div`
-  width: 180px;
-  height: 98%;
+export const NoticeType = styled.input`
+  width: 20px;
   border: 1px solid #8E8AFF;
   background: #ffffff;
   border-radius: 10px;
+  margin-left: 20px;
+`
+
+export const Inner = styled.div`
+  margin: auto;
 `
 
 export const NoticeTitle = styled.input`
@@ -66,5 +70,7 @@ export const Submit = styled.button`
   height: 50px;
   background: #C4D2FF;
   border: none;
-  font-size: 20px; 
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: 2px 1px 4px rgba(0,0,0,0.16); 
 `
