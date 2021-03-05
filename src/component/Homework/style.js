@@ -16,7 +16,7 @@ export const MainWrapper = styled.div`
   background-color: #f8fbff;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   .Title > * {
     font-family: "고도 B";
     margin-top: 104px;
@@ -40,6 +40,8 @@ export const Wrapper = styled.div`
   margin-top: 91.5px;
   width: 85%;
   height: 100%;
+  overflow:scroll;
+  position:relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

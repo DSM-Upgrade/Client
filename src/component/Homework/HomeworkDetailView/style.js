@@ -79,5 +79,8 @@ export const MainSection = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    button{
+      cursor: pointer;
+    }
   }
 `;
