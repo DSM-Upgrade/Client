@@ -60,6 +60,7 @@ export const GradeBox = styled.div`
   height: 15%;
   color: #D1D1D1;
   font-size: 20px;
+  font-weight: bold;
 `
 
 export const MemberBox = styled.div`
@@ -69,6 +70,7 @@ export const MemberBox = styled.div`
   width: 100%;
   height: 80%;
   color: #D1D1D1;
+  margin-top: 30px;
 `
 
 export const Text = styled.p`
