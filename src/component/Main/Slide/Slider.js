@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useRef } from 'react';
 import Slide from './Slide';
-import styled from 'styled-components';
+import * as S from './style';
 import {mainSlide} from '../../../assets/main';
 import {mainSlideNotice} from '../../../assets/main';
 import {mainSlideHomework} from '../../../assets/main';
@@ -8,28 +8,6 @@ import {mainSlideFine} from '../../../assets/main';
 import {mainSlideMypage} from '../../../assets/main';
 import {leftArrow} from '../../../assets/main';
 import {rightArrow} from '../../../assets/main';
-
-const Container = styled.div`
-  width: 96.8%;
-  margin-top: 7px;
-  margin-left: 24px;
-  overflow: hidden;
-  z-index: 10;
-`
-
-const SliderContainer = styled.div`
-  display: flex;
-  width: 100%;
-`
-
-const Button = styled.img`
-  position: absolute;
-  width: 26px;
-  height: 27px;
-  margin-top: 350px;
-  margin-left: 8px;
-  z-index: 10;
-`
 
 const TOTAL_SLIDES = 4;
 export default function Slider() {
@@ -58,16 +36,16 @@ export default function Slider() {
   }, [currentSlide]);
 
   return(
-    <Container>
-      <Button onClick={prevSlide} src={leftArrow}/>
-        <SliderContainer ref={slideRef}>
+    <S.Container>
+      <S.Button onClick={prevSlide} src={leftArrow}/>
+        <S.SliderContainer ref={slideRef}>
           <Slide img={mainSlide}/>
           <Slide img={mainSlideNotice}/>
           <Slide img={mainSlideHomework}/>
           <Slide img={mainSlideFine}/>
           <Slide img={mainSlideMypage}/>
-        </SliderContainer>
-      <Button onClick={nextSlide} src={rightArrow} style={{marginLeft:1480, marginTop:-350}}/>
-    </Container>
+        </S.SliderContainer>
+      <S.Button onClick={nextSlide} src={rightArrow} style={{marginLeft:1480, marginTop:-350}}/>
+    </S.Container>
   )
 }
