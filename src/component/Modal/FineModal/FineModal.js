@@ -6,7 +6,7 @@ const FineModal = (props) => {
   const { PreventModalOff } = props;
 
   return (
-    <S.Container onClick={PreventModalOff}>
+    <S.Container onClick={PreventModalOff} data-testid="fine-modal--container">
       <S.Title>내 벌금내역</S.Title>
       <S.FineBox>
         {fineData.map((fine, index) => {
