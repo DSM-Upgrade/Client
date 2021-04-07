@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { render } from "@testing-library/react";
 
-import PasswordModalContainer from "../../../container/Modal/PasswordModalContainer/PasswordModalContainer";
+import PasswordModalContainer from "../../../../container/Modal/PasswordModalContainer/PasswordModalContainer";
 
 jest.mock("react-redux");
 
