@@ -40,14 +40,17 @@ export const Wrapper = styled.div`
   margin-top: 91.5px;
   width: 85%;
   height: 100%;
-  overflow:scroll;
-  position:relative;
+  overflow: scroll;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  a{
+  a {
     color: inherit;
-    text-decoration:none;
+    text-decoration: none;
+  }
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
   }
 `;
 

@@ -6,7 +6,7 @@ import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHead
 import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 
 const Homework = () => {
-  return ( 
+  return (
     <S.Container>
       <HeaderContainer />
       <S.MainWrapper>
@@ -15,7 +15,6 @@ const Homework = () => {
         </div>
         <div className="BackgroundImg"></div>
         <S.Wrapper>
-          <Link to="/HomeworkDetailView">
             <S.AllocationBox>
               <h1>왜 킹시인가?</h1>
               <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
@@ -24,23 +23,22 @@ const Homework = () => {
               <p>기한 : 18:30 까지 제출</p>
               <h4>할당됨</h4>
             </S.AllocationBox>
-          </Link>
-          <S.SubmissionBox>
-            <h1>왜 킹시인가?</h1>
-            <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
-            <p>분야 : 디자인</p>
-            <p>대상 : 동아리원 전체</p>
-            <p>기한 : 18:30 까지 제출</p>
-            <h4>제출함</h4>
-          </S.SubmissionBox>
-          <S.UnsubmittedBox>
-            <h1>왜 킹시인가?</h1>
-            <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
-            <p>분야 : 디자인</p>
-            <p>대상 : 동아리원 전체</p>
-            <p>기한 : 18:30 까지 제출</p>
-            <h4>미제출</h4>
-          </S.UnsubmittedBox>
+            <S.SubmissionBox>
+              <h1>왜 킹시인가?</h1>
+              <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
+              <p>분야 : 디자인</p>
+              <p>대상 : 동아리원 전체</p>
+              <p>기한 : 18:30 까지 제출</p>
+              <h4>제출함</h4>
+            </S.SubmissionBox>
+            <S.UnsubmittedBox>
+              <h1>왜 킹시인가?</h1>
+              <p>펩시가 코카콜라보다 맛있는 이유를 알아오세요.</p>
+              <p>분야 : 디자인</p>
+              <p>대상 : 동아리원 전체</p>
+              <p>기한 : 18:30 까지 제출</p>
+              <h4>미제출</h4>
+            </S.UnsubmittedBox>
         </S.Wrapper>
       </S.MainWrapper>
     </S.Container>
