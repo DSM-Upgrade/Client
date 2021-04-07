@@ -5,11 +5,8 @@ const ProfileInfo = (props) => {
   const { name, username, studentNumManage, fieldManage, isChange } = props;
   const { modalOn } = props;
 
-  const {
-    studentNum,
-    fieldManage: { field, FieldsData, onChangeField },
-    onChangeStdNum,
-  } = studentNumManage;
+  const { studentNum, onChangeStdNum } = studentNumManage;
+  const { field, FieldsData, onChangeField } = fieldManage;
 
   return (
     <S.Container>
