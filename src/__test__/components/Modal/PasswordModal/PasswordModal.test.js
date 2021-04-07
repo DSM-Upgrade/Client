@@ -2,7 +2,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import PasswordModal from "../../../component/Modal/PasswordModal/PasswordModal";
+import PasswordModal from "../../../../component/Modal/PasswordModal/PasswordModal";
 
 describe("PasswordModal", () => {
   const errorData = {
