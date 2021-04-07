@@ -1,16 +1,10 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
-
 import { render } from "@testing-library/react";
 
 import PasswordModal from "../../../component/Modal/PasswordModal/PasswordModal";
 
-jest.mock("react-redux");
-
 describe("PasswordModal", () => {
-  useSelector.mockImplementation((selector) => selector({ error: false }));
-
   const errorData = {
     state: false,
     text: "",
