@@ -1,8 +1,8 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import ProfileInfoContainer from "../../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
+import ProfileInfoContainer from "../../../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
 import { Provider } from "react-redux";
-import store from "../../../../module/store";
+import store from "../../../../../module/store";
 
 const setUp = () => {
   const utils = render(
