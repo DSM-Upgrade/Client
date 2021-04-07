@@ -1,12 +1,14 @@
 import React from "react";
+
 import * as S from "./style";
 
-const ModalWrapper = (props) => {
-  const { modalData } = props;
-  const { ModalOff } = props;
+import { useModalWrapper } from "../../hooks/ModalWrapper/useModalWrapper";
 
-  const { isShow, modalElement } = modalData;
-  const Modal = modalElement;
+const ModalWrapper = () => {
+  const {
+    modalData: { isShow, modalElement: Modal },
+    ModalOff,
+  } = useModalWrapper();
 
   return (
     <>
