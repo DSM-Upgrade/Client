@@ -2,9 +2,9 @@ import React from "react";
 
 import { render, fireEvent } from "@testing-library/react";
 
-import FineModal from "../../../component/Modal/FineModal/FineModal";
+import FineModal from "../../../../component/Modal/FineModal/FineModal";
 
-import { fineData } from "../../../fixtures/Modal/FineModalFineData";
+import { fineData } from "../../../../fixtures/Modal/FineModalFineData";
 
 describe("FineModal", () => {
   const setUp = () => {
