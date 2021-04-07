@@ -26,8 +26,8 @@ describe("PasswordModal", () => {
   const ModalOff = jest.fn();
   const PreventModalOff = jest.fn();
 
-  it("match snapshot", () => {
-    const { container } = render(
+  const setUp = () => {
+    const utils = render(
       <PasswordModal
         errorData={errorData}
         PWInfo={PWInfo}
@@ -37,21 +37,22 @@ describe("PasswordModal", () => {
         PreventModalOff={PreventModalOff}
       />
     );
+
+    return { utils };
+  };
+
+  it("match snapshot", () => {
+    const {
+      utils: { container },
+    } = setUp();
 
     expect(container).toMatchSnapshot();
   });
 
   it(`render "비밀번호 변경" text in PasswordModal`, () => {
-    const { getByText } = render(
-      <PasswordModal
-        errorData={errorData}
-        PWInfo={PWInfo}
-        ChangePWInfo={ChangePWInfo}
-        ConfirmPWInfo={ConfirmPWInfo}
-        ModalOff={ModalOff}
-        PreventModalOff={PreventModalOff}
-      />
-    );
+    const {
+      utils: { getByText },
+    } = setUp();
 
     getByText("비밀번호 변경");
   });
