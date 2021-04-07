@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 
 import { render } from "@testing-library/react";
 
-import FineModalContainer from "../../../container/Modal/FineModalContainer/FineModalContainer";
+import FineModalContainer from "../../../../container/Modal/FineModalContainer/FineModalContainer";
 
-import { fineData } from "../../../fixtures/Modal/FineModalFineData";
+import { fineData } from "../../../../fixtures/Modal/FineModalFineData";
 
 jest.mock("react-redux");
 
