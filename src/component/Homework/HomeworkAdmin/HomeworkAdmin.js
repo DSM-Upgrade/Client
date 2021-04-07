@@ -26,7 +26,7 @@ const HomeworkAdmin = () => {
             <Link to="/HomeworkAdminDetailView" >
               <S.SubmissionBox>
               <td><div>제출</div></td>
-              <td><p>코카콜라마셔라</p></td>
+              <td><p>c언어 숙제</p></td>
               <td><p>김재현</p></td>
               <td><p>기한없음</p></td>
               </S.SubmissionBox>

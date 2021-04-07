@@ -37,24 +37,26 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-  table{
+  table {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    table-layout: fixed;
   }
 `;
 
 export const AllocationBox = styled.tr`
-  width: 85%;
+  width: 86%;
   height: 77px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
   cursor: pointer;
+  justify-content: space-around;
   div {
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
     width: 100px;
     height: 46px;
@@ -63,17 +65,18 @@ export const AllocationBox = styled.tr`
     border: #707070 solid 1px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 3% 0 5%;
+    margin: 0 27px 0 65px;
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  p:nth-child(2) {
-    margin-right: 30%;
+  td:nth-child(2) {
+    width: 570px;
+    margin-right: 80px;
   }
-  p:nth-child(3) {
-    margin-right: 24%;
+  td:nth-child(3) {
+    margin: 0 200px 0 0;
   }
   &:hover {
     background-color: #dcecf9;
@@ -87,7 +90,7 @@ export const AllocationBox = styled.tr`
 `;
 
 export const SubmissionBox = styled.tr`
-  width: 85%;
+  width: 86%;
   height: 77px;
   display: flex;
   flex-direction: row;
@@ -105,17 +108,18 @@ export const SubmissionBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 3% 0 5%;
+    margin: 0 27px 0 65px;
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  p:nth-child(2) {
-    margin-right: 30%;
+  td:nth-child(2) {
+    width: 570px;
+    margin-right: 80px;
   }
-  p:nth-child(3) {
-    margin-right: 24%;
+  td:nth-child(3) {
+    margin: 0 200px 0 0;
   }
   &:hover {
     background-color: #dcecf9;
@@ -129,7 +133,7 @@ export const SubmissionBox = styled.tr`
 `;
 
 export const UnsubmittedBox = styled.tr`
-  width: 85%;
+  width: 86%;
   height: 77px;
   display: flex;
   flex-direction: row;
@@ -147,17 +151,18 @@ export const UnsubmittedBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 3% 0 5%;
+    margin: 0 27px 0 65px;
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  p:nth-child(2) {
-    margin-right: 30%;
+  td:nth-child(2) {
+    width: 570px;
+    margin-right: 80px;
   }
-  p:nth-child(3) {
-    margin-right: 24%;
+  td:nth-child(3) {
+    margin: 0 200px 0 0;
   }
   &:hover {
     background-color: #dcecf9;
