@@ -5,6 +5,12 @@ const ProfileInfo = (props) => {
   const { name, username, studentNumManage, fieldManage, isChange } = props;
   const { modalOn } = props;
 
+  const {
+    studentNum,
+    fieldManage: { field, FieldsData, onChangeField },
+    onChangeStdNum,
+  } = studentNumManage;
+
   return (
     <S.Container>
       <S.InfoWrap>
@@ -16,18 +22,14 @@ const ProfileInfo = (props) => {
         <S.InfoValue
           id="studentNum"
           type="text"
-          value={studentNumManage.studentNum}
-          onChange={studentNumManage.onChangeStdNum}
+          value={studentNum}
+          onChange={onChangeStdNum}
         />
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName htmlFor="field">분야</S.InfoName>
-        <S.FieldSelect
-          id="field"
-          value={fieldManage.field}
-          onChange={fieldManage.onChangeField}
-        >
-          {fieldManage.FieldsData.map((fieldData) => (
+        <S.FieldSelect id="field" value={field} onChange={onChangeField}>
+          {FieldsData.map((fieldData) => (
             <S.Field key={fieldData.name} value={fieldData.name}>
               {fieldData.name}
             </S.Field>
@@ -40,7 +42,7 @@ const ProfileInfo = (props) => {
       </S.InfoWrap>
       <S.InfoWrap>
         <S.InfoName>비밀번호</S.InfoName>
-        <S.ModifyButton onClick={() => modalOn()}>수정</S.ModifyButton>
+        <S.ModifyButton onClick={modalOn}>수정</S.ModifyButton>
       </S.InfoWrap>
       <S.CompleteButtonWrap>
         <S.CompleteButton show={isChange} disabled={!isChange}>
