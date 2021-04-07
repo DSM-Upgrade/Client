@@ -13,8 +13,24 @@ jest.mock("react-redux");
 describe("FindModalContainer", () => {
   useSelector.mockImplementation((selector) => selector({ fineData }));
 
+  const setUp = () => {
+    const utils = render(<FineModalContainer />);
+
+    return { utils };
+  };
+
+  it(`match snapshot`, () => {
+    const {
+      utils: { container },
+    } = setUp();
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('click "PreventModalOff" once', () => {
-    const { getByText } = render(<FineModalContainer />);
+    const {
+      utils: { getByText },
+    } = setUp();
 
     expect(getByText("내 벌금내역"));
   });
