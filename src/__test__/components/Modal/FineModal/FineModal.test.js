@@ -38,17 +38,4 @@ describe("FineModal", () => {
     getAllByText(`${source.price}원`);
     getAllByText(source.date);
   });
-
-  it('click "PreventModalOff" once', () => {
-    const {
-      utils: { getByTestId },
-      PreventModalOff,
-    } = setUp();
-
-    const container = getByTestId("fine-modal--container");
-
-    fireEvent.click(container);
-
-    expect(PreventModalOff).toHaveBeenCalledTimes(1);
-  });
 });
