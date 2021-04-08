@@ -1,6 +1,20 @@
-import { limitMaxValue, removeNonNumeric } from "../../utils/StringUtils";
+import {
+  limitMaxLength,
+  limitMaxValue,
+  removeNonNumeric,
+} from "../../utils/StringUtils";
 
 describe("StringUtils", () => {
+  it.each`
+    recivedNumber | maxLength | expected
+    ${12345}      | ${3}      | ${"123"}
+    ${12345}      | ${4}      | ${"1234"}
+    ${12345}      | ${5}      | ${"12345"}
+    ${12345}      | ${6}      | ${"12345"}
+  `("limitMaxLength", ({ recivedNumber, maxLength, expected }) => {
+    expect(limitMaxLength(recivedNumber, maxLength)).toEqual(expected);
+  });
+
   it.each`
     recivedNumber | maxValue | expected
     ${100}        | ${100}   | ${100}
