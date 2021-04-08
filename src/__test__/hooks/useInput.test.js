@@ -11,6 +11,7 @@ describe("useInput", () => {
       ${[1, 12, 123]}               | ${123}
       ${["-", "-1", "-1-", "-1-2"]} | ${-12}
       ${[".", 0.1, ".1.", ".1.0"]}  | ${0.1}
+      ${"-"}                        | ${0}
     `("test onChangeInput", ({ targetValue, expected }) => {
       const { result } = renderHook(() => useInput({ type: "number" }));
 
@@ -19,6 +20,8 @@ describe("useInput", () => {
           targetValue.forEach((value) => {
             result.current.onChangeInput({ target: { value } });
           });
+        } else {
+          result.current.onChangeInput({ target: { value: targetValue } });
         }
       });
 
@@ -40,6 +43,8 @@ describe("useInput", () => {
           targetValue.forEach((value) => {
             result.current.onChangeInput({ target: { value } });
           });
+        } else {
+          result.current.onChangeInput({ target: { value: targetValue } });
         }
       });
 
@@ -62,6 +67,8 @@ describe("useInput", () => {
           targetValue.forEach((value) => {
             result.current.onChangeInput({ target: { value } });
           });
+        } else {
+          result.current.onChangeInput({ target: { value: targetValue } });
         }
       });
 
@@ -83,6 +90,8 @@ describe("useInput", () => {
           targetValue.forEach((value) => {
             result.current.onChangeInput({ target: { value } });
           });
+        } else {
+          result.current.onChangeInput({ target: { value: targetValue } });
         }
       });
 
@@ -165,6 +174,46 @@ describe("useInput", () => {
       });
 
       expect(result.current.isValid).toBe(expected);
+    });
+  });
+
+  context("without options", () => {
+    it("", () => {
+      const { result } = renderHook(() => useInput());
+
+      act(() => {
+        result.current.onChangeInput({ target: { value: "12345" } });
+      });
+
+      expect(result.current.value).toEqual("12345");
+    });
+  });
+
+  context("autoFix false and set maxValue", () => {
+    it("", () => {
+      const { result } = renderHook(() =>
+        useInput({ maxValue: 100, autoFix: false, type: "number" })
+      );
+
+      act(() => {
+        result.current.onChangeInput({ target: { value: 1000 } });
+      });
+
+      expect(result.current.value).toEqual(1000);
+    });
+  });
+
+  context("autoFix false and set maxLength with type string", () => {
+    it("", () => {
+      const { result } = renderHook(() =>
+        useInput({ maxLength: 3, autoFix: false })
+      );
+
+      act(() => {
+        result.current.onChangeInput({ target: { value: "1000" } });
+      });
+
+      expect(result.current.value).toEqual("1000");
     });
   });
 });
