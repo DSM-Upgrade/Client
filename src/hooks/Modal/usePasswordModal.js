@@ -1,24 +1,24 @@
-import React, { useCallback, useState } from "react";
+import { useState, useCallback } from "react";
 
 export const usePasswordModal = () => {
-  const [PWInfo, setPWInfo] = useState({
+  const [pwInfo, setPwInfo] = useState({
     curPW: "",
     newPW: "",
     rePW: "",
     confirmInfo: { state: false, text: "" },
   });
-  const ChangePWInfo = useCallback(
+  const changePwInfo = useCallback(
     (e) => {
       const { name, value } = e.target;
-      setPWInfo((prev) => ({
+      setPwInfo((prev) => ({
         ...prev,
         [name]: value,
       }));
     },
-    [PWInfo]
+    [pwInfo]
   );
-  const ConfirmPWInfo = useCallback(() => {
-    const { curPW, newPW, rePW } = PWInfo;
+  const confirmPwInfo = useCallback(() => {
+    const { curPW, newPW, rePW } = pwInfo;
     let confirmInfo = {
       state: false,
       text: "",
@@ -46,11 +46,16 @@ export const usePasswordModal = () => {
       };
     }
 
-    setPWInfo((prev) => ({
+    setPwInfo((prev) => ({
       ...prev,
       confirmInfo: confirmInfo,
     }));
-  }, [PWInfo]);
+  }, [pwInfo]);
 
-  return { PWInfo, setPWInfo, ChangePWInfo, ConfirmPWInfo };
+  return {
+    pwInfo,
+    setPwInfo,
+    changePwInfo,
+    confirmPwInfo,
+  };
 };
