@@ -38,7 +38,7 @@ describe("PasswordModalContainer", () => {
     expect(getByText("비밀번호 변경"));
   });
 
-  it('click "PreventModalOff" once', () => {
+  it('click "preventModalOff" once', () => {
     const {
       utils: { getByText },
     } = setUp();
@@ -62,7 +62,7 @@ describe("PasswordModalContainer", () => {
 
     expect(mockClickEvent.defaultPrevented).toBeFalsy();
 
-    fireEvent(passwordModalElement, myEvent);
+    fireEvent(passwordModalElement, mockClickEvent);
 
     expect(mockClickEvent.defaultPrevented).toBeTruthy();
   });
