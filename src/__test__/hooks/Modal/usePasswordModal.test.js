@@ -1,24 +1,26 @@
-import { renderHook } from "@testing-library/react-hooks";
 import { act } from "react-dom/test-utils";
+
+import { renderHook } from "@testing-library/react-hooks";
+
 import { usePasswordModal } from "../../../hooks/Modal/usePasswordModal";
 
 describe("usePasswordModal", () => {
-  it("test ChangePWInfo curPW, newPW, rePW ", () => {
+  it("test changePwInfo curPW, newPW, rePW ", () => {
     const { result } = renderHook(() => usePasswordModal());
 
     act(() => {
-      result.current.ChangePWInfo({
+      result.current.changePwInfo({
         target: { name: "curPW", value: "password" },
       });
-      result.current.ChangePWInfo({
+      result.current.changePwInfo({
         target: { name: "newPW", value: "newPw" },
       });
-      result.current.ChangePWInfo({
+      result.current.changePwInfo({
         target: { name: "rePW", value: "newPW" },
       });
     });
 
-    expect(result.current.PWInfo).toEqual({
+    expect(result.current.pwInfo).toEqual({
       curPW: "password",
       newPW: "newPw",
       rePW: "newPW",
@@ -34,7 +36,7 @@ describe("usePasswordModal", () => {
     ${["curPW", "newPW", "rePW"]} | ${["password", "password", "rePassword"]}   | ${{ curPW: "password", newPW: "password", rePW: "rePassword", confirmInfo: { state: true, text: `비밀번호를 확인해주세요.` } }}
     ${["curPW", "newPW", "rePW"]} | ${["password", "rePassword", "rePassword"]} | ${{ curPW: "password", newPW: "rePassword", rePW: "rePassword", confirmInfo: { state: false, text: `` } }}
   `(
-    "test ConfirmPWInfo PWInfo.confirmInfo.text ",
+    "test confirmPwInfo pwInfo.confirmInfo.text ",
     ({ targetName, targetValue, expected }) => {
       const { result } = renderHook(() => usePasswordModal());
 
@@ -42,7 +44,7 @@ describe("usePasswordModal", () => {
         if (Array.isArray(targetName)) {
           targetName.forEach((_, forEachIdx) => {
             act(() => {
-              result.current.ChangePWInfo({
+              result.current.changePwInfo({
                 target: {
                   name: targetName[forEachIdx],
                   value: targetValue[forEachIdx],
@@ -52,7 +54,7 @@ describe("usePasswordModal", () => {
           });
         } else {
           act(() => {
-            result.current.ChangePWInfo({
+            result.current.changePwInfo({
               target: { name: targetName, value: targetValue },
             });
           });
@@ -60,10 +62,10 @@ describe("usePasswordModal", () => {
       }
 
       act(() => {
-        result.current.ConfirmPWInfo();
+        result.current.confirmPwInfo();
       });
 
-      expect(result.current.PWInfo).toEqual(expected);
+      expect(result.current.pwInfo).toEqual(expected);
     }
   );
 });
