@@ -5,17 +5,17 @@ import { usePasswordModal } from "../../../hooks/Modal/usePasswordModal";
 import { MODAL_ACTION_CREATERS } from "../../../module/action/modal";
 
 const PasswordModalContainer = () => {
+  const dispatch = useDispatch();
   const errorData = useSelector((state) => state.modal.error);
 
-  const { PWInfo, ChangePWInfo, ConfirmPWInfo } = usePasswordModal();
+  const { pwInfo, changePWInfo, confirmPWInfo } = usePasswordModal();
 
   const { dropModal } = MODAL_ACTION_CREATERS;
-  const dispatch = useDispatch();
-  const ModalOff = useCallback(() => {
+  const modalOff = useCallback(() => {
     dispatch(dropModal());
   }, [dispatch]);
 
-  const PreventModalOff = useCallback((e) => {
+  const preventModalOff = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
   }, []);
@@ -23,11 +23,11 @@ const PasswordModalContainer = () => {
   return (
     <PasswordModal
       errorData={errorData}
-      PWInfo={PWInfo}
-      ChangePWInfo={ChangePWInfo}
-      ConfirmPWInfo={ConfirmPWInfo}
-      ModalOff={ModalOff}
-      PreventModalOff={PreventModalOff}
+      pwInfo={pwInfo}
+      changePWInfo={changePWInfo}
+      confirmPWInfo={confirmPWInfo}
+      modalOff={modalOff}
+      preventModalOff={preventModalOff}
     ></PasswordModal>
   );
 };
