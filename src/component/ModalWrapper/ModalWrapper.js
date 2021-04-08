@@ -8,7 +8,9 @@ const ModalWrapper = ({ modalData, modalOff }) => {
   return (
     <>
       {isShow && (
-        <S.Container onClick={modalOff}>{Modal && <Modal />}</S.Container>
+        <S.Container onClick={modalOff} data-testid="modal-wrapper-container">
+          {Modal && <Modal />}
+        </S.Container>
       )}
     </>
   );
