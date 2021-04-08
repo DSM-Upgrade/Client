@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import { render } from "@testing-library/react";
+import { render, fireEvent, createEvent } from "@testing-library/react";
 
 import FineModalContainer from "../../../../container/Modal/FineModalContainer/FineModalContainer";
 
@@ -27,11 +27,26 @@ describe("FindModalContainer", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('click "PreventModalOff" once', () => {
+  it("render", () => {
     const {
       utils: { getByText },
     } = setUp();
 
     expect(getByText("내 벌금내역"));
+  });
+
+  it("click preventModalOff", () => {
+    const {
+      utils: { getByTestId },
+    } = setUp();
+
+    const fineModalElement = getByTestId("fine-modal-element");
+    const mockClickEvent = createEvent.click(fineModalElement);
+
+    expect(mockClickEvent.defaultPrevented).toBeFalsy();
+
+    fireEvent(fineModalElement, mockClickEvent);
+
+    expect(mockClickEvent.defaultPrevented).toBeTruthy();
   });
 });
