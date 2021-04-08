@@ -39,4 +39,8 @@ describe("StringUtils", () => {
   `("removeNonNumeric", ({ targetValue, expected }) => {
     expect(removeNonNumeric(targetValue)).toEqual(expected);
   });
+
+  it("test numeric -", () => {
+    expect(removeNonNumeric("-")).toEqual(0);
+  });
 });
