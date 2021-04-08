@@ -1,3 +1,7 @@
+export const limitMaxLength = (recivedStr, maxLength) => {
+  return String(recivedStr).substr(0, maxLength);
+};
+
 export const limitMaxValue = (recivedNumber, maxValue) => {
   if (recivedNumber < maxValue) {
     return recivedNumber;
