@@ -44,6 +44,6 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --port 8888",
     "build": "webpack --mode production",
-    "test": "jest --config jest.config.js --watchAll"
+    "test": "jest --config jest.config.js --watchAll --coverage"
   }
 }
