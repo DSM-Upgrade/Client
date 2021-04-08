@@ -47,7 +47,7 @@ export const useInput = (options) => {
       let result = receivedValue;
 
       if (maxLength) {
-        result = result.substr(0, maxLength);
+        result = Number(limitMaxLength(result, maxLength));
       }
 
       const returnValue = autoFix ? result : receivedValue;
