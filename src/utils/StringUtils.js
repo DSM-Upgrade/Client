@@ -12,6 +12,7 @@ export const limitMaxValue = (recivedNumber, maxValue) => {
 
 export const removeNonNumeric = (targetValue) => {
   let numericArr = [];
+
   String(targetValue)
     .split("")
     .forEach((value, forEachIdx) => {
@@ -23,6 +24,10 @@ export const removeNonNumeric = (targetValue) => {
         numericArr.push(value);
       }
     });
+
+  if (numericArr.join() === "-") {
+    return 0;
+  }
 
   return Number(numericArr.join(""));
 };
