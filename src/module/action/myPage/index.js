@@ -9,12 +9,20 @@ const getStdInfoSaga = (payload) => ({
   payload,
 });
 
+const CHANGE_STD_INFO_SAGA = "myPage/CHANGE_STD_INFO_SAGA";
+const changeStdInfoSaga = (payload) => ({
+  type: CHANGE_STD_INFO_SAGA,
+  payload,
+});
+
 export const myPageActions = {
   SET_STD_INFO,
   GET_STD_INFO_SAGA,
+  CHANGE_STD_INFO_SAGA,
 };
 
 export const myPageActionCreaters = {
   setStdInfo,
   getStdInfoSaga,
+  changeStdInfoSaga,
 };
