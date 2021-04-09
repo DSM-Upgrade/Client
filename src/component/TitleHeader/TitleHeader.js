@@ -6,8 +6,10 @@ const TitleHeader = (props) => {
 
   return (
     <S.Container>
-      <S.FirstChar>{firstChar}</S.FirstChar>
-      <S.OtherChar>{otherChar}</S.OtherChar>
+      <S.FirstChar>{firstChar?.current}</S.FirstChar>
+      {otherChar?.current?.length && (
+        <S.OtherChar>{otherChar?.current}</S.OtherChar>
+      )}
     </S.Container>
   );
 };
