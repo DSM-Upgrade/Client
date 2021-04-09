@@ -15,14 +15,22 @@ const changeStdInfoSaga = (payload) => ({
   payload,
 });
 
+const CHANGE_STD_PASSWORD_SAGA = "myPAge/CHANGE_STD_PASSWORD_SAGA";
+const changeStdPasswordSaga = (payload) => ({
+  type: CHANGE_STD_PASSWORD_SAGA,
+  payload,
+});
+
 export const myPageActions = {
   SET_STD_INFO,
   GET_STD_INFO_SAGA,
   CHANGE_STD_INFO_SAGA,
+  CHANGE_STD_PASSWORD_SAGA,
 };
 
 export const myPageActionCreaters = {
   setStdInfo,
   getStdInfoSaga,
   changeStdInfoSaga,
+  changeStdPasswordSaga,
 };
