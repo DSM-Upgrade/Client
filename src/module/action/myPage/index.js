@@ -15,9 +15,15 @@ const changeStdInfoSaga = (payload) => ({
   payload,
 });
 
-const CHANGE_STD_PASSWORD_SAGA = "myPAge/CHANGE_STD_PASSWORD_SAGA";
+const CHANGE_STD_PASSWORD_SAGA = "myPage/CHANGE_STD_PASSWORD_SAGA";
 const changeStdPasswordSaga = (payload) => ({
   type: CHANGE_STD_PASSWORD_SAGA,
+  payload,
+});
+
+const CHANGE_STD_PROFILE_SAGA = "myPage/CHANGE_STD_PROFILE_SAGA";
+const changeStdProfileSaga = (payload) => ({
+  type: CHANGE_STD_PROFILE_SAGA,
   payload,
 });
 
@@ -26,6 +32,7 @@ export const myPageActions = {
   GET_STD_INFO_SAGA,
   CHANGE_STD_INFO_SAGA,
   CHANGE_STD_PASSWORD_SAGA,
+  CHANGE_STD_PROFILE_SAGA,
 };
 
 export const myPageActionCreaters = {
@@ -33,4 +40,5 @@ export const myPageActionCreaters = {
   getStdInfoSaga,
   changeStdInfoSaga,
   changeStdPasswordSaga,
+  changeStdProfileSaga,
 };
