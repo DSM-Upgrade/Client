@@ -14,6 +14,8 @@ const initialState = {
   signUpList: [],
 };
 
+// const isDev = prcess.env
+
 const authReducer = (state = dev_initialState, action) => {
   switch (action.type) {
     case "1": {
