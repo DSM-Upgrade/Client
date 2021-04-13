@@ -4,7 +4,7 @@ import ModalWrapperContainer from "./container/ModalWrapperContainer/ModalWrappe
 import MyPageContanier from "./container/MyPageContanier/MyPageContanier";
 import FineContainer from "./container/FineContainer/FineContainer";
 import Homework from "./container/HomeworkContainer/HomeworkContainer";
-import HomeworkDetailView from "./component/Homework/HomeworkDetailView/HomeworkDetailView";
+import HomeworkDetailView from "./container/HomeworkContainer/HomeworkDetailView/HomeworkDetailViewContainer";
 import HomeworkAdmin from "./component/Homework/HomeworkAdmin/HomeworkAdmin";
 import HomeworkAdminDetailView from "./component/Homework/HomeworkAdminDetailView/HomeworkAdminDetailView";
 

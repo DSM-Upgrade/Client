@@ -1,5 +1,4 @@
 import React from "react";
-import { mypageBackground } from "../../assets/mypage";
 import Homework from "../../component/Homework/Homework";
 
 const HomeworkContainer = () => {
@@ -45,7 +44,7 @@ const HomeworkContainer = () => {
     },
   ]; */
 
-  return <Homework homeworkList={homeworkList} fields={fields} />;
+  return <Homework homeworkList={homeworkList} />;
 };
 
 export default HomeworkContainer;

@@ -11,7 +11,7 @@ const Homework = (props) => {
   const HomeworkList = homeworkList.map((homeworkList) => {
     if (homeworkList.homeworkStatus === "ASSIGNED") {
       return (
-        <S.AllocationBox>
+        <S.AllocationBox key={homeworkList.homeworkId}>
           <h1>{homeworkList.homeworkTitle}</h1>
           <p>{homeworkList.homeworkContent}</p>
           <p>분야 : 디자인</p>
@@ -22,7 +22,7 @@ const Homework = (props) => {
       );
     } else if (homeworkList.homeworkStatus === "SUBMITTED") {
       return (
-        <S.SubmissionBox>
+        <S.SubmissionBox key={homeworkList.homeworkId}>
           <h1>{homeworkList.homeworkTitle}</h1>
           <p>{homeworkList.homeworkContent}</p>
           <p>분야 : 디자인</p>
@@ -33,7 +33,7 @@ const Homework = (props) => {
       );
     } else if (homeworkList.homeworkStatus === "UN_SUBMITTED") {
       return (
-        <S.UnsubmittedBox>
+        <S.UnsubmittedBox key={homeworkList.homeworkId}>
           <h1>{homeworkList.homeworkTitle}</h1>
           <p>{homeworkList.homeworkContent}</p>
           <p>분야 : 디자인</p>
@@ -44,7 +44,6 @@ const Homework = (props) => {
       );
     }
   });
-
   return (
     <S.Container>
       <HeaderContainer />
