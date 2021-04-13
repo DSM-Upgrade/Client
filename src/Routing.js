@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import ModalWrapperContainer from "./container/ModalWrapperContainer/ModalWrapperContainer";
 import MyPageContanier from "./container/MyPageContanier/MyPageContanier";
 import FineContainer from "./container/FineContainer/FineContainer";
-import Homework from "./component/Homework/Homework";
+import Homework from "./container/HomeworkContainer/HomeworkContainer";
 import HomeworkDetailView from "./component/Homework/HomeworkDetailView/HomeworkDetailView";
 import HomeworkAdmin from "./component/Homework/HomeworkAdmin/HomeworkAdmin";
 import HomeworkAdminDetailView from "./component/Homework/HomeworkAdminDetailView/HomeworkAdminDetailView";
