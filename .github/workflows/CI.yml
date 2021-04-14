@@ -10,6 +10,9 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    env:
+      REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+
     steps:
       - uses: actions/checkout@v2
 
