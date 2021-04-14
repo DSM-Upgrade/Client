@@ -1,17 +1,16 @@
 import React from "react";
+
 import * as S from "./style";
 
-const ModalWrapper = (props) => {
-  const { modalData } = props;
-  const { ModalOff } = props;
-
-  const { isShow, modalElement } = modalData;
-  const Modal = modalElement;
+const ModalWrapper = ({ modalData, modalOff }) => {
+  const { isShow, modalElement: Modal } = modalData;
 
   return (
     <>
       {isShow && (
-        <S.Container onClick={ModalOff}>{Modal && <Modal />}</S.Container>
+        <S.Container onClick={modalOff} data-testid="modal-wrapper-container">
+          {Modal && <Modal />}
+        </S.Container>
       )}
     </>
   );

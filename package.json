@@ -31,10 +31,12 @@
     "@babel/preset-react": "^7.12.13",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.1",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.1",
+    "jest-plugin-context": "^2.9.0",
     "webpack": "5.5.0",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.2"
@@ -42,6 +44,6 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --port 8888",
     "build": "webpack --mode production",
-    "test": "jest --config jest.config.js --watchAll --verbose --coverage"
+    "test": "jest --config jest.config.js --watchAll --coverage"
   }
 }

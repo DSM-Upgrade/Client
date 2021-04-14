@@ -1,16 +1,19 @@
 import React, { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
+
 import { MODAL_ACTION_CREATERS } from "../../module/action/modal";
+
 import ModalWrapper from "../../component/ModalWrapper/ModalWrapper";
 
 const ModalWrapperContainer = () => {
-  const { dropModal } = MODAL_ACTION_CREATERS;
+  const dispatch = useDispatch();
   const modalData = useSelector((state) => state.modal);
 
-  const dispatch = useDispatch();
-  const ModalOff = useCallback(() => dispatch(dropModal()), [dispatch]);
+  const { dropModal } = MODAL_ACTION_CREATERS;
+  const modalOff = useCallback(() => dispatch(dropModal()), [dispatch]);
 
-  return <ModalWrapper modalData={modalData} ModalOff={ModalOff} />;
+  return <ModalWrapper modalData={modalData} modalOff={modalOff} />;
 };
 
 export default ModalWrapperContainer;

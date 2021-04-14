@@ -3,10 +3,10 @@ import * as S from "./style";
 
 const FineModal = (props) => {
   const { fineData } = props;
-  const { PreventModalOff } = props;
+  const { preventModalOff } = props;
 
   return (
-    <S.Container onClick={PreventModalOff}>
+    <S.Container onClick={preventModalOff} data-testid="fine-modal-element">
       <S.Title>내 벌금내역</S.Title>
       <S.FineBox>
         {fineData.map((fine, index) => {
