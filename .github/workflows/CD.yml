@@ -8,6 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      DISTRIBUTION: ${{ secrets.CF_DISTRIBUTION_ID }}
+      PATHS: "/*"
+      AWS_REGION: ${{ secrets.AWS_REGION }}
     steps:
       - name: Checkout master
         uses: actions/checkout@master
@@ -27,19 +33,11 @@ jobs:
         run: yarn build
 
       - name: Deploy to S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 cp \
             --recursive \
             --region ${{ secrets.AWS_REGION }} \
             S3-Files s3://dsm-upgrade.club
+
       - name: Create invalidation in CloudFront
         uses: chetan/invalidate-cloudfront-action@master
-        env:
-          DISTRIBUTION: ${{ secrets.CF_DISTRIBUTION_ID }}
-          PATHS: /*
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
