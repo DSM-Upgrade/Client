@@ -40,14 +40,6 @@ describe("PasswordModal", () => {
     return { utils };
   };
 
-  it("match snapshot", () => {
-    const {
-      utils: { container },
-    } = setUp();
-
-    expect(container).toMatchSnapshot();
-  });
-
   it(`render "비밀번호 변경" text in PasswordModal`, () => {
     const {
       utils: { getByText },
