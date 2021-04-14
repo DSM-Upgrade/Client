@@ -19,14 +19,6 @@ describe("FindModalContainer", () => {
     return { utils };
   };
 
-  it(`match snapshot`, () => {
-    const {
-      utils: { container },
-    } = setUp();
-
-    expect(container).toMatchSnapshot();
-  });
-
   it("render", () => {
     const {
       utils: { getByText },
