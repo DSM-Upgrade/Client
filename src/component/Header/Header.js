@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-// import { logo } from '../../assets/header';
+import { logo } from '../../assets/header';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 
@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <S.Container>
-      {/* <img src={logo} /> */}
+      <img src={logo} />
       <S.SignWrapper>
         {isLogin ?
           <div>
