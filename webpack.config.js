@@ -1,3 +1,4 @@
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
 const dotenv = require("dotenv");
 const webpack = require("webpack");
@@ -39,6 +40,7 @@ module.exports = () => {
       ],
     },
     plugins: [
+      // new Dotenv(),
       new webpack.DefinePlugin(envKeys),
       new HtmlWebpackPlugin({
         template: "./public/index.html",
