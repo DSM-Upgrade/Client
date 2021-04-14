@@ -1,16 +1,8 @@
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
-const dotenv = require("dotenv");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = () => {
-  const env = dotenv.config().parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
-
   return {
     entry: {
       app: ["babel-polyfill", "./src/index.js"],
@@ -40,8 +32,7 @@ module.exports = () => {
       ],
     },
     plugins: [
-      // new Dotenv(),
-      new webpack.DefinePlugin(envKeys),
+      new Dotenv(),
       new HtmlWebpackPlugin({
         template: "./public/index.html",
       }),
