@@ -1,13 +1,40 @@
-name: CD
+name: CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
+  CI:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    env:
+      REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: yarn
+
+      - run: yarn build
+
+      - run: yarn build-test
+  CD:
     runs-on: ubuntu-18.04
+    needs: CI
+
     steps:
       - name: Checkout master
         uses: actions/checkout@master
