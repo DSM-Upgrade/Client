@@ -8,6 +8,7 @@ import Homework from "./component/Homework/Homework";
 import HomeworkDetailView from "./component/Homework/HomeworkDetailView/HomeworkDetailView";
 import HomeworkAdmin from "./component/Homework/HomeworkAdmin/HomeworkAdmin";
 import HomeworkAdminDetailView from "./component/Homework/HomeworkAdminDetailView/HomeworkAdminDetailView";
+import ModalWrapperContainer from "./container/ModalWrapper/ModalWrapperContainer";
 
 const Routing = () => {
   return (
@@ -16,9 +17,17 @@ const Routing = () => {
         <Route exact path="/mypage" component={MyPageContanier} />
         <Route exact path="/fine" component={FineContainer} />
         <Route exact path="/homework" component={Homework} />
-        <Route exact path="/homeworkDetailView" component={HomeworkDetailView} />
+        <Route
+          exact
+          path="/homeworkDetailView"
+          component={HomeworkDetailView}
+        />
         <Route exact path="/homeworkAdmin" component={HomeworkAdmin} />
-        <Route exact path="/homeworkAdminDetailView" component={HomeworkAdminDetailView} />
+        <Route
+          exact
+          path="/homeworkAdminDetailView"
+          component={HomeworkAdminDetailView}
+        />
       </Switch>
       <ModalWrapperContainer />
     </>
