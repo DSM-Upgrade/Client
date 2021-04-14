@@ -1,4 +1,5 @@
 import React from "react";
+import MainContainer from "./container/MainContainer/MainContainer";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const Routing = () => {
   return (
     <>
       <Switch>
+        <Route exact path="/" component={MainContainer}/>
         <Route exact path="/mypage" component={MyPageContanier} />
         <Route exact path="/fine" component={FineContainer} />
         <Route exact path="/homework" component={Homework} />
