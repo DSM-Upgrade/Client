@@ -19,13 +19,6 @@ describe("<ProfileInfoContainer />", () => {
 
   useDispatch.mockImplementation(() => dispatch);
 
-  it("snapshot", () => {
-    const {
-      utils: { container },
-    } = setUp();
-    expect(container).toMatchSnapshot();
-  });
-
   it("has text and button", () => {
     const {
       utils: { getByText },
