@@ -1,31 +1,31 @@
 import React from "react";
-import Homework from "../../component/Homework/Homework";
+import Homework from "../../component//";
 
 const HomeworkContainer = () => {
   const homeworkList = [
     {
-      homeworkId: 1,
-      homeworkTitle: "숙제 제목",
-      homeworkStart: "숙제 등록한 날짜",
-      homeworkEnd: "숙제 기한 날짜",
-      homeworkContent: "숙제 내용",
-      homeworkStatus: "ASSIGNED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
+      Id: 1,
+      Title: "숙제 제목",
+      Start: "숙제 등록한 날짜",
+      End: "숙제 기한 날짜",
+      Content: "숙제 내용",
+      Status: "ASSIGNED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
     },
     {
-      homeworkId: 2,
-      homeworkTitle: "숙제 제목",
-      homeworkStart: "숙제 등록한 날짜",
-      homeworkEnd: "숙제 기한 날짜",
-      homeworkContent: "숙제 내용",
-      homeworkStatus: "SUBMITTED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
+      Id: 2,
+      Title: "숙제 제목",
+      Start: "숙제 등록한 날짜",
+      End: "숙제 기한 날짜",
+      Content: "숙제 내용",
+      Status: "SUBMITTED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
     },
     {
-      homeworkId: 3,
-      homeworkTitle: "숙제 제목",
-      homeworkStart: "숙제 등록한 날짜",
-      homeworkEnd: "숙제 기한 날짜",
-      homeworkContent: "숙제 내용",
-      homeworkStatus: "UN_SUBMITTED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
+      Id: 3,
+      Title: "숙제 제목",
+      Start: "숙제 등록한 날짜",
+      End: "숙제 기한 날짜",
+      Content: "숙제 내용",
+      Status: "UN_SUBMITTED", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
     },
   ];
 

@@ -10,10 +10,10 @@ const HomeworkDetailView = (props) => {
       <HeaderContainer />
       <S.MainWrapper>
         <S.TitleContainer>
-          <h1>{HomeworkDetailViewJson.homeworkTitle}</h1>
+          <h1>{HomeworkDetailViewJson.Title}</h1>
           <div className="Wrapper">
-            <p>관리자 • {HomeworkDetailViewJson.homeworkStart}</p>
-            <p>기한 : {HomeworkDetailViewJson.homeworkEnd}</p>
+            <p>관리자 • {HomeworkDetailViewJson.Start}</p>
+            <p>기한 : {HomeworkDetailViewJson.End}</p>
           </div>
         </S.TitleContainer>
         <S.MainSection>

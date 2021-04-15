@@ -9,33 +9,33 @@ const Homework = (props) => {
   const { homeworkList } = props;
 
   const HomeworkList = homeworkList.map((homeworkList) => {
-    if (homeworkList.homeworkStatus === "ASSIGNED") {
+    if (homeworkList.Status === "ASSIGNED") {
       return (
-        <S.AllocationBox key={homeworkList.homeworkId}>
-          <h1>{homeworkList.homeworkTitle}</h1>
-          <p>{homeworkList.homeworkContent}</p>
+        <S.AllocationBox key={homeworkList.Id}>
+          <h1>{homeworkList.Title}</h1>
+          <p>{homeworkList.Content}</p>
           <p>분야 : 디자인</p>
           <p>대상 : 동아리원 전체</p>
-          <p>기한 : {homeworkList.homeworkEnd} 까지 제출</p>
+          <p>기한 : {homeworkList.End} 까지 제출</p>
           <h4>할당됨</h4>
         </S.AllocationBox>
       );
-    } else if (homeworkList.homeworkStatus === "SUBMITTED") {
+    } else if (homeworkList.Status === "SUBMITTED") {
       return (
-        <S.SubmissionBox key={homeworkList.homeworkId}>
-          <h1>{homeworkList.homeworkTitle}</h1>
-          <p>{homeworkList.homeworkContent}</p>
+        <S.SubmissionBox key={homeworkList.Id}>
+          <h1>{homeworkList.Title}</h1>
+          <p>{homeworkList.Content}</p>
           <p>분야 : 디자인</p>
           <p>대상 : 동아리원 전체</p>
-          <p>기한 : {homeworkList.homeworkEnd} 까지 제출</p>
+          <p>기한 : {homeworkList.End} 까지 제출</p>
           <h4>제출함</h4>
         </S.SubmissionBox>
       );
-    } else if (homeworkList.homeworkStatus === "UN_SUBMITTED") {
+    } else if (homeworkList.Status === "UN_SUBMITTED") {
       return (
-        <S.UnsubmittedBox key={homeworkList.homeworkId}>
-          <h1>{homeworkList.homeworkTitle}</h1>
-          <p>{homeworkList.homeworkContent}</p>
+        <S.UnsubmittedBox key={homeworkList.Id}>
+          <h1>{homeworkList.Title}</h1>
+          <p>{homeworkList.Content}</p>
           <p>분야 : 디자인</p>
           <p>대상 : 동아리원 전체</p>
           <p>기한 : 제출마감</p>
