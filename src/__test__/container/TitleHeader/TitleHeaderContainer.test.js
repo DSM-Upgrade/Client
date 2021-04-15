@@ -5,12 +5,6 @@ import { render } from "@testing-library/react";
 import TitleHeaderContainer from "../../../container/TitleHeaderContainer/TitleHeaderContainer";
 
 describe("TitleHeaderContainer", () => {
-  it("math snapshot", () => {
-    const { container } = render(<TitleHeaderContainer text="작은별" />);
-
-    expect(container).toMatchSnapshot();
-  });
-
   it.each`
     text           | expected
     ${""}          | ${["U", "ntitled"]}

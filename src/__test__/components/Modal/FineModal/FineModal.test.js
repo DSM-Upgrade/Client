@@ -17,14 +17,6 @@ describe("FineModal", () => {
     return { utils, PreventModalOff };
   };
 
-  it("match snapshot", () => {
-    const {
-      utils: { container },
-    } = setUp();
-
-    expect(container).toMatchSnapshot();
-  });
-
   it.each`
     source
     ${fineData[0]}
