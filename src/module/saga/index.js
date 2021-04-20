@@ -1,7 +1,8 @@
 import { all } from "redux-saga/effects";
+import field from "./field";
 
 function* rootSaga() {
-  yield all([]);
+  yield all([field]);
 }
 
 export default rootSaga;
