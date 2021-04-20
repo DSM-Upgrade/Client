@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PasswordModal from "../../../component/Modal/PasswordModal/PasswordModal";
 import { usePasswordModal } from "../../../hooks/Modal/usePasswordModal";
-import { MODAL_ACTION_CREATERS } from "../../../module/action/modal";
+import { modalActionCreaters } from "../../../module/action/modal";
 
 const PasswordModalContainer = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const PasswordModalContainer = () => {
 
   const { pwInfo, changePWInfo, confirmPWInfo } = usePasswordModal();
 
-  const { dropModal } = MODAL_ACTION_CREATERS;
+  const { dropModal } = modalActionCreaters;
   const modalOff = useCallback(() => {
     dispatch(dropModal());
   }, [dispatch]);
