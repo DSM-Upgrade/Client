@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   width: 22.5rem;
   height: 100vh;
-  background: #ffffff;
+  /* background: #dddddd; */
 `
 
 export const SignWrapper = styled.div`
@@ -63,3 +63,4 @@ export const NavItem = styled(NavLink)`
     color: #393838;
   }
 `
+
