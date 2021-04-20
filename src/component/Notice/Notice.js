@@ -4,22 +4,19 @@ import Header from '../Header/Header';
 import TitleHeaderContainer from '../../container/TitleHeaderContainer/TitleHeaderContainer';
 import NoticeItem from './NoticeItem/NoticeItem';
 
-const Notice = () => {
+const Notice = ({isAdmin}) => {
   return (
     <S.Container>
       <Header />
       <S.Wrapper>
         <TitleHeaderContainer text="Notice"/>
         <S.Inner>
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
-          <NoticeItem />
+          <NoticeItem isAdmin={isAdmin}/>
+          <NoticeItem isAdmin={isAdmin}/>
+          <NoticeItem isAdmin={isAdmin}/>
+          <NoticeItem isAdmin={isAdmin}/>
+          <NoticeItem isAdmin={isAdmin}/>
+          <NoticeItem isAdmin={isAdmin}/>
         </S.Inner>
       </S.Wrapper>
     </S.Container>
