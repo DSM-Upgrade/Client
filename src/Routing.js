@@ -10,13 +10,14 @@ import HomeworkDetailView from "./component/Homework/HomeworkDetailView/Homework
 import HomeworkAdmin from "./component/Homework/HomeworkAdmin/HomeworkAdmin";
 import HomeworkAdminDetailView from "./component/Homework/HomeworkAdminDetailView/HomeworkAdminDetailView";
 import ModalWrapperContainer from "./container/ModalWrapper/ModalWrapperContainer";
+import MyPagePage from "./page/MyPagePage";
 
 const Routing = () => {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={MainContainer}/>
-        <Route exact path="/mypage" component={MyPageContanier} />
+        <Route exact path="/" component={MainContainer} />
+        <Route exact path="/mypage" component={MyPagePage} />
         <Route exact path="/fine" component={FineContainer} />
         <Route exact path="/homework" component={Homework} />
         <Route
