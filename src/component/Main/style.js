@@ -21,8 +21,9 @@ export const Inner = styled.div`
 export const BackgroundImg = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 110%;
   background: #f8fbff url(${(props) => props.img}) no-repeat 50% 80%;
+  background-size: contain;
 `;
 
 export const SlideWrapper = styled.div`
