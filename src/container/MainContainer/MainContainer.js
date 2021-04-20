@@ -1,10 +1,13 @@
 import React from 'react';
 import Main from '../../component/Main/Main';
+import { mainBackground } from '../../assets/main';
 
 const MainContainer = () => {
+  const img = mainBackground;
+
   return (
     <div>
-      <Main />
+      <Main img={img} />
     </div>
   );
 };
