@@ -1,8 +1,13 @@
 import React, { useCallback, useEffect } from "react";
+
 import { useDispatch } from "react-redux";
 
-import MyPageContanier from "../container/MyPageContanier/MyPageContanier";
-import { FIELD_ACTION_CREATERS } from "../module/action/field";
+import { FIELD_ACTION_CREATERS } from "../../module/action/field";
+
+import * as S from "./style";
+
+import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
+import MyPageContanier from "../../container/MyPageContanier/MyPageContanier";
 
 const MyPagePage = () => {
   const dispatch = useDispatch();
@@ -18,9 +23,10 @@ const MyPagePage = () => {
   }, []);
 
   return (
-    <>
+    <S.Container>
+      <HeaderContainer />
       <MyPageContanier />
-    </>
+    </S.Container>
   );
 };
 
