@@ -1,5 +1,5 @@
 // 숙제 - 고도현
-export const homework = {
+export const homeworkApi = {
   getHomeworkList: (userId) => {
     return `/homework/list/${userId}`;
   },
@@ -24,7 +24,7 @@ export const homework = {
 };
 
 // 벌금 - 고도현
-export const fine = {
+export const fineApi = {
   getFineListById: (userId) => {
     return `/fine/list/${userId}`;
   },
@@ -43,7 +43,7 @@ export const fine = {
 };
 
 // 공지사항 - 고도현
-export const notice = {
+export const noticeApi = {
   getAllNoticeList: () => {
     return `/notice/list`;
   },
@@ -62,7 +62,7 @@ export const notice = {
 };
 
 // 어드민 - 안영준 (미완성)
-export const admin = {
+export const adminApi = {
   authorityHomework: () => {
     return `/admin/authority/homework`;
   },
@@ -90,7 +90,7 @@ export const admin = {
 };
 
 //인증 - 김대웅
-export const auth = {
+export const authApi = {
   login: () => {
     return `/auth`;
   },
@@ -103,7 +103,7 @@ export const auth = {
 };
 
 // 마이페이지 - 김대웅
-export const mypage = {
+export const myPageApi = {
   stdInfo: () => {
     return `/student`;
   },
