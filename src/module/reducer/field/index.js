@@ -1,12 +1,13 @@
-import { FIELD_ACTIONS } from "../../action/field";
+import { fieldActions } from "../../action/field";
 
 const initialState = { fields: [] };
 
 const fieldReducer = (state = initialState, action) => {
-  const { SET_FIELDS } = FIELD_ACTIONS;
+  const { SET_FIELDS, FETCH_FIELDS_SAGA_SUCCESS } = fieldActions;
 
   switch (action.type) {
-    case SET_FIELDS: {
+    case SET_FIELDS:
+    case FETCH_FIELDS_SAGA_SUCCESS: {
       return {
         ...state,
         fields: action.payload,
