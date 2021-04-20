@@ -117,6 +117,6 @@ export const myPageApi = {
     return `/student/profile`;
   },
   field: () => {
-    return `fields`;
+    return `/fields`;
   },
 };
