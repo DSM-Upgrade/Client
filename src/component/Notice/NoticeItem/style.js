@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Item = styled.div`
   display: grid;
-  grid-template-columns: 6.25rem 6.25rem 10fr 3.125rem 9.375rem;
+  grid-template-columns: 6.25rem 6.25rem 10fr 7.125rem 9.375rem;
   width: 100%;
   height: 5.7344rem;
   cursor: pointer;
@@ -35,8 +35,22 @@ export const Title = styled.div`
   padding-left: 30px;
 `
 
-export const File = styled.img`
+export const IconBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+`
+
+export const Icon = styled.img`
   place-self: center;
+  margin-right: 10px;
+  src: ${props => props.src};
+
+  :hover{
+    transform: scale(1.08);
+  }
 `
 
 export const Date = styled.div`
