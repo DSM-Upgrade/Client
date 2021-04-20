@@ -5,7 +5,7 @@ const initialState = {
   student_num: "",
   username: "",
   field: "",
-  profile: "",
+  profile: null,
 };
 
 const loginUserReducer = (state = initialState, action) => {
