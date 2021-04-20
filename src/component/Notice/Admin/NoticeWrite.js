@@ -18,7 +18,7 @@ const NoticeWrite = () => {
       <S.Wrapper>
         <S.TitleInner>
           <S.NoticeTitle placeholder="제목을 입력하세요"></S.NoticeTitle>
-          <S.Inner>
+          {/* <S.Inner>
             <S.NoticeType type='radio' name='type' id='common' checked onClick={handleNoticeType}/>
             <label for='common'>공지</label>
             <S.NoticeType type='radio' name='type' id='vote' onClick={handleNoticeType}/>
@@ -29,7 +29,7 @@ const NoticeWrite = () => {
               <label for='single'>단일</label>
             <S.NoticeType type='radio' name='vote' id='multi' onClick={handleNoticeType}/>
               <label for='multi'>복수</label>
-          </S.Inner>
+          </S.Inner> */}
         </S.TitleInner>
         <hr />
         <Common />
