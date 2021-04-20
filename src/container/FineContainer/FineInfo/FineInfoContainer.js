@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import FineInfo from "../../../component/Fine/FineInfo/FineInfo";
-import { MODAL_ACTION_CREATERS } from "../../../module/action/modal";
+import { modalActionCreaters } from "../../../module/action/modal";
 import FineModalContainer from "../../Modal/FineModalContainer/FineModalContainer";
 
 const FineInfoContainer = () => {
@@ -29,7 +29,7 @@ const FineInfoContainer = () => {
     },
   ];
 
-  const { showModal } = MODAL_ACTION_CREATERS;
+  const { showModal } = modalActionCreaters;
   const dispatch = useDispatch();
   const modalOn = useCallback(() => {
     dispatch(showModal(FineModalContainer));
