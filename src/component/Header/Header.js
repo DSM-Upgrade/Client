@@ -1,9 +1,5 @@
 import React,{ useState } from 'react';
-<<<<<<< HEAD
-// import { logo } from '../../assets/header';
-=======
 import { logo } from '../../assets/header';
->>>>>>> main
 import { Link } from 'react-router-dom';
 import * as S from './style';
 
@@ -16,22 +12,23 @@ const Header = () => {
 
   return (
     <S.Container>
-<<<<<<< HEAD
-      {/* <img src={logo} /> */}
-=======
       <img src={logo} />
->>>>>>> main
+
       <S.SignWrapper>
         {isLogin ?
-          <div>
+          <S.SignText to='/myPage' as={Link}>MyPage</S.SignText>
+          :
+          <div style={{
+            display:"flex",
+            flexDirection:"column"
+          }}>
             <S.SignText to='/login' as={Link}>login</S.SignText>
             <S.SignText to='/register' as={Link}>register</S.SignText>
-          </div> :
-          <S.SignText to='/myPage' as={Link}>MyPage</S.SignText>
+          </div>
           }
       </S.SignWrapper>
       <S.NavWrap>
-        <S.NavItem to="/main" activeStyle={activeStyle}>Main</S.NavItem>
+        <S.NavItem to="/" activeStyle={activeStyle}>Main</S.NavItem>
         <S.NavItem to="/notice" activeStyle={activeStyle}>Notice</S.NavItem>
         <S.NavItem to="/homework" activeStyle={activeStyle}>Homework</S.NavItem>
         <S.NavItem to="/fine" activeStyle={activeStyle}>Fine</S.NavItem>
