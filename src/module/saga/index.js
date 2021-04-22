@@ -1,10 +1,10 @@
 import { all } from "redux-saga/effects";
 
 import fieldSaga from "./field";
-import myPageSaga from "./myPage";
+import loginUserSaga from "./loginUser";
 
 function* rootSaga() {
-  yield all([fieldSaga(), myPageSaga()]);
+  yield all([fieldSaga(), loginUserSaga()]);
 }
 
 export default rootSaga;
