@@ -3,7 +3,7 @@ import React, { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { fieldActionCreaters } from "../../module/action/field";
-import { myPageActionCreaters } from "../../module/action/myPage";
+import { loginUserActionCreaters } from "../../module/action/loginUser";
 
 import * as S from "./style";
 
@@ -14,18 +14,18 @@ const MyPagePage = () => {
   const dispatch = useDispatch();
 
   const { fetchFieldsSaga } = fieldActionCreaters;
-  const { getStdInfoSaga } = myPageActionCreaters;
+  const { fetchStdInfoSaga } = loginUserActionCreaters;
 
   const dispatchFetchFieldSaga = useCallback(() => {
     dispatch(fetchFieldsSaga());
   }, [dispatch]);
-  const dispatchGetStdInfoSaga = useCallback(() => {
-    dispatch(getStdInfoSaga());
+  const dispatchFetchStdInfoSaga = useCallback(() => {
+    dispatch(fetchStdInfoSaga());
   }, [dispatch]);
 
   useEffect(() => {
     dispatchFetchFieldSaga();
-    dispatchGetStdInfoSaga();
+    dispatchFetchStdInfoSaga();
   }, []);
 
   return (
