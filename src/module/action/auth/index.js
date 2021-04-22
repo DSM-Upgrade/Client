@@ -9,12 +9,27 @@ const getSignUpListSaga = (payload) => ({
   payload,
 });
 
+const CHANGE_PASSWORD_SAGA = "auth/CHANGE_PASSWORD_SAGA";
+const changePasswordSaga = (payload) => ({
+  type: CHANGE_PASSWORD_SAGA,
+  payload,
+});
+const CHANGE_PASSWORD_SAGA_SUCCESS = "auth/CHANGE_PASSWORD_SAGA_SUCCESS";
+const changePasswordSagaSuccess = (payload) => ({
+  type: CHANGE_PASSWORD_SAGA_SUCCESS,
+  payload,
+});
+
 export const authActions = {
   SET_SIGN_UP_LIST,
   GET_SIGN_UP_LIST_SAGA,
+  CHANGE_PASSWORD_SAGA,
+  CHANGE_PASSWORD_SAGA_SUCCESS,
 };
 
 export const authActionCreaters = {
   setSignUpList,
   getSignUpListSaga,
+  changePasswordSaga,
+  changePasswordSagaSuccess,
 };
