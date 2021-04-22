@@ -1,27 +1,37 @@
 import { loginUserActions } from "../../action/loginUser";
 
 const initialState = {
-  name: "",
-  student_num: "",
-  username: "",
-  field: "",
-  profile: null,
+  userInfo: {
+    name: "",
+    student_num: "",
+    username: "",
+    field: "",
+    profile: null,
+  },
 };
 
 const loginUserReducer = (state = initialState, action) => {
-  const { SET_STD_INFO, SET_PROFILE } = loginUserActions;
+  const {
+    SET_STD_INFO,
+    SET_PROFILE,
+    FETCH_STD_INFO_SAGA_SUCCESS,
+  } = loginUserActions;
 
   switch (action.type) {
-    case SET_STD_INFO: {
+    case SET_STD_INFO:
+    case FETCH_STD_INFO_SAGA_SUCCESS: {
       return {
         ...state,
-        ...action.payload,
+        userInfo: { ...action.payload },
       };
     }
     case SET_PROFILE: {
       return {
         ...state,
-        profile: action.payload,
+        userInfo: {
+          ...state.userInfo,
+          profile: action.payload,
+        },
       };
     }
     default: {
