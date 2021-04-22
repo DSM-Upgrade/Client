@@ -68,8 +68,6 @@ export const requestApiWithoutBodyWithToken = async (method, url, header) => {
 
     return res;
   } catch (error) {
-    console.log(error);
-
     throw error.response;
   }
 };
@@ -94,8 +92,6 @@ export const requestApiWithBodyWithToken = async (
 
     return res;
   } catch (error) {
-    console.log(error.response);
-
     throw error.response;
   }
 };
