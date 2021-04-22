@@ -6,12 +6,10 @@ import {
   requestApiWithoutBodyWithToken,
 } from "../../../lib/requestApi";
 
-import { myPageActions } from "../../action/myPage";
+import { loginUserActions } from "../../action/loginUser";
 
-function* getStdInfo() {
+function* fetchStdInfo() {
   try {
-    const { GET_STD_INFO_SAGA_SUCCESS } = myPageActions;
-
     const HTTP_METHOD = methodType.GET;
     const REQUEST_URL = myPageApi.stdInfo();
 
@@ -21,21 +19,21 @@ function* getStdInfo() {
       REQUEST_URL
     );
 
+    const { FETCH_STD_INFO_SAGA_SUCCESS } = loginUserActions;
+
     yield put({
-      type: GET_STD_INFO_SAGA_SUCCESS,
+      type: FETCH_STD_INFO_SAGA_SUCCESS,
       payload: res.data,
     });
-
-    console.log(res);
   } catch (error) {
     console.log(error);
   }
 }
 
-function* myPageSaga() {
-  const { GET_STD_INFO_SAGA } = myPageActions;
+function* loginUserSaga() {
+  const { FETCH_STD_INFO_SAGA } = loginUserActions;
 
-  yield takeLatest(GET_STD_INFO_SAGA, getStdInfo);
+  yield takeLatest(FETCH_STD_INFO_SAGA, fetchStdInfo);
 }
 
-export default myPageSaga;
+export default loginUserSaga;
