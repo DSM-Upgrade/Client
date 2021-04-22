@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const BASE_URL = "";
+import { getItem } from "../utils/LocalStorageUtils";
 
-const ACCESS_TOKEN_NAME = "Authorization";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ACCESS_TOKEN = "accessToken";
 const REFRESH_TOKEN = "refreshToken";
+const ACCESS_TOKEN_NAME = "Authorization";
 
 export const methodType = {
   GET: "get",
@@ -53,20 +55,20 @@ export const requestApiWithoutBodyWithoutToken = async (
 
 export const requestApiWithoutBodyWithToken = async (method, url, header) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
+    // const accessToken = getItem(ACCESS_TOKEN)
+    const accessToken =
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
 
     const res = await axios[method](BASE_URL + url, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
         ...header,
       },
     });
 
-    console.log(res);
-
     return res;
   } catch (error) {
-    console.log(error.response);
+    console.log(error);
 
     throw error.response;
   }
@@ -79,11 +81,13 @@ export const requestApiWithBodyWithToken = async (
   header
 ) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
+    // const accessToken = getItem(ACCESS_TOKEN);
+    const accessToken =
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
 
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
         ...header,
       },
     });
