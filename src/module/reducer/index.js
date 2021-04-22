@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
 import field from "./field";
-import modal from "./modal";
 import loginUser from "./loginUser";
+import modal from "./modal";
 
 const rootReducer = combineReducers({
   field,
