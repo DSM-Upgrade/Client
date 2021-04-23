@@ -8,7 +8,8 @@ import Mypage from "../../component/MyPage/MyPage";
 
 const MyPageContanier = () => {
   const backgroundImg = mypageBackground;
-  const isAdmin = getItem("is_admin") ?? false;
+  // const isAdmin = getItem("is_admin") ?? false;
+  const isAdmin = true;
 
   return <Mypage backgroundImg={backgroundImg} isAdmin={isAdmin} />;
 };
