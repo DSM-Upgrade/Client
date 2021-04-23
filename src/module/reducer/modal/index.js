@@ -1,4 +1,4 @@
-import { MODAL_ACTIONS } from "../../action/modal";
+import { modalActions } from "../../action/modal";
 
 const initialState = {
   isShow: false,
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 const modalReducer = (state = initialState, action) => {
-  const { SHOW_MODAL, DROP_MODAL, SET_ERROR } = MODAL_ACTIONS;
+  const { SHOW_MODAL, DROP_MODAL, SET_ERROR } = modalActions;
   switch (action.type) {
     case SHOW_MODAL: {
       return {

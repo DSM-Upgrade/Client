@@ -1,4 +1,6 @@
-const dev_initialState = {
+import { authActions } from "../../action/auth";
+
+const initialState = {
   signUpList: [
     {
       username: "",
@@ -8,17 +10,22 @@ const dev_initialState = {
       student_num: "",
     },
   ],
+  passwordInfo: {
+    nowPassword: "",
+    newPassword: "",
+    reEnterPassword: "",
+  },
 };
 
-const initialState = {
-  signUpList: [],
-};
+const authReducer = (state = initialState, action) => {
+  const { CHANGE_PASSWORD_SAGA_SUCCESS } = authActions;
 
-// const isDev = prcess.env
-
-const authReducer = (state = dev_initialState, action) => {
   switch (action.type) {
-    case "1": {
+    case CHANGE_PASSWORD_SAGA_SUCCESS: {
+      return {
+        ...state,
+        passwordInfo: action.payload,
+      };
     }
     default: {
       return {
@@ -27,3 +34,5 @@ const authReducer = (state = dev_initialState, action) => {
     }
   }
 };
+
+export default authReducer;

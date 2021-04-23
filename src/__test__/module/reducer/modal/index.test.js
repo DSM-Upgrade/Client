@@ -1,16 +1,16 @@
 import React from "react";
 
 import {
-  MODAL_ACTIONS,
-  MODAL_ACTION_CREATERS,
+  modalActions,
+  modalActionCreaters,
 } from "../../../../module/action/modal";
 import modalReducer from "../../../../module/reducer/modal";
 
 import FineModalContainer from "../../../../container/Modal/FineModalContainer/FineModalContainer";
 
 describe("modal reducer", () => {
-  const { SHOW_MODAL, DROP_MODAL, SET_ERROR } = MODAL_ACTIONS;
-  const { showModal, dropModal, setError } = MODAL_ACTION_CREATERS;
+  const { SHOW_MODAL, DROP_MODAL, SET_ERROR } = modalActions;
+  const { showModal, dropModal, setError } = modalActionCreaters;
 
   it.each`
     action        | actionCreater | payload
