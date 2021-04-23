@@ -42,50 +42,54 @@ export const fineApi = {
   },
 };
 
-// 공지사항 - 고도현
+// 공지사항 - 안영준
 export const noticeApi = {
-  getAllNoticeList: () => {
-    return `/notice/list`;
+  fetchNoticeListAndVoteList: () => {
+    return `/notification`;
   },
-  getNoticeContent: (noticeId) => {
-    return `/notice/content/${noticeId}`;
+  registNotice: () => {
+    return `/notification/notice`;
   },
-  registrationNotice: () => {
-    return `/notice/registration`;
+  modifyNotice: (notificationId) => {
+    return `/notification/notice/${notificationId}`;
   },
-  changeNotice: () => {
-    return `/notice/change`;
+
+  getNoticeContent: (notificationId) => {
+    return `/notification/notice/${notificationId}`;
   },
-  eliminationNotice: () => {
-    return `/notice/elimination`;
+  eliminationNotice: (notificationId) => {
+    return `/notification/${notificationId}`;
+  },
+  registVote: () => {
+    return `/notification/vote`;
+  },
+  modifyVote: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
+  },
+  getVoteContent: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
+  },
+  vote: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
   },
 };
 
-// 어드민 - 안영준 (미완성)
+// 어드민 - 안영준
 export const adminApi = {
   authorityHomework: () => {
-    return `/admin/authority/homework`;
+    return `/authority/homework`;
   },
   authorityFine: () => {
-    return `/admin/authority/fine`;
+    return `/authority/fine`;
   },
   auth: () => {
-    return `/admin/auth`;
-  },
-  enrollNotice: () => {
-    return `/admin/notice`;
-  },
-  enrollVote: () => {
-    return `/admin/vote`;
-  },
-  recordFine: () => {
-    return `/admin/fine`;
+    return `/authority/auth`;
   },
   getUserList: () => {
-    return `/list/user`;
+    return `/authority/list/user`;
   },
-  getFineList: () => {
-    return `/list/fine`;
+  getAuthList: () => {
+    return `/authority/list/auth`;
   },
 };
 
