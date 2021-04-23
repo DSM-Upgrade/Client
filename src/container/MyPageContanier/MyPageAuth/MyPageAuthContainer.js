@@ -1,29 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { adminActionCreaters } from "../../../module/action/admin";
+
 import MyPageAuth from "../../../component/MyPage/MyPageAuth/MyPageAuth";
 
 const MyPageAuthContainer = () => {
-  const authList = [
-    {
-      stdNum: "3415",
-      name: "유시온",
-      id: "1",
-    },
-    {
-      stdNum: "3415",
-      name: "유시온2",
-      id: "2",
-    },
-    {
-      stdNum: "3415",
-      name: "유시온3",
-      id: "3",
-    },
-    {
-      stdNum: "3415",
-      name: "유시온4",
-      id: "4",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { authList } = useSelector((state) => state.admin);
+
+  const { fetchAuthListSaga } = adminActionCreaters;
+
+  const getAuthList = () => {
+    dispatch(fetchAuthListSaga());
+  };
+
+  useEffect(() => {
+    getAuthList();
+  }, []);
 
   return <MyPageAuth authList={authList} />;
 };
