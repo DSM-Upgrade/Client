@@ -31,6 +31,30 @@ function* fetchStdInfo() {
   }
 }
 
+function* modifyProfile(action) {
+  try {
+    const { file } = action.payload;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const HTTP_METHOD = methodType.PATCH;
+    const REQUEST_URL = myPageApi.changeProfile();
+    const REQUEST_BODY = formData;
+
+    const res = yield call(
+      requestApiWithBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL,
+      REQUEST_BODY
+    );
+
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* modfyStdInfo(action) {
   try {
     const { student_num, field_id } = action.payload;
@@ -66,15 +90,18 @@ function* modfyStdInfo(action) {
         break;
       default:
     }
-
-    console.log(error);
   }
 }
 
 function* loginUserSaga() {
-  const { FETCH_STD_INFO_SAGA, MODIFY_STD_INFO_SAGA } = loginUserActions;
+  const {
+    FETCH_STD_INFO_SAGA,
+    MODIFY_PROFILE_SAGA,
+    MODIFY_STD_INFO_SAGA,
+  } = loginUserActions;
 
   yield takeLatest(FETCH_STD_INFO_SAGA, fetchStdInfo);
+  yield takeLatest(MODIFY_PROFILE_SAGA, modifyProfile);
   yield takeLatest(MODIFY_STD_INFO_SAGA, modfyStdInfo);
 }
 
