@@ -82,7 +82,7 @@ export const adminApi = {
   authorityFine: () => {
     return `/authority/fine`;
   },
-  auth: () => {
+  accessAuth: () => {
     return `/authority/auth`;
   },
   getUserList: () => {
