@@ -1,4 +1,4 @@
-import { homeworkActions } from "../../action/homework";
+import { HOMEWORK_ACTIONS } from "../../action/homework";
 
 const initialState = {
   homeworkList: {
@@ -16,7 +16,7 @@ const homeworkReducer = (state = initialState, action) => {
     SET_HOMEWORK_LIST,
     GET_HOMEWORK_LIST_SAGA,
     CHANGE_HOMEWORK_LIST_SAGA,
-  } = homeworkActions;
+  } = HOMEWORK_ACTIONS;
 
   switch (action.type) {
     case SET_HOMEWORK_LIST: {
@@ -30,13 +30,13 @@ const homeworkReducer = (state = initialState, action) => {
         ...state,
         homeworkList: action.payload,
       };
-    }
+    }*/
     case CHANGE_HOMEWORK_LIST_SAGA: {
       return {
         ...state,
         homeworkList: action.payload,
       };
-    } */
+    }
     default: {
       return {
         ...state,

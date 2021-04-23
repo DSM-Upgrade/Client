@@ -3,6 +3,7 @@ const setHomeworkList = (payload) => ({
   type: SET_HOMEWORK_LIST,
   payload,
 });
+
 const GET_HOMEWORK_LIST_SAGA = "homework/GET_HOMEWORK_LIST_SAGA";
 const getHomeworkListSaga = (payload) => ({
   type: GET_HOMEWORK_LIST_SAGA,
@@ -15,13 +16,13 @@ const changeHomeworkListSaga = (payload) => ({
   payload,
 });
 
-export const homeworkActions = {
+export const HOMEWORK_ACTIONS = {
   SET_HOMEWORK_LIST,
   GET_HOMEWORK_LIST_SAGA,
   CHANGE_HOMEWORK_LIST_SAGA,
 };
 
-export const homeworkActionCreaters = {
+export const HOMEWORK_ACTION_CREATER = {
   setHomeworkList,
   getHomeworkListSaga,
   changeHomeworkListSaga,
