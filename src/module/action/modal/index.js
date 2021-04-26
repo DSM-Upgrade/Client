@@ -15,13 +15,13 @@ const setError = (payload) => ({
   payload,
 });
 
-export const MODAL_ACTIONS = {
+export const modalActions = {
   SHOW_MODAL,
   DROP_MODAL,
   SET_ERROR,
 };
 
-export const MODAL_ACTION_CREATERS = {
+export const modalActionCreaters = {
   showModal,
   dropModal,
   setError,

@@ -1,5 +1,5 @@
 // 숙제 - 고도현
-export const homework = {
+export const homeworkApi = {
   getHomeworkList: (userId) => {
     return `/homework/list/${userId}`;
   },
@@ -24,7 +24,7 @@ export const homework = {
 };
 
 // 벌금 - 고도현
-export const fine = {
+export const fineApi = {
   getFineListById: (userId) => {
     return `/fine/list/${userId}`;
   },
@@ -42,55 +42,59 @@ export const fine = {
   },
 };
 
-// 공지사항 - 고도현
-export const notice = {
-  getAllNoticeList: () => {
-    return `/notice/list`;
+// 공지사항 - 안영준
+export const noticeApi = {
+  fetchNoticeListAndVoteList: () => {
+    return `/notification`;
   },
-  getNoticeContent: (noticeId) => {
-    return `/notice/content/${noticeId}`;
+  registNotice: () => {
+    return `/notification/notice`;
   },
-  registrationNotice: () => {
-    return `/notice/registration`;
+  modifyNotice: (notificationId) => {
+    return `/notification/notice/${notificationId}`;
   },
-  changeNotice: () => {
-    return `/notice/change`;
+
+  getNoticeContent: (notificationId) => {
+    return `/notification/notice/${notificationId}`;
   },
-  eliminationNotice: () => {
-    return `/notice/elimination`;
+  eliminationNotice: (notificationId) => {
+    return `/notification/${notificationId}`;
+  },
+  registVote: () => {
+    return `/notification/vote`;
+  },
+  modifyVote: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
+  },
+  getVoteContent: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
+  },
+  vote: (notificationId) => {
+    return `/notification/vote/${notificationId}`;
   },
 };
 
-// 어드민 - 안영준 (미완성)
-export const admin = {
+// 어드민 - 안영준
+export const adminApi = {
   authorityHomework: () => {
-    return `/admin/authority/homework`;
+    return `/authority/homework`;
   },
   authorityFine: () => {
-    return `/admin/authority/fine`;
+    return `/authority/fine`;
   },
-  auth: () => {
-    return `/admin/auth`;
-  },
-  enrollNotice: () => {
-    return `/admin/notice`;
-  },
-  enrollVote: () => {
-    return `/admin/vote`;
-  },
-  recordFine: () => {
-    return `/admin/fine`;
+  accessAuth: () => {
+    return `/authority/auth`;
   },
   getUserList: () => {
-    return `/list/user`;
+    return `/authority/list/user`;
   },
-  getFineList: () => {
-    return `/list/fine`;
+  getAuthList: () => {
+    return `/authority/list/auth`;
   },
 };
 
 //인증 - 김대웅
-export const auth = {
+export const authApi = {
   login: () => {
     return `/auth`;
   },
@@ -103,7 +107,7 @@ export const auth = {
 };
 
 // 마이페이지 - 김대웅
-export const mypage = {
+export const myPageApi = {
   stdInfo: () => {
     return `/student`;
   },
@@ -117,6 +121,6 @@ export const mypage = {
     return `/student/profile`;
   },
   field: () => {
-    return `fields`;
+    return `/fields`;
   },
 };
