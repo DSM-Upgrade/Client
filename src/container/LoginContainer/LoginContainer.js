@@ -3,9 +3,9 @@ import LoginPage from "../../component/LoginPage/LoginPage";
 
 const LoginContainer = () => {
   return (
-    <div>
+    <>
       <LoginPage />
-    </div>
+    </>
   );
 };
 
