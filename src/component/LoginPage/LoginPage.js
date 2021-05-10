@@ -1,5 +1,6 @@
 import React from "react";
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
+import { Link } from 'react-router-dom';
 import * as S from "./style";
 
 
@@ -13,7 +14,7 @@ const LoginPage = () => {
           <input placeholder="id" />
           <input type="password" placeholder="password" />
           <button>로그인</button>
-          <a href="#">회원가입</a>
+          <Link to='/register'>회원가입</Link>
         </S.LoginBox>
         <div></div>
         <div></div>

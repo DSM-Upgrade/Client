@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import selectboxArrow from "../../assets/LoginPage/selectboxArrow.png";
-import backgroundTriangle1 from "../../assets/LoginPage/backgroundTriangle1.png";
-import backgroundTriangle2 from "../../assets/LoginPage/backgroundTriangle2.png";
-import backgroundTriangle3 from "../../assets/LoginPage/backgroundTriangle3.png";
+import selectboxArrow from "../../../assets/LoginPage/selectboxArrow.png";
+import backgroundTriangle1 from "../../../assets/LoginPage/backgroundTriangle1.png";
+import backgroundTriangle2 from "../../../assets/LoginPage/backgroundTriangle2.png";
+import backgroundTriangle3 from "../../../assets/LoginPage/backgroundTriangle3.png";
 
 const MainWrapper = styled.div`
   display: flex;

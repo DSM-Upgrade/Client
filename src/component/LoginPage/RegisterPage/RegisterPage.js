@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
+import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer";
 import * as S from "./style";
 
 const RegisterPage = () => {
