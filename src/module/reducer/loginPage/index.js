@@ -1,21 +1,44 @@
 import { loginPageActions } from "../../action/loginPage";
 
-const initialState = {};
+const initialState = {
+  login: {
+    form: {
+      username: "",
+      password: "",
+    },
+  },
+  register: {
+    form: {
+      username: "",
+      password: "",
+      name: "",
+      fieldId: "",
+      studentNum: "",
+    },
+  },
+};
 
 const loginPageReducer = (state = initialState, action) => {
-  const { AUTH_LOGIN, AUTH_SIGN_UP, AUTH_RE_ACCESS_TOKEN } = loginPageActions;
-
+  const { AUTH_LOGIN, AUTH_SIGN_UP } = loginPageActions;
   switch (action.type) {
     case AUTH_LOGIN: {
       return {
         ...state,
-        loginSuccess: action.payload,
+        login: {
+          form: {
+            ...action.payload,
+          },
+        },
       };
     }
     case AUTH_SIGN_UP: {
       return {
         ...state,
-        signUpSuccess: action.payload,
+        register: {
+          form: {
+            ...action.payload,
+          },
+        },
       };
     }
     default: {
@@ -23,3 +46,5 @@ const loginPageReducer = (state = initialState, action) => {
     }
   }
 };
+
+export default loginPageReducer;
