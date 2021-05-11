@@ -1,43 +1,30 @@
 import { loginPageActions } from "../../action/loginPage";
 
 const initialState = {
-  login: {
-    form: {
-      username: "",
-      password: "",
-    },
-  },
-  register: {
-    form: {
-      username: "",
-      password: "",
-      name: "",
-      fieldId: "",
-      studentNum: "",
-    },
+  authToken: {
+    access_token: "",
+    refresh_token: "",
+    is_admin: false,
   },
 };
 
 const loginPageReducer = (state = initialState, action) => {
-  const { AUTH_LOGIN, AUTH_SIGN_UP } = loginPageActions;
+  const { SET_AUTH_TOKEN, FETCH_AUTH_TOKEN } = loginPageActions;
   switch (action.type) {
-    case AUTH_LOGIN: {
+    case SET_AUTH_TOKEN: {
       return {
         ...state,
-        login: {
-          form: {
-            ...action.payload,
-          },
+        authToken: {
+          ...action.payload,
         },
       };
     }
-    case AUTH_SIGN_UP: {
+    case FETCH_AUTH_TOKEN: {
       return {
         ...state,
-        register: {
-          form: {
-            ...action.payload,
-          },
+        authToken: {
+          ...authToken,
+          access_token: action.payload,
         },
       };
     }

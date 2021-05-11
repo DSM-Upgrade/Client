@@ -1,20 +1,21 @@
-const AUTH_LOGIN = "loginPage/AUTH_LOGIN";
-const authLogin = (payload) => ({
-  type: AUTH_LOGIN,
+const SET_AUTH_TOKEN = "loginPage/SET_AUTH_TOKEN";
+const setAuthToken = (payload) => ({
+  type: SET_AUTH_TOKEN,
   payload,
 });
-const AUTH_SIGN_UP = "loginPage/AUTH_SIGNUP";
-const authSignUp = (payload) => ({
-  type: AUTH_SIGN_UP,
+
+const FETCH_AUTH_TOKEN = "loginPage/FETCH_AUTH_TOKEN";
+const fetchAuthToken = (payload) => ({
+  type: POST_REFRESH_TOKEN,
   payload,
 });
 
 export const loginPageActions = {
-  AUTH_LOGIN,
-  AUTH_SIGN_UP,
+  SET_AUTH_TOKEN,
+  FETCH_AUTH_TOKEN,
 };
 
 export const loginPageActionsCreaters = {
-  authLogin,
-  authSignUp,
+  setAuthToken,
+  fetchAuthToken,
 };
