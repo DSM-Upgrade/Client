@@ -1,43 +1,31 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-const LoginPage = () => {
-  const [loginValues, setLoginValues] = useState({
-    username: "",
-    password: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("submit");
-    console.log(loginValues);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginValues({ ...loginValues, [name]: value });
-  };
+const LoginPage = (props) => {
+  const { loginData, onSubmitLoginFormData, onChangeLoginData } = props;
+  const { username, password } = loginData;
 
   return (
     <S.MainWrapper>
       <HeaderContainer />
       <S.MainBox>
-        <S.LoginBox onSubmit={handleSubmit}>
+        <S.LoginBox onSubmit={onSubmitLoginFormData}>
           <h1>LOGIN</h1>
           <input
             placeholder="id"
-            value={loginValues.username}
+            value={username}
             name="username"
-            onChange={handleChange}
+            onChange={onChangeLoginData}
           />
           <input
             type="password"
             name="password"
-            value={loginValues.password}
+            value={password}
             placeholder="password"
-            onChange={handleChange}
+            onChange={onChangeLoginData}
           />
           <input type="submit" className="submitButton" value="로그인" />
           <Link to="/register">회원가입</Link>
