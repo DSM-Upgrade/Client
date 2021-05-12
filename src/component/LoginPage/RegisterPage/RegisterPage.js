@@ -10,9 +10,9 @@ const RegisterPage = () => {
         <S.RegisterBox>
           <h1>Register</h1>
           <div className="firstLine">
-            <input placeholder="학년" maxlength="1"></input>
-            <input placeholder="반" maxlength="1"></input>
-            <input placeholder="번호" maxlength="2"></input>
+            <input placeholder="학년" maxLength="1"></input>
+            <input placeholder="반" maxLength="1"></input>
+            <input placeholder="번호" maxLength="2"></input>
             <input placeholder="이름"></input>
           </div>
           <div className="anotherLine">
