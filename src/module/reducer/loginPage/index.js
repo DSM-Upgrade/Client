@@ -5,7 +5,7 @@ const initialState = {
     username: "",
     password: "",
     name: "",
-    field_id: "",
+    field_id: 0,
     student_num: "",
   },
   loginInfo: {
@@ -49,6 +49,14 @@ const loginPageReducer = (state = initialState, action) => {
       return {
         ...state,
         loginInfo: {
+          ...action.payload,
+        },
+      };
+    }
+    case AUTH_SIGN_UP: {
+      return {
+        ...state,
+        signUpInfo: {
           ...action.payload,
         },
       };
