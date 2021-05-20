@@ -4,8 +4,20 @@ const authLogIn = (payload) => ({
   payload,
 });
 
+const AUTH_LOG_IN_SAGA = "loginPage/AUTH_LOG_IN_SAGA";
+const authLogInSaga = (payload) => ({
+  type: AUTH_LOG_IN_SAGA,
+  payload,
+});
+
 const AUTH_SIGN_UP = "loginPage/AUTH_SIGN_UP";
 const authSignUp = (payload) => ({
+  type: AUTH_SIGN_UP,
+  payload,
+});
+
+const AUTH_SIGN_UP_SAGA = "loginPage/AUTH_SIGN_UP_SAGA";
+const authSignUpSaga = (payload) => ({
   type: AUTH_SIGN_UP,
   payload,
 });
@@ -22,16 +34,28 @@ const fetchAuthToken = (payload) => ({
   payload,
 });
 
+const FETCH_AUTH_TOKEN_SAGA = "loginPage/FETCH_AUTH_TOKEN_SAGA";
+const fetchAuthTokenSaga = (payload) => ({
+  type: FETCH_AUTH_TOKEN_SAGA,
+  payload,
+});
+
 export const loginPageActions = {
   SET_AUTH_TOKEN,
   FETCH_AUTH_TOKEN,
+  FETCH_AUTH_TOKEN_SAGA,
   AUTH_LOG_IN,
+  AUTH_LOG_IN_SAGA,
   AUTH_SIGN_UP,
+  AUTH_SIGN_UP_SAGA,
 };
 
 export const loginPageActionsCreaters = {
   setAuthToken,
   fetchAuthToken,
+  fetchAuthTokenSaga,
   authLogIn,
+  authLogInSaga,
   authSignUp,
+  authSignUpSaga,
 };
