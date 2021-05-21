@@ -47,11 +47,11 @@ const RegisterPage = (props) => {
               onChange={onChangeSignUpData}
             >
               <option>분야</option>
-              <option value="frontEnd">웹 프론트엔드</option>
-              <option value="backEnd">웹 백엔드</option>
-              <option value="android">안드로이드</option>
-              <option value="IOS">IOS</option>
-              <option value="design">디자인</option>
+              <option value={1}>웹 백엔드</option>
+              <option value={2}>디자인</option>
+              <option value={3}>웹 프론트엔드</option>
+              <option value={4}>안드로이드</option>
+              <option value={5}>IOS</option>
             </select>
           </div>
           <input type="submit" className="submitButton" value="회원가입" />
