@@ -12,7 +12,7 @@ import PasswordModalContainer from "../../../Modal/PasswordModalContainer/Passwo
 
 const ProfileInfoContainer = () => {
   const dispatch = useDispatch();
-  const { fields } = useSelector((state) => state.field);
+  const fields = useSelector((state) => state.field.fields);
   const loginUserData = useSelector((state) => state.loginUser.userInfo);
 
   const [isChange, setIsChange] = useState(false);

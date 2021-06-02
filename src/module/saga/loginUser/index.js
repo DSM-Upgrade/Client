@@ -6,6 +6,7 @@ import {
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithToken,
 } from "../../../lib/requestApi";
+import { dropDownActions } from "../../action/dropDown";
 
 import { loginUserActions } from "../../action/loginUser";
 
@@ -20,8 +21,13 @@ function* fetchStdInfo() {
       REQUEST_URL
     );
 
+    const { INIT_DROP_DOWN_ITEMS } = dropDownActions;
     const { FETCH_STD_INFO_SAGA_SUCCESS } = loginUserActions;
 
+    yield put({
+      type: INIT_DROP_DOWN_ITEMS,
+      payload: { dropDownKind: "field", dropDownItem: res.data.field },
+    });
     yield put({
       type: FETCH_STD_INFO_SAGA_SUCCESS,
       payload: res.data,
@@ -48,8 +54,6 @@ function* modifyProfile(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
-
-    console.log(res);
   } catch (error) {
     console.log(error);
   }

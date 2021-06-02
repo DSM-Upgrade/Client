@@ -1,58 +1,53 @@
 import React from "react";
+
 import * as S from "./style";
 
+import DropDownContainer from "../../../../feature/dropDown/DropDownContainer";
+import ProfileInput from "../../../../feature/profile/proflieInput/ProfileInput";
+
 const ProfileInfo = (props) => {
-  const { fields, userData, isChange } = props;
+  const { userData, isChange } = props;
   const { modalOn, onModifyClick, onChangeUserData } = props;
 
-  const { name, student_num, username, field } = userData;
+  const { name, student_num, username } = userData;
+
+  const ProfileInputNameProps = {
+    title: "이름",
+    id: "profile--input--name",
+    name: "name",
+    type: "text",
+    readOnly: true,
+    defaultValue: name,
+  };
+  const ProfileInputIdProps = {
+    title: "아이디",
+    id: "profile--input--username",
+    name: "username",
+    type: "text",
+    readOnly: true,
+    defaultValue: username,
+  };
+  const ProfileInputStdNumProps = {
+    title: "학번",
+    id: "profile--input--std-num",
+    name: "student_num",
+    type: "text",
+    readOnly: false,
+    defaultValue: student_num,
+    onChange: onChangeUserData,
+  };
 
   return (
     <S.Container>
+      <ProfileInput {...ProfileInputNameProps} />
+      <ProfileInput {...ProfileInputIdProps} />
+      <ProfileInput {...ProfileInputStdNumProps} />
+      <DropDownContainer dropDownKind="field" />
       <S.InfoWrap>
-        <S.InfoName>이름</S.InfoName>
-        <S.InfoValue type="text" defaultValue={name} readOnly />
-      </S.InfoWrap>
-      <S.InfoWrap>
-        <S.InfoName htmlFor="studentNum">학번</S.InfoName>
-        <S.InfoValue
-          id="studentNum"
-          type="text"
-          name="student_num"
-          defaultValue={student_num}
-          onChange={onChangeUserData}
-        />
-      </S.InfoWrap>
-      <S.InfoWrap>
-        <S.InfoName htmlFor="field">분야</S.InfoName>
-        <S.FieldSelect
-          id="field"
-          name="field"
-          defaultValue={field}
-          onChange={onChangeUserData}
-        >
-          {fields?.length &&
-            fields.map((fieldData) => (
-              <S.Field key={fieldData.id} defaultValue={fieldData.name}>
-                {fieldData.name}
-              </S.Field>
-            ))}
-        </S.FieldSelect>
-      </S.InfoWrap>
-      <S.InfoWrap>
-        <S.InfoName>아이디</S.InfoName>
-        <S.InfoValue type="text" defaultValue={username} readOnly />
-      </S.InfoWrap>
-      <S.InfoWrap>
-        <S.InfoName>비밀번호</S.InfoName>
-        <S.ModifyButton onClick={modalOn}>수정</S.ModifyButton>
+        <S.ModifyButton onClick={modalOn}>비밀번호 수정</S.ModifyButton>
       </S.InfoWrap>
       <S.CompleteButtonWrap>
-        <S.CompleteButton
-          show={isChange}
-          disabled={!isChange}
-          onClick={onModifyClick}
-        >
+        <S.CompleteButton show={isChange} onClick={onModifyClick}>
           변경사항 저장
         </S.CompleteButton>
       </S.CompleteButtonWrap>

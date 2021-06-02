@@ -49,18 +49,19 @@ export const FieldSelect = styled.select`
 export const Field = styled.option``;
 
 export const ModifyButton = styled.button`
-  width: 84px;
+  width: 120px;
   height: 32px;
   color: #ffffff;
   font-size: 16px;
   outline: none;
   border: none;
-  border-radius: 16px;
+  border-radius: 6px;
   background: #3b87ee;
   margin-left: 22px;
 
   &:hover {
     cursor: pointer;
+    background: #639ceb;
   }
 `;
 

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { fieldActionCreaters } from "../../module/action/field";
 import { loginUserActionCreaters } from "../../module/action/loginUser";
+import { dropDownActionCreaters } from "../../module/action/dropDown";
 
 import * as S from "./style";
 
@@ -15,17 +16,22 @@ const MyPagePage = () => {
 
   const { fetchFieldsSaga } = fieldActionCreaters;
   const { fetchStdInfoSaga } = loginUserActionCreaters;
+  const { fetchDefaultDropDownItemsSaga } = dropDownActionCreaters;
 
-  const dispatchFetchFieldSaga = useCallback(() => {
+  const dispatchFetchFieldSaga = () => {
     dispatch(fetchFieldsSaga());
-  }, [dispatch]);
-  const dispatchFetchStdInfoSaga = useCallback(() => {
+  };
+  const dispatchFetchStdInfoSaga = () => {
     dispatch(fetchStdInfoSaga());
-  }, [dispatch]);
+  };
+  const getDefaultPropDownItemSaga = (dropDownKind) => {
+    dispatch(fetchDefaultDropDownItemsSaga({ dropDownKind }));
+  };
 
   useEffect(() => {
     dispatchFetchFieldSaga();
     dispatchFetchStdInfoSaga();
+    getDefaultPropDownItemSaga("field");
   }, []);
 
   return (

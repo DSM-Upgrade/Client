@@ -20,12 +20,6 @@ const modifyStdInfoSaga = (payload) => ({
   payload,
 });
 
-const MODIFY_PASSWORD_SAGA = "loginUser/MODIFY_PASSWORD_SAGA";
-const modifyPasswordSaga = (payload) => ({
-  type: MODIFY_PASSWORD_SAGA,
-  payload,
-});
-
 const SET_PROFILE = "loginUser/SET_PROFILE";
 const setProfile = (payload) => ({
   type: SET_PROFILE,
@@ -42,7 +36,6 @@ export const loginUserActions = {
   FETCH_STD_INFO_SAGA,
   FETCH_STD_INFO_SAGA_SUCCESS,
   MODIFY_STD_INFO_SAGA,
-  MODIFY_PASSWORD_SAGA,
   SET_PROFILE,
   MODIFY_PROFILE_SAGA,
 };
@@ -52,7 +45,6 @@ export const loginUserActionCreaters = {
   fetchStdInfoSaga,
   fetchStdInfoSagaSuccess,
   modifyStdInfoSaga,
-  modifyPasswordSaga,
   setProfile,
   modifyProfileSaga,
 };

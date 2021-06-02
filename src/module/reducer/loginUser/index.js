@@ -5,7 +5,7 @@ const initialState = {
     name: "",
     student_num: "",
     username: "",
-    field: "",
+    field: { id: null, name: "" },
     profile: null,
   },
 };
