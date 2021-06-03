@@ -3,17 +3,17 @@ import * as S from "./style";
 import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer";
 
 const HomeworkDetailView = (props) => {
-  const { HomeworkDetailViewJson } = props;
-  console.log(HomeworkDetailViewJson);
+  const { linkProps } = props;
+  console.log(linkProps);
   return (
     <S.Container>
       <HeaderContainer />
       <S.MainWrapper>
         <S.TitleContainer>
-          <h1>{HomeworkDetailViewJson.Title}</h1>
+          <h1>{linkProps.Title}</h1>
           <div className="Wrapper">
-            <p>관리자 • {HomeworkDetailViewJson.Start}</p>
-            <p>기한 : {HomeworkDetailViewJson.End}</p>
+            <p>관리자 • {linkProps.Start}</p>
+            <p>기한 : {linkProps.End}</p>
           </div>
         </S.TitleContainer>
         <S.MainSection>
