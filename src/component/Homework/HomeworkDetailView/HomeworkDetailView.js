@@ -6,21 +6,34 @@ const HomeworkDetailView = (props) => {
   const [fileInputName, setFileInputName] = useState([]);
   const [fileList, setFileList] = useState([]);
   const { linkProps } = props;
+  const { Title, Start, End, Id } = linkProps;
   const Name = [];
+  const [homeworkContent, setHomeWorkContent] = useState("");
 
-  const onChangeHanddler = (e) => {
-    clickEvent(e.target.files);
+  const onChangeFileHanddler = (e) => {
+    fileNameInputValue(e.target.files);
     setFileList(e.target.files);
   };
 
-  const clickEvent = (e) => {
+  const fileNameInputValue = (e) => {
     for (let index = 0; index < e.length; index++) {
       Name[index] = e[index].name;
       console.log(fileNameString);
     }
     const fileNameString = `${Name}`;
     setFileInputName(fileNameString);
+  };
+
+  function onSubmit(e) {
+    e.preventDefault();
     console.log(fileList);
+    console.log(homeworkContent);
+    console.log(Id);
+  }
+
+  const onChangeFileFormData = (e) => {
+    const { value } = e.target;
+    setHomeWorkContent(value);
   };
 
   return (
@@ -28,27 +41,30 @@ const HomeworkDetailView = (props) => {
       <HeaderContainer />
       <S.MainWrapper>
         <S.TitleContainer>
-          <h1>{linkProps.Title}</h1>
+          <h1>{Title}</h1>
           <div className="Wrapper">
-            <p>관리자 • {linkProps.Start}</p>
-            <p>기한 : {linkProps.End}</p>
+            <p>관리자 • {Start}</p>
+            <p>기한 : {End}</p>
           </div>
         </S.TitleContainer>
-        <S.MainSection>
-          <textarea></textarea>
+        <S.MainSection onSubmit={onSubmit}>
+          <textarea
+            name="homeworkContent"
+            onChange={onChangeFileFormData}
+          ></textarea>
           <div className="submitBox">
             <div className="fileWrapper">
               <label htmlFor="inputFile">파일선택</label>
               <input id="fileName" type="text" disabled value={fileInputName} />
               <input //스타일링을 위해서 display: none
-                onChange={onChangeHanddler}
+                onChange={onChangeFileHanddler}
                 id="inputFile"
                 type="file"
                 multiple
               />
             </div>
             <div className="secondBox">
-              <button>제출하기</button>
+              <input className="button" type="submit" value="제출하기" />
             </div>
           </div>
         </S.MainSection>

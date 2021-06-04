@@ -40,7 +40,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const MainSection = styled.div`
+export const MainSection = styled.form`
   margin-top: 25px;
   width: 68%;
   height: 810px;
@@ -56,7 +56,7 @@ export const MainSection = styled.div`
   textarea:focus {
     outline: none;
   }
-  button {
+  .button {
     width: 139px;
     height: 52px;
     background-color: #c4e3ff;
@@ -67,7 +67,7 @@ export const MainSection = styled.div`
     margin-top: 19px;
     box-shadow: 1px 2px 3px 0px #707070;
   }
-  button:focus {
+  .button:focus {
     outline: none;
   }
   .submitBox {
