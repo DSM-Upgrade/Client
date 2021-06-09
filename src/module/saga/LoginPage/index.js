@@ -12,8 +12,7 @@ import { loginPageActions } from "../../action/loginPage/index";
 
 function* authLogIn(action) {
   try {
-    const { loginInfo } = action.payload;
-    const { username, password } = loginInfo;
+    const { username, password } = action.payload;
 
     const HTTP_METHOD = methodType.POST;
     const REQUEST_URL = authApi.login();

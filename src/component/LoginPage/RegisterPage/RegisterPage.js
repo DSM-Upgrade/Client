@@ -39,6 +39,7 @@ const RegisterPage = (props) => {
               name="password"
               value={password}
               onChange={onChangeSignUpData}
+              type="password"
               placeholder="비밀번호 (8 ~ 20자리, 영어, 숫자, 특수문자)"
             ></input>
             <select

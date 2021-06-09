@@ -14,10 +14,10 @@ const LoginContainer = () => {
     ...loginInfo,
   });
 
-  const { authLogIn } = loginPageActionsCreaters;
+  const { authLogInSaga } = loginPageActionsCreaters;
 
   const setLoginAuthInfo = (authLoginInfo) => {
-    dispatch(authLogIn(authLoginInfo));
+    dispatch(authLogInSaga(authLoginInfo));
   };
 
   const onChangeLoginData = (e) => {
@@ -30,9 +30,8 @@ const LoginContainer = () => {
 
   const onSubmitLoginFormData = (e) => {
     e.preventDefault();
-    /* const { username, password } = loginData;*/
+    /* const { username, password } = loginData; */
     setLoginAuthInfo(loginData);
-    console.log(loginInfo);
   };
 
   useEffect(() => {
