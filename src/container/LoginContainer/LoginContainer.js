@@ -30,7 +30,6 @@ const LoginContainer = () => {
 
   const onSubmitLoginFormData = (e) => {
     e.preventDefault();
-    /* const { username, password } = loginData; */
     setLoginAuthInfo(loginData);
   };
 

@@ -31,6 +31,7 @@ export const requestApiWithBodyWithoutToken = async (
 
     return res;
   } catch (error) {
+    console.log(error);
     throw error.response;
   }
 };

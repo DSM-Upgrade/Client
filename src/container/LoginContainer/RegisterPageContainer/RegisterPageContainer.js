@@ -8,7 +8,6 @@ import RegisterPage from "../../../component/LoginPage/RegisterPage/RegisterPage
 
 const RegisterContainer = () => {
   const dispatch = useDispatch();
-
   const signUpInfo = useSelector((state) => state.loginPage.signUpInfo);
 
   const [signUpData, setSignUpData] = useState({
@@ -32,7 +31,6 @@ const RegisterContainer = () => {
   const onSubmitSignUpFormData = (e) => {
     e.preventDefault();
     setSignUpAuthInfo(signUpData);
-    console.log(signUpData);
   };
 
   useEffect(() => {

@@ -11,6 +11,7 @@ import {
 import { loginPageActions } from "../../action/loginPage/index";
 
 function* authLogIn(action) {
+  console.log(action.payload);
   try {
     const { username, password } = action.payload;
 
@@ -24,7 +25,6 @@ function* authLogIn(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
-    console.log('성공');
 
     const { SET_AUTH_TOKEN } = loginPageActions;
 
@@ -32,20 +32,21 @@ function* authLogIn(action) {
       type: SET_AUTH_TOKEN,
       payload: res.data,
     });
+    console.log("성공");
   } catch (error) {
     console.log(error);
-    const { status } = error.status;
+/*     const { status } = error.status;
 
     const invalidInputValue = () => {
-      alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
+      console.log(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
     };
 
     const invalidLoginInfo = () => {
-      alert(`아이디 또는 비밀번호가 틀렸습니다.`);
+      console.log(`아이디 또는 비밀번호가 틀렸습니다.`);
     };
 
     const studentNotRegistered = () => {
-      alert(`이 계정은 회원가입이 되어있지 않습니다.`);
+      console.log(`이 계정은 회원가입이 되어있지 않습니다.`);
     };
 
     switch (status) {
@@ -58,13 +59,12 @@ function* authLogIn(action) {
       case 403:
         studentNotRegistered();
         break;
-      default:
+      default: */
     }
-  }
 }
 
 function* authSignUp(action) {
-  console.log(action.payload);
+  console.log(action);
   try {
     const { username, password, name, field_id, student_num } = action.payload;
 
@@ -78,9 +78,9 @@ function* authSignUp(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
-    console.log('성공');
+    console.log("성공");
     alert(`회원가입에 성공했습니다.`);
-  } catch (error) {
+  } catch (error) { 
     console.log(error);
     const { status } = error.data;
 
