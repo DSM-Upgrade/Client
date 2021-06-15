@@ -24,6 +24,7 @@ function* authLogIn(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
+    console.log('성공');
 
     const { SET_AUTH_TOKEN } = loginPageActions;
 
@@ -32,7 +33,8 @@ function* authLogIn(action) {
       payload: res.data,
     });
   } catch (error) {
-    const { status } = error.data;
+    console.log(error);
+    const { status } = error.status;
 
     const invalidInputValue = () => {
       alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
@@ -62,9 +64,9 @@ function* authLogIn(action) {
 }
 
 function* authSignUp(action) {
+  console.log(action.payload);
   try {
-    const { signUpInfo } = action.payload;
-    const { username, password, name, field_id, student_num } = signUpInfo;
+    const { username, password, name, field_id, student_num } = action.payload;
 
     const HTTP_METHOD = methodType.POST;
     const REQUEST_URL = authApi.signUp();
@@ -76,8 +78,10 @@ function* authSignUp(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
+    console.log('성공');
     alert(`회원가입에 성공했습니다.`);
   } catch (error) {
+    console.log(error);
     const { status } = error.data;
 
     const invalidInputValue = () => {
@@ -102,8 +106,7 @@ function* authSignUp(action) {
 
 function* fetchAuthToken(action) {
   try {
-    const { authToken } = action.payload;
-    const { refresh_token } = authToken;
+    const { refresh_token } = action.payload;
 
     const HTTP_METHOD = methodType.PATCH;
     const REQUEST_URL = authApi.reAccessToken();
