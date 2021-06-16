@@ -18,7 +18,7 @@ const authSignUp = (payload) => ({
 
 const AUTH_SIGN_UP_SAGA = "loginPage/AUTH_SIGN_UP_SAGA";
 const authSignUpSaga = (payload) => ({
-  type: AUTH_SIGN_UP,
+  type: AUTH_SIGN_UP_SAGA,
   payload,
 });
 

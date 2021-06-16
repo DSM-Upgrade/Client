@@ -82,7 +82,7 @@ function* authSignUp(action) {
     alert(`회원가입에 성공했습니다.`);
   } catch (error) { 
     console.log(error);
-    const { status } = error.data;
+    /* const { status } = error.data;
 
     const invalidInputValue = () => {
       alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
@@ -100,7 +100,7 @@ function* authSignUp(action) {
         fieldNotFound();
         break;
       default:
-    }
+    } */
   }
 }
 
