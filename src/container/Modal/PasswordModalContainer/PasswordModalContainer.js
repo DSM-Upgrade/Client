@@ -1,68 +1,48 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+
+import { areEqual } from "../../../utils/parameterUtils";
+
+import { authActionCreaters } from "../../../module/action/auth";
+import { modalActionCreaters } from "../../../module/action/modal";
+
+import { usePasswordModal } from "../../../hooks/Modal/usePasswordModal";
+
 import PasswordModal from "../../../component/Modal/PasswordModal/PasswordModal";
-import { MODAL_ACTION_CREATERS } from "../../../module/action/modal";
 
 const PasswordModalContainer = () => {
+  const dispatch = useDispatch();
   const errorData = useSelector((state) => state.modal.error);
 
-  const [PWInfo, setPWInfo] = useState({
-    curPW: "",
-    newPW: "",
-    rePW: "",
-    confirmInfo: { state: false, text: "" },
-  });
-  const ChangePWInfo = useCallback(
-    (e) => {
-      const { name, value } = e.target;
+  const { passwordInfo, changePasswordInfo } = usePasswordModal();
 
-      console.log(PWInfo);
+  const { dropModal } = modalActionCreaters;
+  const { changePasswordSaga } = authActionCreaters;
 
-      setPWInfo((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    },
-    [PWInfo]
-  );
+  const changePassword = (nowPassword, newPassword) => {
+    dispatch(changePasswordSaga({ nowPassword, newPassword }));
+  };
+  const modalOff = () => {
+    dispatch(dropModal());
+  };
 
-  const ConfirmPWInfo = useCallback(() => {
-    const { newPW, rePW } = PWInfo;
-    let confirmInfo = {
-      state: false,
-      text: "",
-    };
+  const vaildPassword = () => {
+    const { newPassword, reEnterPassword } = passwordInfo;
 
-    if (newPW === "") {
-      confirmInfo = {
-        state: true,
-        text: `"새 비밀번호"란을 입력해주세요.`,
-      };
-    } else if (rePW === "") {
-      confirmInfo = {
-        state: true,
-        text: `"새 비밀번호 확인"란을 입력해주세요.`,
-      };
-    } else if (newPW !== rePW) {
-      confirmInfo = {
-        state: true,
-        text: "비밀번호를 확인해주세요.",
-      };
+    if (!areEqual(newPassword, reEnterPassword)) {
+      alert("새 비밀번호 확인 칸이 일치하지 않습니다.");
+      return false;
     }
 
-    setPWInfo((prev) => ({
-      ...prev,
-      confirmInfo: confirmInfo,
-    }));
-  }, [PWInfo]);
+    return true;
+  };
+  const onSubmitPassword = () => {
+    const { nowPassword, newPassword } = passwordInfo;
 
-  const { dropModal } = MODAL_ACTION_CREATERS;
-  const dispatch = useDispatch();
-  const ModalOff = useCallback(() => {
-    dispatch(dropModal());
-  }, [dispatch]);
-
-  const PreventModalOff = useCallback((e) => {
+    vaildPassword() && changePassword(nowPassword, newPassword);
+  };
+  const preventModalOff = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
   }, []);
@@ -70,12 +50,12 @@ const PasswordModalContainer = () => {
   return (
     <PasswordModal
       errorData={errorData}
-      PWInfo={PWInfo}
-      ChangePWInfo={ChangePWInfo}
-      ConfirmPWInfo={ConfirmPWInfo}
-      ModalOff={ModalOff}
-      PreventModalOff={PreventModalOff}
-    ></PasswordModal>
+      passwordInfo={passwordInfo}
+      modalOff={modalOff}
+      preventModalOff={preventModalOff}
+      onSubmitPassword={onSubmitPassword}
+      changePasswordInfo={changePasswordInfo}
+    />
   );
 };
 

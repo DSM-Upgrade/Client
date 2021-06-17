@@ -15,12 +15,12 @@ const FineModalContainer = () => {
     },
   ];
 
-  const PreventModalOff = useCallback((e) => {
+  const preventModalOff = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
   }, []);
 
-  return <FineModal fineData={fineData} PreventModalOff={PreventModalOff} />;
+  return <FineModal fineData={fineData} preventModalOff={preventModalOff} />;
 };
 
 export default FineModalContainer;

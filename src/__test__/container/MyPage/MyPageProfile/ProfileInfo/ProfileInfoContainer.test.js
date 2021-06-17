@@ -1,27 +1,28 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
-import ProfileInfoContainer from "../../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
-import { Provider } from "react-redux";
-import store from "../../../../module/store";
+
+import { useDispatch } from "react-redux";
+
+import { render, fireEvent } from "@testing-library/react";
+
+import ProfileInfoContainer from "../../../../../container/MyPageContanier/MyPageProfile/ProfileInfo/ProfileInfoContainer";
+
+jest.mock("react-redux");
 
 const setUp = () => {
-  const utils = render(
-    <Provider store={store}>
-      <ProfileInfoContainer />
-    </Provider>
-  );
+  const utils = render(<ProfileInfoContainer />);
 
-  return utils;
+  return { utils };
 };
 
 describe("<ProfileInfoContainer />", () => {
-  it("snapshot", () => {
-    const { container } = setUp();
-    expect(container).toMatchSnapshot();
-  });
+  const dispatch = jest.fn();
+
+  useDispatch.mockImplementation(() => dispatch);
 
   it("has text and button", () => {
-    const { getByText } = setUp();
+    const {
+      utils: { getByText },
+    } = setUp();
 
     getByText("이름");
     getByText("학번");
@@ -33,7 +34,9 @@ describe("<ProfileInfoContainer />", () => {
   });
 
   it("enables button when studentNum is changed", () => {
-    const { getByLabelText, getByText } = setUp();
+    const {
+      utils: { getByLabelText, getByText },
+    } = setUp();
 
     const studentNum = getByLabelText("학번");
     const field = getByLabelText("분야");
@@ -47,7 +50,9 @@ describe("<ProfileInfoContainer />", () => {
   });
 
   it("enables button when field is changed", () => {
-    const { getByLabelText, getByText } = setUp();
+    const {
+      utils: { getByLabelText, getByText },
+    } = setUp();
 
     const field = getByLabelText("분야");
     const completeButton = getByText("변경사항 저장");
@@ -60,7 +65,9 @@ describe("<ProfileInfoContainer />", () => {
   });
 
   it("enable change value", () => {
-    const { getByLabelText } = setUp();
+    const {
+      utils: { getByLabelText },
+    } = setUp();
 
     const studentNum = getByLabelText("학번");
     const field = getByLabelText("분야");
@@ -72,19 +79,17 @@ describe("<ProfileInfoContainer />", () => {
     expect(field.value).toBe("ios");
   });
 
-  it("show PasswordModal when click modifyButton", () => {
-    const { getByText, findByText, findByPlaceholderText } = setUp();
+  it("click modalOn then dispatch has been clicked", () => {
+    const {
+      utils: { getByText },
+    } = setUp();
 
-    const modifyButton = getByText("수정");
+    const modalOnClickButton = getByText("수정");
 
-    fireEvent.click(modifyButton);
+    expect(dispatch).toHaveBeenCalledTimes(0);
 
-    findByText("비밀번호 변경");
-    findByText("비밀번호 인증");
-    findByPlaceholderText("현재 비밀번호");
-    findByPlaceholderText("새 비밀번호");
-    findByPlaceholderText("새 비밀번호 확인");
-    findByText("확인");
-    findByText("취소");
+    fireEvent.click(modalOnClickButton);
+
+    expect(dispatch).toHaveBeenCalledTimes(1);
   });
 });

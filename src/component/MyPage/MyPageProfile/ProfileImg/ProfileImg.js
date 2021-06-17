@@ -3,6 +3,7 @@ import * as S from "./style";
 
 const ProfileImg = (props) => {
   const { img } = props;
+  const { onUploadProfile } = props;
 
   return (
     <S.Container>
@@ -12,8 +13,13 @@ const ProfileImg = (props) => {
         </S.ImgWrap>
       </S.ImgBox>
       <S.FileBox>
-        <S.FileLabel htmlFor="file_upload">업로드</S.FileLabel>
-        <S.ModifyButton id="file_upload" type="file" accept="image/*" />
+        <S.FileLabel htmlFor="profile_upload">업로드</S.FileLabel>
+        <S.ModifyButton
+          id="profile_upload"
+          type="file"
+          accept="image/*"
+          onChange={onUploadProfile}
+        />
       </S.FileBox>
     </S.Container>
   );

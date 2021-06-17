@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const BASE_URL = "";
+import { getItem } from "../utils/LocalStorageUtils";
 
-const ACCESS_TOKEN_NAME = "Authorization";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ACCESS_TOKEN = "accessToken";
 const REFRESH_TOKEN = "refreshToken";
+const ACCESS_TOKEN_NAME = "Authorization";
 
 export const methodType = {
   GET: "get",
@@ -53,21 +55,21 @@ export const requestApiWithoutBodyWithoutToken = async (
 
 export const requestApiWithoutBodyWithToken = async (method, url, header) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
+    // const accessToken = getItem(ACCESS_TOKEN)
+    // const accessToken = // user token
+    //   "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
+    const accessToken = // admin token
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiYWRtaW5qamFuZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.WfnwQSPiApP03Ypebez6hyK6SPhawNhfsirGHTtSjUk";
 
     const res = await axios[method](BASE_URL + url, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
         ...header,
       },
     });
 
-    console.log(res);
-
     return res;
   } catch (error) {
-    console.log(error.response);
-
     throw error.response;
   }
 };
@@ -79,19 +81,20 @@ export const requestApiWithBodyWithToken = async (
   header
 ) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
+    // const accessToken = // user token
+    //   "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
+    const accessToken = // admin token
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiYWRtaW5qamFuZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.WfnwQSPiApP03Ypebez6hyK6SPhawNhfsirGHTtSjUk";
 
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
         ...header,
       },
     });
 
     return res;
   } catch (error) {
-    console.log(error.response);
-
     throw error.response;
   }
 };
