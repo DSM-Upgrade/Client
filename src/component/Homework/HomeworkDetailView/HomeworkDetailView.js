@@ -3,10 +3,11 @@ import * as S from "./style";
 import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer";
 
 const HomeworkDetailView = (props) => {
-  const [fileInputName, setFileInputName] = useState([]);
-  const [fileList, setFileList] = useState([]);
   const { linkProps } = props;
   const { Title, Start, End, Id } = linkProps;
+  
+  const [fileInputName, setFileInputName] = useState([]);
+  const [fileList, setFileList] = useState([]);
   const Name = [];
   const [homeworkContent, setHomeWorkContent] = useState("");
 
@@ -15,7 +16,7 @@ const HomeworkDetailView = (props) => {
     setFileList(e.target.files);
   };
 
-  const fileNameInputValue = (e) => {
+  const fileNameInputValue = (e) => { /* 파일 선택을 하면 옆에 파일명 뜨게하는 함수 */
     for (let index = 0; index < e.length; index++) {
       Name[index] = e[index].name;
       console.log(fileNameString);

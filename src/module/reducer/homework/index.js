@@ -1,45 +1,111 @@
-import { HOMEWORK_ACTIONS } from "../../action/homework";
+import { homeworkActions } from "../../action/homework";
 
 const initialState = {
   homeworkList: {
-    id: "",
-    Title: "",
-    Start: "",
-    End: "",
-    Content: "",
-    Status: "",
+    id: 1,
+    title: "",
+    createdAt: "",
+    deadline: "",
+    content: "",
+    status: "", // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
+  },
+  homeworkContent: {
+    title: "",
+    createdAt: "",
+    deadline: "",
+    returnAt: "", // 반환 안 했으면 null
+    content: "",
+    returnContent: "", // 반환 안 했으면 null
+    files: [],
+  },
+  assignmentHomework: {
+    title: "",
+    content: "",
+    deadline: "",
+    usernames: "",
+  },
+  changeHomework: {
+    id: 0,
+    usernames: "",
+    title: "",
+    content: "",
+    deadline: "",
+  },
+  returnHomework: {
+    id: 0,
+    content: "",
+    files: [],
+  },
+  completionHomework: {
+    id: 0,
+    username: "",
+    status: "",
   },
 };
 
 const homeworkReducer = (state = initialState, action) => {
   const {
-    SET_HOMEWORK_LIST,
-    GET_HOMEWORK_LIST_SAGA,
-    CHANGE_HOMEWORK_LIST_SAGA,
-  } = HOMEWORK_ACTIONS;
+    GET_HOMEWORK_LIST,
+    GET_HOMEWORK_CONTENT,
+    ASSIGNMENT_HOMEWORK,
+    RETURN_HOMEWORK,
+    COMPLETION_HOMEWORK,
+    CHANGE_HOMEWORK,
+    ELIMINATION_HOMEWORK,
+  } = homeworkActions;
 
   switch (action.type) {
-    case SET_HOMEWORK_LIST: {
+    case GET_HOMEWORK_LIST: {
       return {
         ...state,
-        homeworkList: action.payload,
+        homeworkList: {
+          ...action.payload,
+        },
       };
     }
-    /*     case GET_HOMEWORK_LIST_SAGA: {
+    case GET_HOMEWORK_CONTENT: {
       return {
         ...state,
-        homeworkList: action.payload,
+        homeworkContent: {
+          ...action.payloasd,
+        },
       };
-    }*/
-    case CHANGE_HOMEWORK_LIST_SAGA: {
+    }
+    case ASSIGNMENT_HOMEWORK: {
       return {
         ...state,
-        homeworkList: action.payload,
+        assignmentHomework: {
+          ...action.payload,
+        },
+      };
+    }
+    case CHANGE_HOMEWORK: {
+      return {
+        ...state,
+        changeHomework: {
+          ...action.payload,
+        },
+      };
+    }
+    case RETURN_HOMEWORK: {
+      return {
+        ...state,
+        returnHomework: {
+          ...action.paylaod,
+        },
+      };
+    }
+    case COMPLETION_HOMEWORK: {
+      return {
+        ...state,
+        completionHomework: {
+          ...action.payload,
+        },
       };
     }
     default: {
       return {
-        ...state,
+        state,
       };
     }
   }
