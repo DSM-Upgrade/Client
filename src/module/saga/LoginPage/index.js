@@ -35,7 +35,6 @@ function* authLogIn(action) {
     console.log("성공");
   } catch (error) {
     console.log(error);
-/*     const { status } = error.status;
 
     const invalidInputValue = () => {
       console.log(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
@@ -49,7 +48,7 @@ function* authLogIn(action) {
       console.log(`이 계정은 회원가입이 되어있지 않습니다.`);
     };
 
-    switch (status) {
+    switch (error.status) {
       case 400:
         invalidInputValue();
         break;
@@ -59,14 +58,16 @@ function* authLogIn(action) {
       case 403:
         studentNotRegistered();
         break;
-      default: */
+      default:
     }
+  }
 }
 
 function* authSignUp(action) {
-  console.log(action);
+  console.log(action.payload);
   try {
-    const { username, password, name, field_id, student_num } = action.payload;
+    const { username, password, name, fieldId, student_num } = action.payload;
+    const field_id = parseInt(fieldId);
 
     const HTTP_METHOD = methodType.POST;
     const REQUEST_URL = authApi.signUp();
@@ -80,9 +81,8 @@ function* authSignUp(action) {
     );
     console.log("성공");
     alert(`회원가입에 성공했습니다.`);
-  } catch (error) { 
+  } catch (error) {
     console.log(error);
-    /* const { status } = error.data;
 
     const invalidInputValue = () => {
       alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
@@ -92,7 +92,7 @@ function* authSignUp(action) {
       alert(`분야 칸의 입력을 확인해주세요`);
     };
 
-    switch (status) {
+    switch (error.status) {
       case 400:
         invalidInputValue();
         break;
@@ -100,7 +100,7 @@ function* authSignUp(action) {
         fieldNotFound();
         break;
       default:
-    } */
+    }
   }
 }
 

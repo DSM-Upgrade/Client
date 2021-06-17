@@ -5,7 +5,7 @@ const initialState = {
     username: "",
     password: "",
     name: "",
-    field_id: 0,
+    fieldId: 0,
     student_num: "",
   },
   loginInfo: {

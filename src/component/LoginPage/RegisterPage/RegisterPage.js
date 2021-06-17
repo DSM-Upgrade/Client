@@ -43,7 +43,7 @@ const RegisterPage = (props) => {
               placeholder="비밀번호 (8 ~ 20자리, 영어, 숫자, 특수문자)"
             ></input>
             <select
-              name="field_id"
+              name="fieldId"
               value={field_id}
               onChange={onChangeSignUpData}
             >
