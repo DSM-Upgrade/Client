@@ -22,7 +22,7 @@ const initialState = {
     title: "",
     content: "",
     deadline: "",
-    usernames: "",
+    usernames: [],
   },
   changeHomework: {
     id: 0,
