@@ -7,72 +7,73 @@ import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 
 const Homework = (props) => {
   const { homeworkList } = props;
+  console.log(homeworkList);
   const [homeworkListData, setHomeworkListData] = useState([]);
 
-  const HomeworkList = homeworkList.map((homeworkList) => {
-    const id = homeworkList.Id;
-    if (homeworkList.Status === "ASSIGNED") {
+  const HomeworkList = homeworkListData.map((homeworkList) => {
+    const id = homeworkList.id;
+    if (homeworkList.status === "ASSIGNED") {
       return (
         <Link
           to={{
             pathname: `/homeworkDetailView/${id}`,
             state: {
-              Title: homeworkList.Title,
-              End: homeworkList.End,
-              Start: homeworkList.Start,
+              Title: homeworkList.title,
+              End: homeworkList.deadline,
+              Start: homeworkList.createdAt,
               Id: id,
             },
           }}
         >
           <S.AllocationBox key={id}>
-            <h1>{homeworkList.Title}</h1>
-            <p>{homeworkList.Content}</p>
+            <h1>{homeworkList.title}</h1>
+            <p>{homeworkList.content}</p>
             <p>분야 : 디자인</p>
             <p>대상 : 동아리원 전체</p>
-            <p>기한 : {homeworkList.End} 까지 제출</p>
+            <p>기한 : {homeworkList.deadline} 까지 제출</p>
             <h4>할당됨</h4>
           </S.AllocationBox>
         </Link>
       );
-    } else if (homeworkList.Status === "SUBMITTED") {
+    } else if (homeworkList.status === "SUBMITTED") {
       return (
         <Link
           to={{
             pathname: `/homeworkDetailView/${id}`,
             state: {
-              Title: homeworkList.Title,
-              End: homeworkList.End,
-              Start: homeworkList.Start,
+              Title: homeworkList.title,
+              End: homeworkList.deadline,
+              Start: homeworkList.createdAt,
               Id: id,
             },
           }}
         >
           <S.SubmissionBox key={id}>
-            <h1>{homeworkList.Title}</h1>
-            <p>{homeworkList.Content}</p>
+            <h1>{homeworkList.title}</h1>
+            <p>{homeworkList.content}</p>
             <p>분야 : 디자인</p>
             <p>대상 : 동아리원 전체</p>
-            <p>기한 : {homeworkList.End} 까지 제출</p>
+            <p>기한 : {homeworkList.deadline} 까지 제출</p>
             <h4>제출함</h4>
           </S.SubmissionBox>
         </Link>
       );
-    } else if (homeworkList.Status === "UN_SUBMITTED") {
+    } else if (homeworkList.status === "UN_SUBMITTED") {
       return (
         <Link
           to={{
             pathname: `/homeworkDetailView/${id}`,
             state: {
-              Title: homeworkList.Title,
-              End: homeworkList.End,
-              Start: homeworkList.Start,
+              Title: homeworkList.title,
+              End: homeworkList.deadline,
+              Start: homeworkList.createdAt,
               Id: id,
             },
           }}
         >
           <S.UnsubmittedBox key={id}>
-            <h1>{homeworkList.Title}</h1>
-            <p>{homeworkList.Content}</p>
+            <h1>{homeworkList.title}</h1>
+            <p>{homeworkList.content}</p>
             <p>분야 : 디자인</p>
             <p>대상 : 동아리원 전체</p>
             <p>기한 : 제출마감</p>
@@ -83,8 +84,6 @@ const Homework = (props) => {
     }
   });
 
-  setHomeworkListData(HomeworkList);
-
   return (
     <S.Container>
       <HeaderContainer />
@@ -93,7 +92,7 @@ const Homework = (props) => {
           <TitleHeaderContainer text="Homework" />
         </div>
         <div className="BackgroundImg"></div>
-        <S.Wrapper>{homeworkListData}</S.Wrapper>
+        <S.Wrapper>{HomeworkList}</S.Wrapper>
       </S.MainWrapper>
     </S.Container>
   );
