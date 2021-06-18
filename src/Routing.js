@@ -21,7 +21,7 @@ const Routing = () => {
         <Route exact path="/homework" component={Homework} />
         <Route
           exact
-          path="/homeworkDetailView"
+          path="/homeworkDetailView/:id"
           component={HomeworkDetailView}
         />
         <Route exact path="/homeworkAdmin" component={HomeworkAdmin} />
