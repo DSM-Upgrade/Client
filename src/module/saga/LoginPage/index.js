@@ -39,7 +39,6 @@ function* authLogIn(action) {
 
     const { SET_INPUT_NULL } = loginPageActions;
 
-    console.log("들어갑니다");
     yield put({
       type: SET_INPUT_NULL,
       payload: true,

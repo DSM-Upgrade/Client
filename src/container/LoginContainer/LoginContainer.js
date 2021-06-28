@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  loginPageActionsCreaters,
-  loginPageActions,
-} from "../../module/action/loginPage/index";
+import { loginPageActionsCreaters } from "../../module/action/loginPage/index";
 
 import LoginPage from "../../component/LoginPage/LoginPage";
 
@@ -20,8 +17,6 @@ const LoginContainer = () => {
   const [loginData, setLoginData] = useState({
     ...loginInfo,
   });
-
-  const [isNull, setIsNull] = useState({ ...setNull });
 
   const { access_token, refresh_token } = authToken;
   setItem("accessToken", access_token);
@@ -48,20 +43,21 @@ const LoginContainer = () => {
   const onSubmitLoginFormData = (e) => {
     e.preventDefault();
     setLoginAuthInfo(loginData);
-    setTimeout(test, 1233);
+    setTimeout(setInputNullfunc, 1000);
   };
 
-  const test = () => {
-    console.log(isNull);
-    if (isNull.setNull) {
+  const setInputNullfunc = () => {
+    console.log(`나중에`);
+    console.log(setNull);
+    if (!setNull.setNull) {
+      console.log("if문 안 ");
       setLoginData((prevState) => ({
         ...prevState,
         username: "",
         password: "",
       }));
-      setIsNull(false);
+      setInputInfoNull(false);
     }
-    setTimeout(setInputInfoNull(isNull), 1000);
   };
 
   useEffect(() => {
