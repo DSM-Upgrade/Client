@@ -40,6 +40,12 @@ const fetchAuthTokenSaga = (payload) => ({
   payload,
 });
 
+const SET_INPUT_NULL = "loginPage/SET_INPUT_NULL";
+const setInputNull = (payload) => ({
+  type: SET_INPUT_NULL,
+  payload,
+});
+
 export const loginPageActions = {
   SET_AUTH_TOKEN,
   FETCH_AUTH_TOKEN,
@@ -48,6 +54,7 @@ export const loginPageActions = {
   AUTH_LOG_IN_SAGA,
   AUTH_SIGN_UP,
   AUTH_SIGN_UP_SAGA,
+  SET_INPUT_NULL,
 };
 
 export const loginPageActionsCreaters = {
@@ -58,4 +65,5 @@ export const loginPageActionsCreaters = {
   authLogInSaga,
   authSignUp,
   authSignUpSaga,
+  setInputNull,
 };

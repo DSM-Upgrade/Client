@@ -32,20 +32,31 @@ function* authLogIn(action) {
       type: SET_AUTH_TOKEN,
       payload: res.data,
     });
-    console.log("성공");
+
+    alert("로그인 성공");
   } catch (error) {
     console.log(error);
 
+    const { SET_INPUT_NULL } = loginPageActions;
+
+    console.log("들어갑니다");
+    yield put({
+      type: SET_INPUT_NULL,
+      payload: true,
+    });
+
+    console.log(action.payload);
+
     const invalidInputValue = () => {
-      console.log(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
+      alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
     };
 
     const invalidLoginInfo = () => {
-      console.log(`아이디 또는 비밀번호가 틀렸습니다.`);
+      alert(`아이디 또는 비밀번호가 틀렸습니다.`);
     };
 
     const studentNotRegistered = () => {
-      console.log(`이 계정은 회원가입이 되어있지 않습니다.`);
+      alert(`이 계정은 회원가입이 되어있지 않습니다.`);
     };
 
     switch (error.status) {
@@ -79,7 +90,6 @@ function* authSignUp(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
-    console.log("성공");
     alert(`회원가입에 성공했습니다.`);
   } catch (error) {
     console.log(error);
