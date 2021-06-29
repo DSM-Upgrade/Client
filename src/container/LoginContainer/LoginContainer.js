@@ -12,7 +12,7 @@ const LoginContainer = () => {
   const dispatch = useDispatch();
   const loginInfo = useSelector((state) => state.loginPage.loginInfo);
   const authToken = useSelector((state) => state.loginPage.authToken);
-  const setNull = useSelector((state) => state.loginPage.inputStatus);
+  const inputStatus = useSelector((state) => state.loginPage.inputStatus);
 
   const [loginData, setLoginData] = useState({
     ...loginInfo,
@@ -22,14 +22,14 @@ const LoginContainer = () => {
   setItem("accessToken", access_token);
   setItem("refreshToken", refresh_token);
 
-  const { authLogInSaga, setInputNull } = loginPageActionsCreaters;
+  const { authLogInSaga, setLoginInputNull } = loginPageActionsCreaters;
 
   const setLoginAuthInfo = (authLoginInfo) => {
     dispatch(authLogInSaga(authLoginInfo));
   };
 
-  const setInputInfoNull = (isInputNull) => {
-    dispatch(setInputNull(isInputNull));
+  const setLoginInputStatusNull = (isInputNull) => {
+    dispatch(setLoginInputNull(isInputNull));
   };
 
   const onChangeLoginData = (e) => {
@@ -43,20 +43,18 @@ const LoginContainer = () => {
   const onSubmitLoginFormData = (e) => {
     e.preventDefault();
     setLoginAuthInfo(loginData);
-    setTimeout(setInputNullfunc, 1000);
+    setTimeout(setInputNullfunc, 1100);
   };
 
   const setInputNullfunc = () => {
-    console.log(`나중에`);
-    console.log(setNull);
-    if (!setNull.setNull) {
-      console.log("if문 안 ");
+    console.log(inputStatus);
+    if (!inputStatus.loginSetNull) {
       setLoginData((prevState) => ({
         ...prevState,
         username: "",
         password: "",
       }));
-      setInputInfoNull(false);
+      setLoginInputStatusNull(false);
     }
   };
 
