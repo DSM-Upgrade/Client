@@ -9,15 +9,20 @@ import RegisterPage from "../../../component/LoginPage/RegisterPage/RegisterPage
 const RegisterContainer = () => {
   const dispatch = useDispatch();
   const signUpInfo = useSelector((state) => state.loginPage.signUpInfo);
+  const inputStatus = useSelector((state) => state.loginPage.inputStatus);
 
   const [signUpData, setSignUpData] = useState({
     ...signUpInfo,
   });
 
-  const { authSignUpSaga } = loginPageActionsCreaters;
+  const { authSignUpSaga, setRegisterInputNull } = loginPageActionsCreaters;
 
   const setSignUpAuthInfo = (authSignUpInfo) => {
     dispatch(authSignUpSaga(authSignUpInfo));
+  };
+
+  const setRegisterInputStatusNull = (isInputNull) => {
+    dispatch(setRegisterInputNull(isInputNull));
   };
 
   const onChangeSignUpData = (e) => {
@@ -31,6 +36,22 @@ const RegisterContainer = () => {
   const onSubmitSignUpFormData = (e) => {
     e.preventDefault();
     setSignUpAuthInfo(signUpData);
+    setTimeout(setInputNullfunc, 1100);
+  };
+
+  const setInputNullfunc = () => {
+    console.log(inputStatus);
+    if (!inputStatus.registerSetNull) {
+      setSignUpData((prevState) => ({
+        ...prevState,
+        username: "",
+        password: "",
+        name: "",
+        fieldId: 0,
+        student_num: "",
+      }));
+      setRegisterInputStatusNull(false);
+    }
   };
 
   useEffect(() => {

@@ -37,14 +37,12 @@ function* authLogIn(action) {
   } catch (error) {
     console.log(error);
 
-    const { SET_INPUT_NULL } = loginPageActions;
+    const { SET_LOGIN_INPUT_NULL } = loginPageActions;
 
     yield put({
-      type: SET_INPUT_NULL,
+      type: SET_LOGIN_INPUT_NULL,
       payload: true,
     });
-
-    console.log(action.payload);
 
     const invalidInputValue = () => {
       alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
@@ -89,9 +87,17 @@ function* authSignUp(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
+
     alert(`회원가입에 성공했습니다.`);
   } catch (error) {
     console.log(error);
+
+    const { SET_REGISTER_INPUT_NULL } = loginPageActions;
+
+    yield put({
+      type: SET_REGISTER_INPUT_NULL,
+      payload: true,
+    });
 
     const invalidInputValue = () => {
       alert(`값이 알맞은 값인지 다시 한번 확인해 주세요.`);
