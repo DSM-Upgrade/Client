@@ -18,7 +18,8 @@ const initialState = {
     is_admin: false,
   },
   inputStatus: {
-    setNull: false,
+    loginSetNull: false,
+    registerSetNull: false,
   },
 };
 
@@ -28,7 +29,8 @@ const loginPageReducer = (state = initialState, action) => {
     FETCH_AUTH_TOKEN,
     AUTH_LOG_IN,
     AUTH_SIGN_UP,
-    SET_INPUT_NULL,
+    SET_LOGIN_INPUT_NULL,
+    SET_REGISTER_INPUT_NULL,
   } = loginPageActions;
 
   switch (action.type) {
@@ -65,11 +67,21 @@ const loginPageReducer = (state = initialState, action) => {
         },
       };
     }
-    case SET_INPUT_NULL: {
+    case SET_LOGIN_INPUT_NULL: {
       return {
         ...state,
         inputStatus: {
-          setNull: action.payload,
+          ...state,
+          loginSetNull: action.payload,
+        },
+      };
+    }
+    case SET_REGISTER_INPUT_NULL: {
+      return {
+        ...state,
+        inputStatus: {
+          ...state,
+          registerSetNull: action.payload,
         },
       };
     }
