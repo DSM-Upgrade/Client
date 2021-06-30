@@ -3,7 +3,7 @@ export const homeworkApi = {
   getHomeworkList: () => {
     return `/homework`;
   },
-  getHomeworkContent: (userId, homeworkId) => {
+  getHomeworkContent: (userId) => {
     return `/homework/${userId}`;
   },
   assignmentHomework: () => {

@@ -49,7 +49,6 @@ export const requestApiWithoutBodyWithoutToken = async (
 
     return res;
   } catch (error) {
-
     throw error.response;
   }
 };
@@ -62,7 +61,6 @@ export const requestApiWithoutBodyWithToken = async (method, url, header) => {
     /*     const accessToken = // admin token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiYWRtaW5qamFuZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.WfnwQSPiApP03Ypebez6hyK6SPhawNhfsirGHTtSjUk";
   */
-    console.log(BASE_URL);
     const res = await axios[method](BASE_URL + url, {
       headers: {
         [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
