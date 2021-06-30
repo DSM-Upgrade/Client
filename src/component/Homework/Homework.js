@@ -6,13 +6,13 @@ import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHead
 import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 
 const Homework = (props) => {
-  const { homeworkList } = props;
+  const { homeworkList, homeworkTestList } = props;
 
-  const homeworkListData = Object.entries(homeworkList);
+  console.log(`props`);
+  console.log(homeworkList);
 
-  console.log(homeworkListData);
-
-  const HomeworkList = homeworkListData.map((homeworkList) => {
+  const HomeworkList = homeworkList.map((homeworkList) => {
+    console.log(homeworkList);
     const id = homeworkList.id;
     if (homeworkList.status === "ASSIGNED") {
       return (
@@ -22,7 +22,7 @@ const Homework = (props) => {
             state: {
               Title: homeworkList.title,
               End: homeworkList.deadline,
-              Start: homeworkList.createdAt,
+              Start: homeworkList.created_at,
               Id: id,
             },
           }}
@@ -45,7 +45,7 @@ const Homework = (props) => {
             state: {
               Title: homeworkList.title,
               End: homeworkList.deadline,
-              Start: homeworkList.createdAt,
+              Start: homeworkList.created_at,
               Id: id,
             },
           }}
@@ -68,7 +68,7 @@ const Homework = (props) => {
             state: {
               Title: homeworkList.title,
               End: homeworkList.deadline,
-              Start: homeworkList.createdAt,
+              Start: homeworkList.created_at,
               Id: id,
             },
           }}
