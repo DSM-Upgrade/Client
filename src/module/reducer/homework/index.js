@@ -2,7 +2,7 @@ import { homeworkActions } from "../../action/homework";
 
 const initialState = {
   homeworkList: {
-    id: 1,
+    id: 0,
     title: "",
     createdAt: "",
     deadline: "",

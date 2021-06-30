@@ -9,7 +9,7 @@ import {
 
 import { homeworkActions } from "../../action/homework/index";
 
-function* getHomeworkList(action) {
+function* getHomeworkList() {
   try {
     const HTTP_METHOD = methodType.GET;
     const REQUEST_URL = homeworkApi.getHomeworkList();
@@ -28,6 +28,7 @@ function* getHomeworkList(action) {
     });
 
     console.log(`리스트 받아옴`);
+    console.log(res.data);
     
   } catch (error) {
     console.log(error);

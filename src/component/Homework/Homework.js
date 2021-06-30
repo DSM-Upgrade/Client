@@ -6,16 +6,13 @@ import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHead
 import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 
 const Homework = (props) => {
-  const { homeworkList, homeworkTestList } = props;
+  const { homeworkList } = props;
 
-  /* const homeworkListData = Object.entries(homeworkList); */
-  /*   if (typeof homeworkList === undefined || typeof homeworkList === Object) {
-    console.log(`homeworkList is undefined`);
-  } else {
-    setHomeworkListData(homeworkList);
-  } */
+  const homeworkListData = Object.entries(homeworkList);
 
-  const HomeworkList = [].map((homeworkList) => {
+  console.log(homeworkListData);
+
+  const HomeworkList = homeworkListData.map((homeworkList) => {
     const id = homeworkList.id;
     if (homeworkList.status === "ASSIGNED") {
       return (
@@ -88,8 +85,6 @@ const Homework = (props) => {
       );
     }
   });
-
-  /* setHomeworkListData(HomeworkList); */
 
   return (
     <S.Container>
