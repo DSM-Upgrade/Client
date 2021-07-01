@@ -51,7 +51,7 @@ const homeworkReducer = (state = initialState, action) => {
     case GET_HOMEWORK_LIST: {
       return {
         ...state,
-        homeworkList: [action.payload],
+        homeworkList: action.payload,
       };
     }
     case GET_HOMEWORK_CONTENT: {
