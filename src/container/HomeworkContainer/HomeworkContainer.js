@@ -25,10 +25,16 @@ const homeworkTestList = [
 const HomeworkContainer = () => {
   const dispatch = useDispatch();
   const { getHomeworkListSaga } = homeworkActionsCreaters;
-  const homeworkData = useSelector(
+  /* const homeworkData = useSelector(
     (state) => state.homework.state.homeworkList
-  ); //서버에서 데이터 안왔을 때
-  const homeworkList = useSelector((state) => state.homework.homeworkList); //왔을때
+  ); //서버에서 데이터 안왔을 때 */
+  const homeworkList = useSelector(
+    (state) => state.homework.homeworkList
+  ); //왔을때
+
+  console.log(useSelector((state) => state.homework.state.homeworkList));
+  console.log(useSelector((state) => state.homework.homeworkList));
+  console.log(useSelector((state) => state));
 
   const getHomeworkList = () => {
     dispatch(getHomeworkListSaga());
