@@ -27,8 +27,8 @@ const HomeworkContainer = () => {
   const { getHomeworkListSaga } = homeworkActionsCreaters;
   const homeworkData = useSelector(
     (state) => state.homework.state.homeworkList
-  );
-  const homeworkList = useSelector((state) => state.homework.homeworkList);
+  ); //서버에서 데이터 안왔을 때
+  const homeworkList = useSelector((state) => state.homework.homeworkList); //왔을때
 
   const getHomeworkList = () => {
     dispatch(getHomeworkListSaga());
