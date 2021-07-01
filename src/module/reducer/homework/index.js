@@ -1,7 +1,7 @@
 import { homeworkActions } from "../../action/homework";
 
 const initialState = {
-  homeworkList: [], // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
+  homeworkList: [{}], // 숙제의 상태 (ASSIGNED, SUBMITTED, UN_SUBMITTED, FINISHED)
   homeworkContent: {
     title: "",
     createdAt: "",
@@ -51,11 +51,7 @@ const homeworkReducer = (state = initialState, action) => {
     case GET_HOMEWORK_LIST: {
       return {
         ...state,
-        homeworkList: [
-          {
-            ...action.payload,
-          },
-        ],
+        homeworkList: [action.payload],
       };
     }
     case GET_HOMEWORK_CONTENT: {

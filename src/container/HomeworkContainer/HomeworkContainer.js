@@ -25,11 +25,10 @@ const homeworkTestList = [
 const HomeworkContainer = () => {
   const dispatch = useDispatch();
   const { getHomeworkListSaga } = homeworkActionsCreaters;
+  const homeworkData = useSelector(
+    (state) => state.homework.state.homeworkList
+  );
   const homeworkList = useSelector((state) => state.homework.homeworkList);
-
-
-  console.log(`useSelector로 받아온 데이터`);
-  console.log(homeworkList);
 
   const getHomeworkList = () => {
     dispatch(getHomeworkListSaga());
@@ -39,9 +38,7 @@ const HomeworkContainer = () => {
     getHomeworkList();
   }, []);
 
-  return (
-    <Homework homeworkList={homeworkList} homeworkTestList={homeworkTestList} />
-  );
+  return <Homework homeworkList={homeworkList} />;
 };
 
 export default HomeworkContainer;
