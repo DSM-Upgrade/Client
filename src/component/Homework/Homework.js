@@ -8,13 +8,7 @@ import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 const Homework = (props) => {
   const { homeworkList } = props;
 
-  Homework.defaultProps = {
-    homeworkList: [],
-  };
-
-  console.log(Homework.defaultProps);
-
-  console.log(`props `);
+  console.log(`props`);
   console.log(homeworkList);
 
   const HomeworkList =
@@ -106,6 +100,10 @@ const Homework = (props) => {
       </S.MainWrapper>
     </S.Container>
   );
+};
+
+Homework.defaultProps = {
+  homeworkList: [],
 };
 
 export default Homework;
