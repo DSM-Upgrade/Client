@@ -20,7 +20,7 @@ export const SectionContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin-top: 93px;
+  margin-top: 55px;
 `;
 
 export const TitleContainer = styled.div`

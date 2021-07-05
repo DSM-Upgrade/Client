@@ -66,6 +66,7 @@ export const MainSection = styled.form`
     border: none;
     margin-top: 19px;
     box-shadow: 1px 2px 3px 0px #707070;
+    cursor: pointer;
   }
   .button:focus {
     outline: none;
