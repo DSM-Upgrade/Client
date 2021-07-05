@@ -58,7 +58,7 @@ const homeworkReducer = (state = initialState, action) => {
       return {
         ...state,
         homeworkContent: {
-          ...action.payloasd,
+          ...action.payload,
         },
       };
     }
