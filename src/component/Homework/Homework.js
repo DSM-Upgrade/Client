@@ -3,7 +3,6 @@ import * as S from "./style";
 import { Link } from "react-router-dom";
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import TitleHeaderContainer from "../../container/TitleHeaderContainer/TitleHeaderContainer";
-import HomeworkDetailView from "./HomeworkDetailView/HomeworkDetailView";
 
 const Homework = (props) => {
   const { homeworkList } = props;
@@ -13,23 +12,21 @@ const Homework = (props) => {
 
   const HomeworkList =
     homeworkList.length &&
-    homeworkList.map((homeworkList) => {
+    homeworkList.map((homeworkList, index) => {
       console.log(homeworkList);
       const id = homeworkList.id;
       if (homeworkList.status === "ASSIGNED") {
         return (
           <Link
+            key={index}
             to={{
-              pathname: `/homeworkDetailView/${id}`,
+              pathname: `/homeworkContent/${id}`,
               state: {
-                Title: homeworkList.title,
-                End: homeworkList.deadline,
-                Start: homeworkList.created_at,
                 Id: id,
               },
             }}
           >
-            <S.AllocationBox key={id}>
+            <S.AllocationBox>
               <h1>{homeworkList.title}</h1>
               <p>{homeworkList.content}</p>
               <p>분야 : 디자인</p>
@@ -42,17 +39,15 @@ const Homework = (props) => {
       } else if (homeworkList.status === "SUBMITTED") {
         return (
           <Link
+            key={index}
             to={{
-              pathname: `/homeworkDetailView/${id}`,
+              pathname: `/homeworkContent/${id}`,
               state: {
-                Title: homeworkList.title,
-                End: homeworkList.deadline,
-                Start: homeworkList.created_at,
                 Id: id,
               },
             }}
           >
-            <S.SubmissionBox key={id}>
+            <S.SubmissionBox>
               <h1>{homeworkList.title}</h1>
               <p>{homeworkList.content}</p>
               <p>분야 : 디자인</p>
@@ -62,20 +57,18 @@ const Homework = (props) => {
             </S.SubmissionBox>
           </Link>
         );
-      } else if (homeworkList.status === "UN_SUBMITTED") {
+      } else if (homeworkList.status === "UNSUBMITTED") {
         return (
           <Link
+            key={index}
             to={{
-              pathname: `/homeworkDetailView/${id}`,
+              pathname: `/homeworkContent/${id}`,
               state: {
-                Title: homeworkList.title,
-                End: homeworkList.deadline,
-                Start: homeworkList.created_at,
                 Id: id,
               },
             }}
           >
-            <S.UnsubmittedBox key={id}>
+            <S.UnsubmittedBox>
               <h1>{homeworkList.title}</h1>
               <p>{homeworkList.content}</p>
               <p>분야 : 디자인</p>
