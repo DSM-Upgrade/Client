@@ -33,10 +33,36 @@ function* getHomeworkList() {
   }
 }
 
+function* gethomeworkContent(action) {
+  try {
+    const HTTP_METHOD = methodType.GET;
+    const REQUEST_URL = homeworkApi.getHomeworkContent(action.payload);
+
+    const res = yield call(
+      requestApiWithoutBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL
+    );
+
+    const { GET_HOMEWORK_CONTENT } = homeworkActions;
+
+    yield put({
+      type: GET_HOMEWORK_CONTENT,
+      payload: res.data,
+    });
+
+    console.log(`content받아옴`);
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* homeworkSaga() {
-  const { GET_HOMEWORK_LIST_SAGA } = homeworkActions;
+  const { GET_HOMEWORK_LIST_SAGA, GET_HOMEWORK_CONTENT_SAGA } = homeworkActions;
 
   yield takeLatest(GET_HOMEWORK_LIST_SAGA, getHomeworkList);
+  yield takeLatest(GET_HOMEWORK_CONTENT_SAGA, gethomeworkContent);
 }
 
 export default homeworkSaga;
