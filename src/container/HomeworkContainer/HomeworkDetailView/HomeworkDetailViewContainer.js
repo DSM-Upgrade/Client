@@ -2,13 +2,15 @@ import React from "react";
 import HomeworkDetailView from "../../../component/Homework/HomeworkDetailView/HomeworkDetailView";
 
 const HomeworkDetailViewContainer = (props) => {
-  const { Title, Start, End, Id } = props.location.state;
+  const { Id, Title, CreatedAt, Deadline } = props.location.state;
   const linkProps = {
-    Title,
-    Start,
-    End,
-    Id,
+    Id: Id,
+    Title: Title,
+    CreatedAt: CreatedAt,
+    Deadline: Deadline,
   };
+
+  console.log(linkProps);
 
   return <HomeworkDetailView linkProps={linkProps} />;
 };
