@@ -4,8 +4,8 @@ import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer"
 
 const HomeworkDetailView = (props) => {
   const { linkProps } = props;
-  const { Title, Start, End, Id } = linkProps;
-  
+  const { Title, CreatedAt, Deadline, Id } = linkProps;
+
   const [fileInputName, setFileInputName] = useState([]);
   const [fileList, setFileList] = useState([]);
   const Name = [];
@@ -16,13 +16,15 @@ const HomeworkDetailView = (props) => {
     setFileList(e.target.files);
   };
 
-  const fileNameInputValue = (e) => { /* 파일 선택을 하면 옆에 파일명 뜨게하는 함수 */
+  const fileNameInputValue = (e) => {
+    /* 파일 선택을 하면 옆에 파일명 뜨게하는 함수 */
     for (let index = 0; index < e.length; index++) {
       Name[index] = e[index].name;
-      console.log(fileNameString);
     }
-    const fileNameString = `${Name}`;
+    const fileNameString =
+      `${Name}` + " " + `${Name.length}개 파일이 추가되었습니다.`;
     setFileInputName(fileNameString);
+    console.log(fileNameString);
   };
 
   function onSubmit(e) {
@@ -44,8 +46,8 @@ const HomeworkDetailView = (props) => {
         <S.TitleContainer>
           <h1>{Title}</h1>
           <div className="Wrapper">
-            <p>관리자 • {Start}</p>
-            <p>기한 : {End}</p>
+            <p>관리자 • {CreatedAt}</p>
+            <p>기한 : {Deadline}</p>
           </div>
         </S.TitleContainer>
         <S.MainSection onSubmit={onSubmit}>
