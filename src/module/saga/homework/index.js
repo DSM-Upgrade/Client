@@ -58,11 +58,36 @@ function* gethomeworkContent(action) {
   }
 }
 
+function* returnHomework(action) {
+  console.log(action.payload);
+  try {
+    const { content, id, files } = action.payload;
+
+    const HTTP_METHOD = methodType.PUT;
+    const REQUEST_URL = homeworkApi.returnHomework(id);
+    const REQUEST_BODY = { content, files };
+
+    const res = yield call(
+      requestApiWithBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL,
+      REQUEST_BODY
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* homeworkSaga() {
-  const { GET_HOMEWORK_LIST_SAGA, GET_HOMEWORK_CONTENT_SAGA } = homeworkActions;
+  const {
+    GET_HOMEWORK_LIST_SAGA,
+    GET_HOMEWORK_CONTENT_SAGA,
+    RETURN_HOMEWORK_SAGA,
+  } = homeworkActions;
 
   yield takeLatest(GET_HOMEWORK_LIST_SAGA, getHomeworkList);
   yield takeLatest(GET_HOMEWORK_CONTENT_SAGA, gethomeworkContent);
+  yield takeLatest(RETURN_HOMEWORK_SAGA, returnHomework);
 }
 
 export default homeworkSaga;

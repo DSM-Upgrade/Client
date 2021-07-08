@@ -34,6 +34,12 @@ const returnHomework = (payload) => ({
   payload,
 });
 
+const RETURN_HOMEWORK_SAGA = "homework/RETURN_HOMEWORK_SAGA";
+const returnHomeworkSaga = (payload) => ({
+  type: RETURN_HOMEWORK_SAGA,
+  payload,
+});
+
 const COMPLETION_HOMEWORK = "homework/COMPLETION_HOMEWORK";
 const completionHomework = (payload) => ({
   type: COMPLETION_HOMEWORK,
@@ -59,6 +65,7 @@ export const homeworkActions = {
   GET_HOMEWORK_CONTENT_SAGA,
   ASSIGNMENT_HOMEWORK,
   RETURN_HOMEWORK,
+  RETURN_HOMEWORK_SAGA,
   COMPLETION_HOMEWORK,
   CHANGE_HOMEWORK,
   ELIMINATION_HOMEWORK,
@@ -69,6 +76,7 @@ export const homeworkActionsCreaters = {
   getHomeworkContent,
   assignmentHomework,
   returnHomework,
+  returnHomeworkSaga,
   completionHomework,
   changeHomework,
   eliminationHomework,
