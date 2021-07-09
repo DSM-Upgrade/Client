@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import TrashImage from "../../../assets/homework/trash.png";
+import FileClip from "../../../assets/homework/kisspng-paper-clips-project-clip-art-paperclips-5b519afde5c9f1.4374388715320747499412.png";
 
 export const Container = styled.div`
   display: flex;
@@ -20,6 +22,28 @@ export const MainWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+`;
+
+export const SettingBox = styled.div`
+  position: absolute;
+  top: 200px;
+  left: -4px;
+  width: 65vw;
+  height: 6%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 30px 100px;
+  select {
+    width: 104px;
+    height: 32px;
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+  }
+  a > p {
+    color: #393838;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -65,7 +89,7 @@ export const AllocationBox = styled.tr`
     border: #707070 solid 1px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
@@ -73,10 +97,22 @@ export const AllocationBox = styled.tr`
   }
   td:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;
@@ -108,7 +144,7 @@ export const SubmissionBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
@@ -116,10 +152,22 @@ export const SubmissionBox = styled.tr`
   }
   td:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;
@@ -151,7 +199,7 @@ export const UnsubmittedBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
@@ -159,10 +207,22 @@ export const UnsubmittedBox = styled.tr`
   }
   td:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;
