@@ -11,16 +11,30 @@ export const MainWrapper = styled.div`
   height: 100%;
   width: 100%;
   background-color: #f8fbff;
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+
+export const SettingBox = styled.div`
+  width: 100%;
+  height: 4%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  p {
+    padding-left: 8px;
+  }
+  p:nth-child(3) {
+    padding-right: 8px;
+  }
 `;
 
 export const SectionContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin-top: 55px;
 `;
 
 export const TitleContainer = styled.div`
@@ -46,9 +60,9 @@ export const MainTextContainer = styled.div`
   width: 100%;
   height: 648px;
   padding: 60px 0 0 50px;
-  border: #BEC9FF solid 1px;
+  border: #bec9ff solid 1px;
   box-sizing: border-box;
   font-size: 20px;
-  color :#393838;
+  color: #393838;
   font-family: "고도 M";
 `;

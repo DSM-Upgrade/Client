@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
 import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer";
@@ -9,6 +9,11 @@ const HomeworkAdminDetailView = () => {
       <HeaderContainer />
       <S.MainWrapper>
         <S.SectionContainer>
+          <S.SettingBox>
+            <p>완료</p>
+            <p>반환</p>
+            <p>수정</p>
+          </S.SettingBox>
           <S.TitleContainer>
             <h1>왜 킹시인가?</h1>
             <p>김재현</p>
