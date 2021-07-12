@@ -8,6 +8,7 @@ import Homework from "./container/HomeworkContainer/HomeworkContainer";
 import HomeworkContent from "./container/HomeworkContainer/HomeworkContentContainer/HomeworkContentContainer";
 import HomeworkDetailView from "./container/HomeworkContainer/HomeworkDetailView/HomeworkDetailViewContainer";
 import HomeworkAdmin from "./container/HomeworkContainer/HomeworkAdminContainer/HomeworkAdminContainer";
+import HomeworkCreate from "./container/HomeworkContainer/HomeworkCreateContainer/HomeworkCreateContainer";
 import HomeworkAdminDetailView from "./container/HomeworkContainer/HomeworkAdminDetailViewContainer/HomeworkAdminDetailViewContainer";
 import ModalWrapperContainer from "./container/ModalWrapper/ModalWrapperContainer";
 import MyPagePage from "./page/MyPagePage/MyPagePage";
@@ -20,6 +21,7 @@ const Routing = () => {
         <Route exact path="/mypage" component={MyPagePage} />
         <Route exact path="/fine" component={FineContainer} />
         <Route exact path="/homework" component={Homework} />
+        <Route exact path="/homeworkCreate" component={HomeworkCreate} />
         <Route exact path="/homeworkContent/:id" component={HomeworkContent} />
         <Route
           exact
