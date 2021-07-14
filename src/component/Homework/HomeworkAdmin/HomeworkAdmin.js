@@ -21,7 +21,7 @@ const HomeworkAdmin = () => {
             <option>학생</option>
             <option value={1}>김재현</option>
           </select>
-          <Link to="/">
+          <Link to="/homeworkCreate">
             <p>숙제생성</p>
           </Link>
         </S.SettingBox>

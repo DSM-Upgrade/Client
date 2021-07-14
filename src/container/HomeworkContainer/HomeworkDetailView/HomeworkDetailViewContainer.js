@@ -22,8 +22,8 @@ const HomeworkDetailViewContainer = (props) => {
     ...returnHomeworkData,
   });
 
+  /* 파일 선택을 하면 옆에 파일명 뜨게하는 함수 */
   const fileNameInputValue = (e) => {
-    /* 파일 선택을 하면 옆에 파일명 뜨게하는 함수 */
     for (let index = 0; index < e.length; index++) {
       Name[index] = e[index].name;
     }
@@ -42,17 +42,19 @@ const HomeworkDetailViewContainer = (props) => {
   function onSubmitHanddler(e) {
     e.preventDefault();
     returnHomeworkInfo(returnHomeworkList);
+    console.log(returnHomeworkList);
   }
 
   const onChangeFileHanddler = (e) => {
     console.log(e.target.files);
     const { files, name } = e.target;
-    fileNameInputValue(files);
+    fileNameInputValue(files); //files에 담긴 파일 이름들을 추출하기
+    const fileListAsArray = Array.from(files); //객체의 형태인 FileList를 배열로 바꾸기
     setReturnHomeworkList((prevState) => ({
+      //returnHomeworkList에 받은 files를 저장
       ...prevState,
-      [name]: files,
+      [name]: fileListAsArray,
     }));
-    console.log(returnHomeworkList);
   };
 
   const onChangeFileFormData = (e) => {
@@ -62,10 +64,7 @@ const HomeworkDetailViewContainer = (props) => {
       [name]: value,
       id: Id,
     }));
-    console.log(returnHomeworkList);
   };
-
-  console.log(linkProps);
 
   return (
     <HomeworkDetailView
