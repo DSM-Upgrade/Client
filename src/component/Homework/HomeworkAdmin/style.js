@@ -28,20 +28,17 @@ export const SettingBox = styled.div`
   position: absolute;
   top: 200px;
   left: -4px;
-  width: 65vw;
+  width: 85%;
   height: 6%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin: 0 0 30px 100px;
-  select {
-    width: 104px;
-    height: 32px;
-    font-size: 16px;
-  }
   a {
     text-decoration: none;
   }
   a > p {
+    font-size: 20px;
+    font-family: "고도 M";
     color: #393838;
   }
 `;
@@ -61,7 +58,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-  table {
+  .test {
     width: 100%;
     height: 100%;
     display: flex;
@@ -70,7 +67,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const AllocationBox = styled.tr`
+export const AllocationBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -78,7 +75,7 @@ export const AllocationBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,8 +92,13 @@ export const AllocationBox = styled.tr`
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
     /* margin-right: 80px; */
   }
   .trashLink {
@@ -125,7 +127,7 @@ export const AllocationBox = styled.tr`
   }
 `;
 
-export const SubmissionBox = styled.tr`
+export const SubmissionBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -133,7 +135,7 @@ export const SubmissionBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     color: #ffffff;
     background-color: #3987ee;
     display: flex;
@@ -150,8 +152,13 @@ export const SubmissionBox = styled.tr`
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
     /* margin-right: 80px; */
   }
   .trashLink {
@@ -180,7 +187,7 @@ export const SubmissionBox = styled.tr`
   }
 `;
 
-export const UnsubmittedBox = styled.tr`
+export const UnsubmittedBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -188,7 +195,7 @@ export const UnsubmittedBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     color: #ffffff;
     background-color: #ff4646;
     display: flex;
@@ -205,8 +212,13 @@ export const UnsubmittedBox = styled.tr`
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
     /* margin-right: 80px; */
   }
   .trashLink {

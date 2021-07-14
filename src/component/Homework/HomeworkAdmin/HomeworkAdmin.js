@@ -17,77 +17,67 @@ const HomeworkAdmin = () => {
           <TitleHeaderContainer text="Homework" />
         </div>
         <S.SettingBox>
-          <select>
-            <option>학생</option>
-            <option value={1}>김재현</option>
-          </select>
           <Link to="/homeworkCreate">
             <p>숙제생성</p>
           </Link>
         </S.SettingBox>
         <S.Wrapper>
-          <table>
+          <div className="test">
             <Link to="/HomeworkAdminDetailView">
               <S.AllocationBox>
-                <td>
+                <div>
                   <div>할당</div>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>코카콜라마셔라</p>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>김재현</p>
-                </td>
-                <Link className="trashLink" to="">
-                  <td className="trashImage"></td>
-                </Link>
+                </div>
+                <div className="trashImage"></div>
                 {isFiles ? <span id="clipImage"></span> : ""}
-                <td>
+                <div>
                   <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </td>
+                </div>
               </S.AllocationBox>
             </Link>
             <Link to="/HomeworkAdminDetailView">
               <S.SubmissionBox>
-                <td>
+                <div>
                   <div>제출</div>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>c언어 숙제</p>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>김재현</p>
-                </td>
-                <Link className="trashLink" to="">
-                  <td className="trashImage"></td>
-                </Link>
+                </div>
+                <div className="trashImage"></div>
                 {isFiles ? <span id="clipImage"></span> : ""}
-                <td>
+                <div>
                   <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </td>
+                </div>
               </S.SubmissionBox>
             </Link>
             <Link to="/HomeworkAdminDetailView">
               <S.UnsubmittedBox>
-                <td>
+                <div>
                   <div>제출</div>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>코카콜라마셔라</p>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p>김재현</p>
-                </td>
-                <Link className="trashLink" to="">
-                  <td className="trashImage"></td>
-                </Link>
+                </div>
+                <div className="trashImage"></div>
                 {isFiles ? <span id="clipImage"></span> : ""}
-                <td>
+                <div>
                   <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </td>
+                </div>
               </S.UnsubmittedBox>
             </Link>
-          </table>
+          </div>
         </S.Wrapper>
       </S.MainWrapper>
     </S.Container>
