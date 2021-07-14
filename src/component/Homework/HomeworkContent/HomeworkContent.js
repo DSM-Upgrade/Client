@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer";
 
 const HomeworkContent = (props) => {
-  const { linkProps, homeworkContent } = props;
+  const { linkProps, homeworkContent, isLoading } = props;
   const { Id } = linkProps;
 
-  console.log(`12312312`);
+  console.log(isLoading);
   console.log(homeworkContent);
 
   const { title, content, created_at, deadline } = homeworkContent;
@@ -23,7 +23,7 @@ const HomeworkContent = (props) => {
             <p>어드민</p>
           </S.TitleContainer>
           <S.MainTextContainer>
-            <p>{content}</p>
+            <p>{content ? content : "로딩중..."}</p>
           </S.MainTextContainer>
           <div className="secondBox">
             <Link
