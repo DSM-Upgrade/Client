@@ -1,3 +1,21 @@
+const IS_LOADING = "homework/IS_LOADING";
+const isLoading = (payload) => ({
+  type: IS_LOADING,
+  payload,
+});
+
+const GET_USER_LIST = "homework/GET_USER_LIST";
+const getUserList = (payload) => ({
+  type: GET_USER_LIST,
+  payload,
+});
+
+const GET_USER_LIST_SAGA = "homework/GET_USER_LIST_SAGA";
+const getUserListSaga = (payload) => ({
+  type: GET_USER_LIST_SAGA,
+  payload,
+});
+
 const GET_HOMEWORK_LIST = "homework/GET_HOMEWORK_LIST";
 const getHomeworkList = (payload) => ({
   type: GET_HOMEWORK_LIST,
@@ -22,15 +40,9 @@ const getHomeworkContentSaga = (payload) => ({
   payload,
 });
 
-const ASSIGNMENT_HOMEWORK = "homework/ASSIGNMENT_HOMEWORK";
-const assignmentHomework = (payload) => ({
-  type: ASSIGNMENT_HOMEWORK,
-  payload,
-});
-
-const RETURN_HOMEWORK = "homework/RETURN_HOMEWORK";
-const returnHomework = (payload) => ({
-  type: RETURN_HOMEWORK,
+const ASSIGNMENT_HOMEWORK_SAGA = "homework/ASSIGNMENT_HOMEWORK_SAGA";
+const assignmentHomeworkSaga = (payload) => ({
+  type: ASSIGNMENT_HOMEWORK_SAGA,
   payload,
 });
 
@@ -63,23 +75,27 @@ export const homeworkActions = {
   GET_HOMEWORK_LIST_SAGA,
   GET_HOMEWORK_CONTENT,
   GET_HOMEWORK_CONTENT_SAGA,
-  ASSIGNMENT_HOMEWORK,
-  RETURN_HOMEWORK,
+  ASSIGNMENT_HOMEWORK_SAGA,
   RETURN_HOMEWORK_SAGA,
-  COMPLETION_HOMEWORK,
+  GET_USER_LIST,
+  GET_USER_LIST_SAGA,
   CHANGE_HOMEWORK,
+  COMPLETION_HOMEWORK,
   ELIMINATION_HOMEWORK,
+  IS_LOADING,
 };
 
 export const homeworkActionsCreaters = {
   getHomeworkList,
   getHomeworkContent,
-  assignmentHomework,
-  returnHomework,
   returnHomeworkSaga,
   completionHomework,
   changeHomework,
   eliminationHomework,
   getHomeworkListSaga,
   getHomeworkContentSaga,
+  isLoading,
+  assignmentHomeworkSaga,
+  getUserList,
+  getUserListSaga,
 };
