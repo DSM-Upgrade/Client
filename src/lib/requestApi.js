@@ -55,13 +55,13 @@ export const requestApiWithoutBodyWithoutToken = async (
 
 export const requestApiWithoutBodyWithToken = async (method, url, header) => {
   try {
-    // const accessToken = getItem(ACCESS_TOKEN)
+    const accessToken = getItem(ACCESS_TOKEN);
     /* const accessToken =
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
  */
-    const accessToken = // admin token
+    /* const accessToken = // admin token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyMjc1MjYsImV4cCI6MTYyNjIyOTMyNiwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.tyjGsHjwMhsAxDl_RR9QpHbeoaj3-mIEjXt8xMRV3Pg";
-
+ */
     const res = await axios[method](BASE_URL + url, {
       headers: {
         [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
@@ -82,12 +82,13 @@ export const requestApiWithBodyWithToken = async (
   header
 ) => {
   try {
+    const accessToken = getItem(ACCESS_TOKEN);
     /* const accessToken = // user token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
  */
-    const accessToken = // admin token
+    /* const accessToken = // admin token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyMjc1MjYsImV4cCI6MTYyNjIyOTMyNiwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.tyjGsHjwMhsAxDl_RR9QpHbeoaj3-mIEjXt8xMRV3Pg";
-
+ */
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
         [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
