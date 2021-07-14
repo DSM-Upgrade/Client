@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { getItem } from "../utils/LocalStorageUtils";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -98,3 +97,23 @@ export const requestApiWithBodyWithToken = async (
     throw error.response;
   }
 };
+
+export function useRefresh(data) {
+  const history = useHistory();
+  return Axios({
+    method: "patch",
+    url: BASE_URL + "/auth",
+    headers: {
+      "x-refresh-token": getItem("refresh_token"),
+    },
+    data: data,
+  })
+    .then((res) => {
+      setItem("access_token", res.data.access_token);
+    })
+    .catch(() => {
+      removeItem("access_token");
+      removeItem("refresh_token");
+      history.push("/");
+    });
+}
