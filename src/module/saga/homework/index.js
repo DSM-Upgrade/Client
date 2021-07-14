@@ -1,6 +1,6 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
-import { homeworkApi, myPageApi } from "../../../lib/Api";
+import { homeworkApi, adminApi } from "../../../lib/Api";
 import {
   requestApiWithoutBodyWithToken,
   requestApiWithBodyWithToken,
@@ -44,11 +44,15 @@ function* gethomeworkContent(action) {
       REQUEST_URL
     );
 
-    const { GET_HOMEWORK_CONTENT } = homeworkActions;
+    const { GET_HOMEWORK_CONTENT, IS_LOADING } = homeworkActions;
 
     yield put({
       type: GET_HOMEWORK_CONTENT,
       payload: res.data,
+    });
+    yield put({
+      type: IS_LOADING,
+      payload: false,
     });
 
     console.log(`content받아옴`);
@@ -60,9 +64,9 @@ function* gethomeworkContent(action) {
 
 function* returnHomework(action) {
   console.log(action.payload);
+  const { content, id, files } = action.payload;
+  console.log(files);
   try {
-    const { content, id, files } = action.payload;
-
     const HTTP_METHOD = methodType.PUT;
     const REQUEST_URL = homeworkApi.returnHomework(id);
     const REQUEST_BODY = { content, files };
@@ -73,6 +77,54 @@ function* returnHomework(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
+
+    console.log(`숙제 재출 완료`);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function* assignmentHomework(action) {
+  console.log(action.payload);
+  const { date, time, content, title, usernames } = action.payload;
+  console.log(usernames);
+  const deadline = `${date}T${time}`;
+  try {
+    const HTTP_METHOD = methodType.POST;
+    const REQUEST_URL = homeworkApi.assignmentHomework();
+    const REQUEST_BODY = { title, content, deadline, usernames };
+
+    const res = yield call(
+      requestApiWithBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL,
+      REQUEST_BODY
+    );
+    console.log(`생성 성공`);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function* getUserList() {
+  try {
+    const HTTP_METHOD = methodType.GET;
+    const REQUEST_URL = adminApi.getUserList();
+
+    const res = yield call(
+      requestApiWithoutBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL
+    );
+
+    const { GET_USER_LIST } = homeworkActions;
+
+    yield put({
+      type: GET_USER_LIST,
+      payload: res.data,
+    });
+
+    console.log(`받아옴`);
   } catch (error) {
     console.log(error);
   }
@@ -83,11 +135,15 @@ function* homeworkSaga() {
     GET_HOMEWORK_LIST_SAGA,
     GET_HOMEWORK_CONTENT_SAGA,
     RETURN_HOMEWORK_SAGA,
+    ASSIGNMENT_HOMEWORK_SAGA,
+    GET_USER_LIST_SAGA,
   } = homeworkActions;
 
   yield takeLatest(GET_HOMEWORK_LIST_SAGA, getHomeworkList);
   yield takeLatest(GET_HOMEWORK_CONTENT_SAGA, gethomeworkContent);
   yield takeLatest(RETURN_HOMEWORK_SAGA, returnHomework);
+  yield takeLatest(ASSIGNMENT_HOMEWORK_SAGA, assignmentHomework);
+  yield takeLatest(GET_USER_LIST_SAGA, getUserList);
 }
 
 export default homeworkSaga;
