@@ -15,7 +15,7 @@ const initialState = {
   authToken: {
     access_token: "",
     refresh_token: "",
-    is_admin: false,
+    admin: false,
   },
   inputStatus: {
     loginSetNull: false,
@@ -26,7 +26,6 @@ const initialState = {
 const loginPageReducer = (state = initialState, action) => {
   const {
     SET_AUTH_TOKEN,
-    FETCH_AUTH_TOKEN,
     AUTH_LOG_IN,
     AUTH_SIGN_UP,
     SET_LOGIN_INPUT_NULL,
@@ -39,15 +38,6 @@ const loginPageReducer = (state = initialState, action) => {
         ...state,
         authToken: {
           ...action.payload,
-        },
-      };
-    }
-    case FETCH_AUTH_TOKEN: {
-      return {
-        ...state,
-        authToken: {
-          ...authToken,
-          access_token: action.payload,
         },
       };
     }

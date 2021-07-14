@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-
+import { setItem } from ".././../../utils/LocalStorageUtils";
 import { authApi } from "../../../lib/Api";
 
 import {
@@ -26,6 +26,9 @@ function* authLogIn(action) {
       REQUEST_BODY
     );
 
+    setItem("access_token", res.data.access_token);
+    setItem("refresh_token", res.data.refresh_token);
+
     const { SET_AUTH_TOKEN } = loginPageActions;
 
     yield put({
@@ -34,6 +37,7 @@ function* authLogIn(action) {
     });
 
     alert("로그인 성공");
+    window.location.href = "/";
   } catch (error) {
     console.log(error);
 
@@ -89,6 +93,7 @@ function* authSignUp(action) {
     );
 
     alert(`회원가입에 성공했습니다.`);
+    window.location.href = "/login";
   } catch (error) {
     console.log(error);
 
@@ -119,42 +124,11 @@ function* authSignUp(action) {
   }
 }
 
-function* fetchAuthToken(action) {
-  try {
-    const { refresh_token } = action.payload;
-
-    const HTTP_METHOD = methodType.PATCH;
-    const REQUEST_URL = authApi.reAccessToken();
-    const REQUEST_HEADER = { refresh_token };
-
-    const res = yield call(
-      requestApiWithoutBodyWithoutToken,
-      HTTP_METHOD,
-      REQUEST_URL,
-      REQUEST_HEADER
-    );
-
-    const { FETCH_AUTH_TOKEN } = loginPageActions;
-
-    yield put({
-      type: FETCH_AUTH_TOKEN,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 function* loginPageSaga() {
-  const {
-    FETCH_AUTH_TOKEN_SAGA,
-    AUTH_LOG_IN_SAGA,
-    AUTH_SIGN_UP_SAGA,
-  } = loginPageActions;
+  const { AUTH_LOG_IN_SAGA, AUTH_SIGN_UP_SAGA } = loginPageActions;
 
   yield takeLatest(AUTH_LOG_IN_SAGA, authLogIn);
   yield takeLatest(AUTH_SIGN_UP_SAGA, authSignUp);
-  yield takeLatest(FETCH_AUTH_TOKEN_SAGA, fetchAuthToken);
 }
 
 export default loginPageSaga;
