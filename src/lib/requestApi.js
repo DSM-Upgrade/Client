@@ -1,11 +1,12 @@
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-import { getItem } from "../utils/LocalStorageUtils";
+import { getItem, removeItem } from "../utils/LocalStorageUtils";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const ACCESS_TOKEN = "accessToken";
-const REFRESH_TOKEN = "refreshToken";
+const ACCESS_TOKEN = "access_token";
+const REFRESH_TOKEN = "refresh_token";
 const ACCESS_TOKEN_NAME = "Authorization";
 
 export const methodType = {
@@ -58,10 +59,11 @@ export const requestApiWithoutBodyWithToken = async (method, url, header) => {
     const accessToken = getItem(ACCESS_TOKEN);
     /* const accessToken =
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
- */
+    */
     /* const accessToken = // admin token
-      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyMjc1MjYsImV4cCI6MTYyNjIyOTMyNiwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.tyjGsHjwMhsAxDl_RR9QpHbeoaj3-mIEjXt8xMRV3Pg";
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyNzEwMzgsImV4cCI6MTYyNjI3MjgzOCwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.qA61pZXn4DIt53My0mpNdQffJPNY0Ed1rBSr_r4-qiM";
  */
+    console.log(accessToken);
     const res = await axios[method](BASE_URL + url, {
       headers: {
         [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
@@ -83,11 +85,12 @@ export const requestApiWithBodyWithToken = async (
 ) => {
   try {
     const accessToken = getItem(ACCESS_TOKEN);
+
     /* const accessToken = // user token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
  */
     /* const accessToken = // admin token
-      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyMjc1MjYsImV4cCI6MTYyNjIyOTMyNiwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.tyjGsHjwMhsAxDl_RR9QpHbeoaj3-mIEjXt8xMRV3Pg";
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyNjA1MTAsImV4cCI6MTYyNjI2MjMxMCwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.KC0C0swt9zbBI7FoMYeGeYZiLg-DR_xUiG77aJXmmoE";
  */
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
@@ -101,3 +104,19 @@ export const requestApiWithBodyWithToken = async (
     throw error.response;
   }
 };
+
+export function useRefresh() {
+  try {
+    const res = axios({
+      method: PATCH,
+      url: BASE_URL + "/auth",
+      headers: {
+        "x-refresh-token": getItem(REFRESH_TOKEN),
+      },
+    });
+    setItem(REFRESH_TOKEN, res.data.access_token);
+  } catch (e) {
+    removeItem(ACCESS_TOKEN);
+    removeItem(REFRESH_TOKEN);
+  }
+}
