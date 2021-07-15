@@ -5,9 +5,128 @@ import HeaderContainer from "../../../container/HeaderContainer/HeaderContainer"
 import TitleHeaderContainer from "../../../container/TitleHeaderContainer/TitleHeaderContainer";
 import HomeworkAdminDetailView from "../HomeworkAdminDetailView/HomeworkAdminDetailView";
 
-const HomeworkAdmin = () => {
-  const [isFiles, setIsFiles] = useState(true);
-  const [isDeadLine, setIsDeadLine] = useState("");
+const HomeworkAdmin = (props) => {
+  const { adminList } = props;
+
+  const adminHomeList = adminList.length ? (
+    adminList.map((adminList, index) => {
+      console.log(adminList);
+      const {
+        id,
+        status,
+        title,
+        created_at,
+        username,
+        name,
+        files,
+      } = adminList;
+      if (status === "ASSIGNED") {
+        return (
+          <Link
+            key={index}
+            to={{
+              pathname: `/HomeworkAdminDetailView/${id}`,
+              state: {
+                Id: id,
+                Username: username,
+                Files: files,
+                Status: status,
+                Title: title,
+                Name: name,
+              },
+            }}
+          >
+            <S.AllocationBox>
+              <div>
+                <div>할당</div>
+              </div>
+              <div>
+                <p>{title}</p>
+              </div>
+              <div>
+                <p>{name}</p>
+              </div>
+              <div className="trashImage"></div>
+              {files ? <span id="clipImage"></span> : ""}
+              <div>
+                <p>{created_at.substring(0, 10)}</p>
+              </div>
+            </S.AllocationBox>
+          </Link>
+        );
+      } else if (status === "SUBMITTED") {
+        return (
+          <Link
+            key={index}
+            to={{
+              pathname: `/HomeworkAdminDetailView/${id}`,
+              state: {
+                Id: id,
+                Username: username,
+                Files: files,
+                Status: status,
+                Title: title,
+                Name: name,
+              },
+            }}
+          >
+            <S.SubmissionBox>
+              <div>
+                <div>제출</div>
+              </div>
+              <div>
+                <p>{title}</p>
+              </div>
+              <div>
+                <p>{name}</p>
+              </div>
+              <div className="trashImage"></div>
+              {files ? <span id="clipImage"></span> : ""}
+              <div>
+                <p>{created_at.substring(0, 10)}</p>
+              </div>
+            </S.SubmissionBox>
+          </Link>
+        );
+      } else if (status === "UNSUBMITTED") {
+        return (
+          <Link
+            key={index}
+            to={{
+              pathname: `/HomeworkAdminDetailView/${id}`,
+              state: {
+                Id: id,
+                Username: username,
+                Files: files,
+                Status: status,
+                Title: title,
+                Name: name,
+              },
+            }}
+          >
+            <S.UnsubmittedBox>
+              <div>
+                <div>누락</div>
+              </div>
+              <div>
+                <p>{title}</p>
+              </div>
+              <div>
+                <p>{name}</p>
+              </div>
+              <div className="trashImage"></div>
+              {files ? <span id="clipImage"></span> : ""}
+              <div>
+                <p>{created_at.substring(0, 10)}</p>
+              </div>
+            </S.UnsubmittedBox>
+          </Link>
+        );
+      }
+    })
+  ) : (
+    <div style={{ marginLeft: "50%", fontSize: "1.5rem" }}>로딩중..</div>
+  );
 
   return (
     <S.Container>
@@ -22,66 +141,15 @@ const HomeworkAdmin = () => {
           </Link>
         </S.SettingBox>
         <S.Wrapper>
-          <div className="test">
-            <Link to="/HomeworkAdminDetailView">
-              <S.AllocationBox>
-                <div>
-                  <div>할당</div>
-                </div>
-                <div>
-                  <p>코카콜라마셔라</p>
-                </div>
-                <div>
-                  <p>김재현</p>
-                </div>
-                <div className="trashImage"></div>
-                {isFiles ? <span id="clipImage"></span> : ""}
-                <div>
-                  <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </div>
-              </S.AllocationBox>
-            </Link>
-            <Link to="/HomeworkAdminDetailView">
-              <S.SubmissionBox>
-                <div>
-                  <div>제출</div>
-                </div>
-                <div>
-                  <p>c언어 숙제</p>
-                </div>
-                <div>
-                  <p>김재현</p>
-                </div>
-                <div className="trashImage"></div>
-                {isFiles ? <span id="clipImage"></span> : ""}
-                <div>
-                  <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </div>
-              </S.SubmissionBox>
-            </Link>
-            <Link to="/HomeworkAdminDetailView">
-              <S.UnsubmittedBox>
-                <div>
-                  <div>제출</div>
-                </div>
-                <div>
-                  <p>코카콜라마셔라</p>
-                </div>
-                <div>
-                  <p>김재현</p>
-                </div>
-                <div className="trashImage"></div>
-                {isFiles ? <span id="clipImage"></span> : ""}
-                <div>
-                  <p>{isDeadLine != null ? "기한없음" : `${isDeadLine}`}</p>
-                </div>
-              </S.UnsubmittedBox>
-            </Link>
-          </div>
+          <div className="adminListWrapper">{adminHomeList}</div>
         </S.Wrapper>
       </S.MainWrapper>
     </S.Container>
   );
+};
+
+HomeworkAdmin.defaultProps = {
+  adminList: [],
 };
 
 export default HomeworkAdmin;
