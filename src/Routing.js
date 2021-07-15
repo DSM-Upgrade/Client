@@ -31,7 +31,7 @@ const Routing = () => {
         <Route exact path="/homeworkAdmin" component={HomeworkAdmin} />
         <Route
           exact
-          path="/homeworkAdminDetailView"
+          path="/homeworkAdminDetailView/:id"
           component={HomeworkAdminDetailView}
         />
       </Switch>

@@ -26,6 +26,8 @@ const initialState = {
   isLoadingHomework: {
     isLoading: true,
   },
+  adminHomeworkContent: [{}],
+  adminHomeworkList: [{}],
   userList: [{}],
 };
 
@@ -38,6 +40,8 @@ const homeworkReducer = (state = initialState, action) => {
     ELIMINATION_HOMEWORK,
     IS_LOADING,
     GET_USER_LIST,
+    GET_ADMIN_HOMEWORK_LIST,
+    GET_ADMIN_HOMEWORK_CONTENT,
   } = homeworkActions;
 
   switch (action.type) {
@@ -67,6 +71,18 @@ const homeworkReducer = (state = initialState, action) => {
         homeworkContent: {
           ...action.payload,
         },
+      };
+    }
+    case GET_ADMIN_HOMEWORK_LIST: {
+      return {
+        ...state,
+        adminHomeworkList: action.payload,
+      };
+    }
+    case GET_ADMIN_HOMEWORK_CONTENT: {
+      return {
+        ...state,
+        adminHomeworkContent: action.payload,
       };
     }
     case CHANGE_HOMEWORK: {

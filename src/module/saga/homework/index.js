@@ -1,5 +1,6 @@
+import { useDispatch } from "react-redux";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-
+import { useRefresh } from "../../../lib/requestApi";
 import { homeworkApi, adminApi } from "../../../lib/Api";
 import {
   requestApiWithoutBodyWithToken,
@@ -100,7 +101,8 @@ function* assignmentHomework(action) {
       REQUEST_URL,
       REQUEST_BODY
     );
-    console.log(`생성 성공`);
+    alert(`생성 성공`);
+    window.location.href = "/homeworkAdmin";
   } catch (error) {
     console.log(error);
   }
@@ -130,6 +132,69 @@ function* getUserList() {
   }
 }
 
+function* getAdminHomeworkList() {
+  try {
+    const HTTP_METHOD = methodType.GET;
+    const REQUEST_URL = homeworkApi.getAdminHomeworkList();
+
+    const res = yield call(
+      requestApiWithoutBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL
+    );
+
+    const { GET_ADMIN_HOMEWORK_LIST } = homeworkActions;
+
+    yield put({
+      type: GET_ADMIN_HOMEWORK_LIST,
+      payload: res.data,
+    });
+
+    console.log(`리스트 받아옴`);
+  } catch (error) {
+    console.log(error);
+    const refreshHandler = useRefresh();
+
+    switch (error.status) {
+      case 410:
+        refreshHandler().then(() => {
+          getAdminHomeworkList();
+        });
+        break;
+      default:
+    }
+  }
+}
+
+function* getAdminHomeworkContent(action) {
+  const { Username, Id } = action.payload;
+  try {
+    const HTTP_METHOD = methodType.GET;
+    const REQUEST_URL = homeworkApi.getAdminHomeworkContent(Username, Id);
+
+    const res = yield call(
+      requestApiWithoutBodyWithToken,
+      HTTP_METHOD,
+      REQUEST_URL
+    );
+
+    const { GET_ADMIN_HOMEWORK_CONTENT } = homeworkActions;
+
+    yield put({
+      type: GET_ADMIN_HOMEWORK_CONTENT,
+      payload: res.data,
+    });
+    console.log(`conetnd 받아옴`);
+  } catch (error) {
+    console.log(error);
+    switch (error.status) {
+      case 410:
+        break;
+      default:
+    }
+  }
+}
+
 function* homeworkSaga() {
   const {
     GET_HOMEWORK_LIST_SAGA,
@@ -137,6 +202,8 @@ function* homeworkSaga() {
     RETURN_HOMEWORK_SAGA,
     ASSIGNMENT_HOMEWORK_SAGA,
     GET_USER_LIST_SAGA,
+    GET_ADMIN_HOMEWORK_LIST_SAGA,
+    GET_ADMIN_HOMEWORK_CONTENT_SAGA,
   } = homeworkActions;
 
   yield takeLatest(GET_HOMEWORK_LIST_SAGA, getHomeworkList);
@@ -144,6 +211,8 @@ function* homeworkSaga() {
   yield takeLatest(RETURN_HOMEWORK_SAGA, returnHomework);
   yield takeLatest(ASSIGNMENT_HOMEWORK_SAGA, assignmentHomework);
   yield takeLatest(GET_USER_LIST_SAGA, getUserList);
+  yield takeLatest(GET_ADMIN_HOMEWORK_LIST_SAGA, getAdminHomeworkList);
+  yield takeLatest(GET_ADMIN_HOMEWORK_CONTENT_SAGA, getAdminHomeworkContent);
 }
 
 export default homeworkSaga;
