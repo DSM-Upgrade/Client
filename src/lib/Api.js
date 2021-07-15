@@ -21,6 +21,12 @@ export const homeworkApi = {
   eliminationHomework: (userId) => {
     return `/homework/${userId}`;
   },
+  getAdminHomeworkList: () => {
+    return `/homework/all`;
+  },
+  getAdminHomeworkContent: (userName, userId) => {
+    return `/homework/admin/${userName}/${userId}`;
+  },
 };
 
 // 벌금 - 고도현
