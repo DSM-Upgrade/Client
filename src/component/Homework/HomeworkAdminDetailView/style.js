@@ -35,6 +35,14 @@ export const SectionContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
+  .fontFile {
+    margin-top: 20px;
+    width: 60px;
+    font-size: 16px;
+    color: #393838;
+    padding-right: 11px;
+    border-right: #707070 solid 1px;
+  }
 `;
 
 export const TitleContainer = styled.div`

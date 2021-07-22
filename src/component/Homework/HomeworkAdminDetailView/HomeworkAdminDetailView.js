@@ -7,6 +7,9 @@ const HomeworkAdminDetailView = (props) => {
   const { linkProps, adminContent } = props;
   const { Files, Title, Name } = linkProps;
 
+  console.log(adminContent);
+  console.log(Files);
+
   return (
     <S.Container>
       <HeaderContainer />
@@ -24,14 +27,15 @@ const HomeworkAdminDetailView = (props) => {
           <S.MainTextContainer>
             {adminContent ? <p>{adminContent[0].content}</p> : "받아오는중.."}
           </S.MainTextContainer>
-          {Files ? (
-            <a
-              target="_blank"
-              href={`http://dsm-upgrade.club-file.s3-website.ap-northeast-2.amazonaws.com/homework/${Files}`}
-            ></a>
-          ) : (
-            ""
-          )}
+          <p className="fontFile">첨부파일</p>
+          {Files
+            ? Files.map((Files) => {
+                <a
+                  target="_blank"
+                  href={`http://dsm-upgrade.club-file.s3-website.ap-northeast-2.amazonaws.com/homework/${Files}`}
+                ></a>;
+              })
+            : ""}
         </S.SectionContainer>
       </S.MainWrapper>
     </S.Container>
