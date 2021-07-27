@@ -8,6 +8,10 @@ import HomeworkAdminDetailView from "../HomeworkAdminDetailView/HomeworkAdminDet
 const HomeworkAdmin = (props) => {
   const { adminList } = props;
 
+  const test = (e) => {
+    console.log(e.target.name);
+  };
+
   const adminHomeList = adminList.length ? (
     adminList.map((adminList, index) => {
       console.log(adminList);
@@ -46,7 +50,7 @@ const HomeworkAdmin = (props) => {
               <div>
                 <p>{name}</p>
               </div>
-              <div className="trashImage"></div>
+              <div className="trashImage" onClick={test} name={id}></div>
               {files ? <span id="clipImage"></span> : ""}
               <div>
                 <p>{created_at.substring(0, 10)}</p>
