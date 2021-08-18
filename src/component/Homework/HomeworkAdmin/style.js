@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import TrashImage from "../../../assets/homework/trash.png";
+import FileClip from "../../../assets/homework/kisspng-paper-clips-project-clip-art-paperclips-5b519afde5c9f1.4374388715320747499412.png";
 
 export const Container = styled.div`
   display: flex;
@@ -22,6 +24,25 @@ export const MainWrapper = styled.div`
   height: 100%;
 `;
 
+export const SettingBox = styled.div`
+  position: absolute;
+  top: 200px;
+  left: -4px;
+  width: 85%;
+  height: 6%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 30px 100px;
+  a {
+    text-decoration: none;
+  }
+  a > p {
+    font-size: 20px;
+    font-family: "고도 M";
+    color: #393838;
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,7 +58,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-  table {
+  .adminListWrapper {
     width: 100%;
     height: 100%;
     display: flex;
@@ -46,7 +67,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const AllocationBox = styled.tr`
+export const AllocationBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -54,7 +75,7 @@ export const AllocationBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,18 +86,35 @@ export const AllocationBox = styled.tr`
     border: #707070 solid 1px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;
@@ -89,7 +127,7 @@ export const AllocationBox = styled.tr`
   }
 `;
 
-export const SubmissionBox = styled.tr`
+export const SubmissionBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -97,7 +135,7 @@ export const SubmissionBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     color: #ffffff;
     background-color: #3987ee;
     display: flex;
@@ -108,18 +146,35 @@ export const SubmissionBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;
@@ -132,7 +187,7 @@ export const SubmissionBox = styled.tr`
   }
 `;
 
-export const UnsubmittedBox = styled.tr`
+export const UnsubmittedBox = styled.div`
   width: 86%;
   height: 77px;
   display: flex;
@@ -140,7 +195,7 @@ export const UnsubmittedBox = styled.tr`
   align-items: center;
   cursor: pointer;
   justify-content: space-around;
-  div {
+  div:nth-child(1) > div {
     color: #ffffff;
     background-color: #ff4646;
     display: flex;
@@ -151,18 +206,35 @@ export const UnsubmittedBox = styled.tr`
     border-radius: 23px;
     font-size: 24px;
     font-family: "고도 M";
-    margin: 0 27px 0 65px;
+    /* margin: 0 27px 0 65px; */
   }
   p {
     font-size: 24px;
     font-family: "고도 M";
   }
-  td:nth-child(2) {
+  div:nth-child(2) {
     width: 570px;
-    margin-right: 80px;
+    & > p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    /* margin-right: 80px; */
   }
-  td:nth-child(3) {
-    margin: 0 200px 0 0;
+  .trashLink {
+    width: 20px;
+    height: 20px;
+  }
+  .trashImage {
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background-image: url(${TrashImage});
+  }
+  #clipImage {
+    width: 30px;
+    height: 30px;
+    background-image: url(${FileClip});
   }
   &:hover {
     background-color: #dcecf9;

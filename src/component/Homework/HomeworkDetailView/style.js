@@ -40,12 +40,12 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const MainSection = styled.div`
+export const MainSection = styled.form`
   margin-top: 25px;
   width: 68%;
   height: 810px;
   textarea {
-    width: 100%;
+    width: 99%;
     height: 625px;
     display: flex;
     justify-content: none;
@@ -56,7 +56,7 @@ export const MainSection = styled.div`
   textarea:focus {
     outline: none;
   }
-  button {
+  .button {
     width: 139px;
     height: 52px;
     background-color: #c4e3ff;
@@ -65,22 +65,54 @@ export const MainSection = styled.div`
     font-family: "고도 B";
     border: none;
     margin-top: 19px;
+    box-shadow: 1px 2px 3px 0px #707070;
+    cursor: pointer;
   }
-  button:focus{
+  .button:focus {
     outline: none;
   }
-  .submitBox{
+  .submitBox {
     width: 100%;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     margin-top: 10px;
   }
-  .secondBox{
+  .secondBox {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    button{
+    button {
       cursor: pointer;
+    }
+  }
+  .fileWrapper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 45px;
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      width: 15%;
+      height: 100%;
+      font-size: 18px;
+      font-family: "고도 B";
+      cursor: pointer;
+    }
+    #fileName {
+      background-color: #ffffff;
+      width: 85%;
+      height: 95.5%;
+      border: #707070 solid 1px;
+      font-family: "고도 M";
+      padding-left: 10px;
+    }
+    input:nth-child(3) {
+      display: none;
     }
   }
 `;

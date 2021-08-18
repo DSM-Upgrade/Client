@@ -1,25 +1,31 @@
 // 숙제 - 고도현
 export const homeworkApi = {
-  getHomeworkList: (userId) => {
-    return `/homework/list/${userId}`;
+  getHomeworkList: () => {
+    return `/homework`;
   },
-  getHomeworkContent: (userId, homeworkId) => {
-    return `/homework/content/${userId}/${homeworkId}`;
+  getHomeworkContent: (userId) => {
+    return `/homework/${userId}`;
   },
   assignmentHomework: () => {
-    return `/homework/assignment`;
+    return `/homework`;
   },
-  returnHomework: () => {
-    return `/homework/return`;
+  returnHomework: (userId) => {
+    return `/homework/${userId}/personal-homework`;
   },
-  completionHomework: () => {
-    return `/homework/completion`;
+  completionHomework: (userId) => {
+    return `/homework/${userId}/personal-homework`;
   },
-  chagneHomework: () => {
-    return `/homework/change`;
+  chagneHomework: (userId) => {
+    return `/homework/${userId}`;
   },
-  eliminationHomework: () => {
-    return `/homework/elimination`;
+  eliminationHomework: (userId) => {
+    return `/homework/${userId}`;
+  },
+  getAdminHomeworkList: () => {
+    return `/homework/all`;
+  },
+  getAdminHomeworkContent: (userName, userId) => {
+    return `/homework/admin/${userName}/${userId}`;
   },
 };
 

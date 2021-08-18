@@ -11,37 +11,32 @@ export const MainWrapper = styled.div`
   height: 100%;
   width: 100%;
   background-color: #f8fbff;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-`;
-
-export const SettingBox = styled.div`
-  width: 100%;
-  height: 4%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  p {
-    padding-left: 8px;
-  }
-  p:nth-child(3) {
-    padding-right: 8px;
-  }
 `;
 
 export const SectionContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  .fontFile {
-    margin-top: 20px;
-    width: 60px;
-    font-size: 16px;
-    color: #393838;
-    padding-right: 11px;
-    border-right: #707070 solid 1px;
+  margin-top: 55px;
+  .secondBox {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      width: 139px;
+      height: 52px;
+      background-color: #c4e3ff;
+      border-radius: 4px;
+      font-size: 20px;
+      font-family: "고도 B";
+      border: none;
+      margin-top: 19px;
+      box-shadow: 1px 2px 3px 0px #707070;
+      cursor: pointer;
+    }
   }
 `;
 
