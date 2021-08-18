@@ -56,13 +56,13 @@ export const requestApiWithoutBodyWithoutToken = async (
 
 export const requestApiWithoutBodyWithToken = async (method, url, header) => {
   try {
-    const accessToken = getItem(ACCESS_TOKEN);
+    /* const accessToken = getItem(ACCESS_TOKEN); */
     /* const accessToken =
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
-    */
-    /* const accessToken = // admin token
-      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyNzEwMzgsImV4cCI6MTYyNjI3MjgzOCwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.qA61pZXn4DIt53My0mpNdQffJPNY0Ed1rBSr_r4-qiM";
  */
+    const accessToken = // admin token
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiYWRtaW5qamFuZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.WfnwQSPiApP03Ypebez6hyK6SPhawNhfsirGHTtSjUk";
+
     console.log(accessToken);
     const res = await axios[method](BASE_URL + url, {
       headers: {
@@ -84,14 +84,14 @@ export const requestApiWithBodyWithToken = async (
   header
 ) => {
   try {
-    const accessToken = getItem(ACCESS_TOKEN);
+    /* const accessToken = getItem(ACCESS_TOKEN); */
 
     /* const accessToken = // user token
       "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiZGtzc3VkOTU1NiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.lEWjXbw9flDOhgTb6f0VKBUoVhrO5PSPtzVjs_j9hws";
  */
-    /* const accessToken = // admin token
-      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjYyNjA1MTAsImV4cCI6MTYyNjI2MjMxMCwic3ViIjoidGVzdEFkbWluIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9.KC0C0swt9zbBI7FoMYeGeYZiLg-DR_xUiG77aJXmmoE";
- */
+    const accessToken = // admin token
+      "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTg5MjYwOTcsImV4cCI6MTYxODkyNzg5NzAwMCwic3ViIjoiYWRtaW5qamFuZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4ifQ.WfnwQSPiApP03Ypebez6hyK6SPhawNhfsirGHTtSjUk";
+
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
         [ACCESS_TOKEN_NAME]: "Bearer " + accessToken,
@@ -105,9 +105,9 @@ export const requestApiWithBodyWithToken = async (
   }
 };
 
-export function useRefresh() {
+export async function useRefresh() {
   try {
-    const res = axios({
+    const res = await axios({
       method: PATCH,
       url: BASE_URL + "/auth",
       headers: {
@@ -115,8 +115,10 @@ export function useRefresh() {
       },
     });
     setItem(REFRESH_TOKEN, res.data.access_token);
+    return true;
   } catch (e) {
     removeItem(ACCESS_TOKEN);
     removeItem(REFRESH_TOKEN);
+    return false;
   }
 }

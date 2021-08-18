@@ -13,6 +13,7 @@ const HomeworkAdminDetailViewContainer = (props) => {
     Title: Title,
     Name: Name,
   };
+  console.log(Files);
 
   const actionObj = {
     Username: Username,
