@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import selectboxArrow from "../../assets/LoginPage/selectboxArrow.png";
-import backgroundTriangle1 from "../../assets/LoginPage/backgroundTriangle1.png";
-import backgroundTriangle2 from "../../assets/LoginPage/backgroundTriangle2.png";
-import backgroundTriangle3 from "../../assets/LoginPage/backgroundTriangle3.png";
+import selectboxArrow from "../../../assets/LoginPage/selectboxArrow.png";
+import backgroundTriangle1 from "../../../assets/LoginPage/backgroundTriangle1.png";
+import backgroundTriangle2 from "../../../assets/LoginPage/backgroundTriangle2.png";
+import backgroundTriangle3 from "../../../assets/LoginPage/backgroundTriangle3.png";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const MainBox = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .backgroundTriangle div{
+  .backgroundTriangle div {
     position: absolute;
   }
   .backgroundTriangle div:nth-child(1) {
@@ -46,7 +46,7 @@ const MainBox = styled.div`
   }
 `;
 
-const RegisterBox = styled.div`
+const RegisterBox = styled.form`
   width: 600px;
   height: 561px;
   display: flex;
@@ -74,28 +74,31 @@ const RegisterBox = styled.div`
     width: 216px;
   }
   input {
-    width: 95%;
+    width: 97%;
     height: 62px;
     border-radius: 7px;
     border: solid 1px #3b87ee;
     font-size: 28px;
     font-family: "고도 M";
     color: #707070;
-    padding-left: 26px;
+    padding-left: 15px;
   }
   input::placeholder {
     font-size: 28px;
     color: #bcbcbc;
     font-family: "고도 M";
   }
+  .firstLine > input {
+    padding-right: 20px;
+  }
   input:focus,
-  button:focus {
+  .submitButton:focus {
     outline: none;
   }
   .anotherLine input {
     margin-top: 15px;
   }
-  button {
+  .submitButton {
     background-color: #3b87ee;
     width: 100%;
     margin-top: 29px;
@@ -107,6 +110,7 @@ const RegisterBox = styled.div`
     border: none;
     color: #ffffff;
     cursor: pointer;
+    text-align: center;
   }
   a {
     font-size: 24px;
@@ -134,7 +138,7 @@ const RegisterBox = styled.div`
     -moz-appearance: none;
     appearance: none;
   }
-  select:focus{
+  select:focus {
     outline: none;
   }
   option {

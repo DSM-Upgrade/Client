@@ -12,6 +12,8 @@ import HomeworkCreate from "./container/HomeworkContainer/HomeworkCreateContaine
 import HomeworkAdminDetailView from "./container/HomeworkContainer/HomeworkAdminDetailViewContainer/HomeworkAdminDetailViewContainer";
 import ModalWrapperContainer from "./container/ModalWrapper/ModalWrapperContainer";
 import MyPagePage from "./page/MyPagePage/MyPagePage";
+import LoginPage from "./container/LoginContainer/LoginContainer";
+import RegisterPage from "./container/LoginContainer/RegisterPageContainer/RegisterPageContainer";
 
 const Routing = () => {
   return (

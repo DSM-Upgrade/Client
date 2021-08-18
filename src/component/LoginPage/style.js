@@ -45,7 +45,7 @@ const MainBox = styled.div`
   }
 `;
 
-const LoginBox = styled.div`
+const LoginBox = styled.form`
   width: 585px;
   height: 512px;
   display: flex;
@@ -58,7 +58,7 @@ const LoginBox = styled.div`
     margin-bottom: 37px;
     font-family: "고도 M";
   }
-  input {
+  input:nth-child(2), input:nth-child(3) {
     width: 94%;
     height: 76px;
     border: solid #3b87ee 1px;
@@ -76,10 +76,10 @@ const LoginBox = styled.div`
     margin-top: 23px;
   }
   input:focus,
-  button:focus {
+  .submitButton:focus {
     outline: none;
   }
-  button {
+  .submitButton {
     background-color: #3b87ee;
     width: 100%;
     margin-top: 93px;
@@ -88,6 +88,7 @@ const LoginBox = styled.div`
     height: 82px;
     font-size: 40px;
     font-family: "고도 M";
+    text-align:center;
     border: none;
     color: #ffffff;
     cursor: pointer;

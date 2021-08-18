@@ -6,6 +6,7 @@ import field from "./field";
 import loginUser from "./loginUser";
 import modal from "./modal";
 import homework from "./homework";
+import loginPage from "./loginPage";
 
 const rootReducer = combineReducers({
   admin,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   field,
   loginUser,
   modal,
+  loginPage,
   homework,
 });
 

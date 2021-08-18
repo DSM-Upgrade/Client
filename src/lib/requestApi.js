@@ -104,21 +104,3 @@ export const requestApiWithBodyWithToken = async (
     throw error.response;
   }
 };
-
-export async function useRefresh() {
-  try {
-    const res = await axios({
-      method: PATCH,
-      url: BASE_URL + "/auth",
-      headers: {
-        "x-refresh-token": getItem(REFRESH_TOKEN),
-      },
-    });
-    setItem(REFRESH_TOKEN, res.data.access_token);
-    return true;
-  } catch (e) {
-    removeItem(ACCESS_TOKEN);
-    removeItem(REFRESH_TOKEN);
-    return false;
-  }
-}
